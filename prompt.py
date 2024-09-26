@@ -14,7 +14,7 @@ from pathlib import Path
 
 accelerator = Accelerator()
 models = {
-    "llama-3-8B": ("codellama/CodeLlama-7b-hf", 4096),
+    "codellama-7b": ("codellama/CodeLlama-7b-hf", 4096),
     "zephy7B": ("HuggingFaceH4/zephyr-7b-beta", 32768),
     "gemma-7B": ("google/gemma-7b", 8192),
     "Qwen-2-7B": ("Qwen/Qwen2-7B-Instruct", 32768),
