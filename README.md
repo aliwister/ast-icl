@@ -9,7 +9,7 @@ python train.py --dataset <cosql|spider|sparc> --method <icl-top|icl-cluster|ran
 
 ## Prompt and Measure
 ```
-accelerate --input_csv <prompt filename> --limit <how many prompts to run> --model_name <gpt-j-6b|mistral-7B|llama-3-8B> 
+accelerate --input_csv <prompt filename> --limit <how many prompts to run> --model_name <gpt-j-6b|mistral-7B|codellama-7b> 
 ```
 
 ![Model](assets/teaser.png)
