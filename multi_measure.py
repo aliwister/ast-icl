@@ -48,7 +48,7 @@ def multi_measure(dataset, prediction_csv, time, limit=-1):
     model1 = SentenceTransformer('paraphrase-MiniLM-L6-v2')
     model2 = SentenceTransformer('paraphrase-distilroberta-base-v1')
 
-    file_path = 'MULTI_EXPERIMENTS_CAMERA1.txt'
+    file_path = 'EXPERIMENTS.txt'
     
     with open(file_path, 'a') as file:
         df = pd.read_csv(prediction_csv)['pred'] 

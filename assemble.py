@@ -214,15 +214,14 @@ if __name__ == '__main__':
     parser.add_argument('--num_examples', type=int, default=2)
     parser.add_argument('--method', type=str, default="icl-top")
     parser.add_argument('--limit', type=bool, default="False") 
-    parser.add_argument('--model', type=bool, default="SAGE") 
+    parser.add_argument('--model', type=str, default="SAGE") 
     
     args = parser.parse_args()
-    model = args.model
-
-    datasets = ['spider', 'sparc', 'cosql']
-    methods = ['icl-top']#,'icl']
-    models = ['SAGE']#, 'GAT']
-    for d in datasets:
-        for m in methods:
-            for m2 in models:
-                assemble(m, d, m2)
+    assemble(args.method, args.dataset, args.model)
+    #datasets = ['spider', 'sparc', 'cosql']
+    #methods = ['icl-top']#,'icl']
+    #models = ['SAGE']#, 'GAT']
+    #for d in datasets:
+    #    for m in methods:
+    #        for m2 in models:
+    #            assemble(m, d, m2)
