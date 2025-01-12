@@ -1,0 +1,2885 @@
+[
+    {
+        "query": "SELECT Country FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+        "utterances": [
+            "Can you tell me the country associated with JetBlue Airways?",
+            "Find out the country associated with the airline JetBlue Airways.",
+            "Find the country associated with the airline JetBlue Airways.",
+            "What country is Jetblue Airways affiliated with?"
+        ],
+        "idx": "sparc-0"
+    },
+    {
+        "query": "SELECT Abbreviation FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+        "utterances": [
+            "What is the abbreviation for JetBlue Airways?",
+            "Find the abbreviation for JetBlue Airways.",
+            "Find the abbreviation for the airline JetBlue Airways.",
+            "Which abbreviation corresponds to Jetblue Airways?"
+        ],
+        "idx": "sparc-1"
+    },
+    {
+        "query": "SELECT Airline ,  Abbreviation FROM AIRLINES WHERE Country  =  \"USA\"",
+        "utterances": [
+            "Show me all airlines and their abbreviations based in the USA.",
+            "Can you list the airlines and their abbreviations that are located in the USA?",
+            "Which airlines and their abbreviations are from the USA?",
+            "What are the airline names and abbreviations for airlines in the USA?"
+        ],
+        "idx": "sparc-2"
+    },
+    {
+        "query": "SELECT AirportCode ,  AirportName FROM AIRPORTS WHERE city  =  \"Anthony\"",
+        "utterances": [
+            "Please provide the airport codes and names for airports in Anthony.",
+            "Please provide the airport codes and names for airports located in the city of Anthony.",
+            "Show me the airport codes and names for airports located in Anthony.",
+            "Give the airport code and airport name corresonding to the city Anthony."
+        ],
+        "idx": "sparc-3"
+    },
+    {
+        "query": "SELECT count(*) FROM AIRLINES",
+        "utterances": [
+            "Can you tell me the total number of airlines?",
+            "What is the total count of airlines in the system?",
+            "How many airlines are there in the database?",
+            "What is the total number of airlines?"
+        ],
+        "idx": "sparc-4"
+    },
+    {
+        "query": "SELECT count(*) FROM AIRPORTS",
+        "utterances": [
+            "Can you tell me the number of airports?",
+            "Can you tell me the total number of airports?",
+            "What is the number of airports recorded in the system?",
+            "Return the number of  airports."
+        ],
+        "idx": "sparc-5"
+    },
+    {
+        "query": "SELECT count(*) FROM FLIGHTS",
+        "utterances": [
+            "Can you provide the total number of flights?",
+            "Can you show the total number of flights?",
+            "What is the count of all flights recorded?",
+            "Return the number of flights."
+        ],
+        "idx": "sparc-6"
+    },
+    {
+        "query": "SELECT Airline FROM AIRLINES WHERE Abbreviation  =  \"UAL\"",
+        "utterances": [
+            "Tell me the name of the airline abbreviated as 'UAL'.",
+            "What is the name of the airline abbreviated as 'UAL'?",
+            "Which airline has the abbreviation 'UAL'?",
+            "Give the airline with abbreviation 'UAL'."
+        ],
+        "idx": "sparc-7"
+    },
+    {
+        "query": "SELECT count(*) FROM AIRLINES WHERE Country  =  \"USA\"",
+        "utterances": [
+            "Find the total number of airlines located in the USA.",
+            "Find the total number of airlines based in the USA.",
+            "How many airlines are based in the USA?",
+            "Return the number of airlines in the USA."
+        ],
+        "idx": "sparc-8"
+    },
+    {
+        "query": "SELECT City ,  Country FROM AIRPORTS WHERE AirportName  =  \"Alton\"",
+        "utterances": [
+            "Provide the city and country for the airport named Alton.",
+            "Provide the city and country where the airport named Alton is located.",
+            "Can you tell me the city and country where the Alton airport is situated?",
+            "Give the city and country for the Alton airport."
+        ],
+        "idx": "sparc-9"
+    },
+    {
+        "query": "SELECT AirportName FROM AIRPORTS WHERE AirportCode  =  \"AKO\"",
+        "utterances": [
+            "Find the airport name that corresponds to the airport code 'AKO'.",
+            "Find the name of the airport with the code 'AKO'.",
+            "Can you tell me the airport name for the code 'AKO'?",
+            "Return the name of the airport with code 'AKO'."
+        ],
+        "idx": "sparc-10"
+    },
+    {
+        "query": "SELECT AirportName FROM AIRPORTS WHERE City = \"Aberdeen\"",
+        "utterances": [
+            "What is the name of the airport in Aberdeen?",
+            "Can you tell me the name of the airport in Aberdeen?",
+            "Which airport is located in Aberdeen?",
+            "What are the names of airports in Aberdeen?"
+        ],
+        "idx": "sparc-11"
+    },
+    {
+        "query": "SELECT count(*) FROM FLIGHTS WHERE SourceAirport  =  \"APG\"",
+        "utterances": [
+            "How many flights depart from APG airport?",
+            "Can you count the flights that take off from APG?",
+            "What's the total number of flights that depart from APG?",
+            "Count the number of flights departing from 'APG'."
+        ],
+        "idx": "sparc-12"
+    },
+    {
+        "query": "SELECT count(*) FROM FLIGHTS WHERE DestAirport  =  \"ATO\"",
+        "utterances": [
+            "Can you tell me the number of flights headed to ATO airport?",
+            "How many flights are arriving at ATO airport?",
+            "Can you tell me the number of flights with ATO as their destination?",
+            "Count the number of flights into ATO."
+        ],
+        "idx": "sparc-13"
+    },
+    {
+        "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.SourceAirport  =  T2.AirportCode WHERE T2.City  =  \"Aberdeen\"",
+        "utterances": [
+            "How many flights depart from airports located in Aberdeen?",
+            "How many flights depart from airports in Aberdeen?",
+            "Can you provide the total number of flights that take off from Aberdeen?",
+            "Return the number of flights departing from Aberdeen."
+        ],
+        "idx": "sparc-14"
+    },
+    {
+        "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode WHERE T2.City  =  \"Aberdeen\"",
+        "utterances": [
+            "Count the number of flights that land in Aberdeen.",
+            "Show me the total number of flights arriving in Aberdeen.",
+            "Show me the total count of flights currently arriving in Aberdeen.",
+            "Return the number of flights arriving in Aberdeen."
+        ],
+        "idx": "sparc-15"
+    },
+    {
+        "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode JOIN AIRPORTS AS T3 ON T1.SourceAirport  =  T3.AirportCode WHERE T2.City  =  \"Ashley\" AND T3.City  =  \"Aberdeen\"",
+        "utterances": [
+            "How many flights are there from Aberdeen to Ashley?",
+            "Show me the total number of flights traveling from Aberdeen to Ashley.",
+            "Show me the total count of flights traveling from Aberdeen to Ashley.",
+            "How many flights fly from Aberdeen to Ashley?"
+        ],
+        "idx": "sparc-16"
+    },
+    {
+        "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T1.Airline  =  T2.uid WHERE T2.Airline = \"JetBlue Airways\"",
+        "utterances": [
+            "Can you tell me the number of flights from JetBlue Airways?",
+            "Can you tell me the number of flights available from JetBlue Airways?",
+            "How many flights are operated by JetBlue Airways?",
+            "Give the number of Jetblue Airways flights."
+        ],
+        "idx": "sparc-17"
+    },
+    {
+        "query": "SELECT count(*) FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T2.Airline  =  T1.uid WHERE T1.Airline  =  \"United Airlines\" AND T2.DestAirport  =  \"ASY\"",
+        "utterances": [
+            "How many flights are there from United Airlines that are destined for ASY?",
+            "How many United Airlines flights are destined for ASY?",
+            "Show me the total number of flights operated by United Airlines that arrive at ASY.",
+            "Count the number of United Airlines flights arriving in ASY Airport."
+        ],
+        "idx": "sparc-18"
+    },
+    {
+        "query": "SELECT count(*) FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T2.Airline  =  T1.uid WHERE T1.Airline  =  \"United Airlines\" AND T2.SourceAirport  =  \"AHD\"",
+        "utterances": [
+            "How many flights are operated by United Airlines from the AHD airport?",
+            "Can you provide the total number of United Airlines flights departing from AHD airport?",
+            "What is the total number of flights United Airlines has departing from AHD airport?",
+            "Return the number of United Airlines flights leaving from AHD Airport."
+        ],
+        "idx": "sparc-19"
+    },
+    {
+        "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode JOIN AIRLINES AS T3 ON T3.uid  =  T1.Airline WHERE T2.City  =  \"Aberdeen\" AND T3.Airline  =  \"United Airlines\"",
+        "utterances": [
+            "Count the number of United Airlines flights arriving at Aberdeen.",
+            "How many flights by United Airlines are landing in Aberdeen?",
+            "Show the total number of United Airlines flights with Aberdeen as their destination.",
+            "Count the number of United Airlines flights that arrive in Aberdeen."
+        ],
+        "idx": "sparc-20"
+    },
+    {
+        "query": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Show me the city that receives the most flights.",
+            "Show me the city that currently receives the most flights.",
+            "Can you find the city with the most incoming flights?",
+            "Which city has the most frequent destination airport?"
+        ],
+        "idx": "sparc-21"
+    },
+    {
+        "query": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.SourceAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Show me the city with the most flights departing from its airports.",
+            "What city has the airport where the most flights are departing from?",
+            "Which city has the highest number of departing flights from its airports?",
+            "Which city is the most frequent source airport?"
+        ],
+        "idx": "sparc-22"
+    },
+    {
+        "query": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Identify the airport with the highest number of appearances in the flight schedules as a departure or arrival location.",
+            "Find the airport with the highest number of mentions as a departure or arrival location.",
+            "What's the code of the most frequently used airport in flight records?",
+            "What is the airport code of the airport with the most flights?"
+        ],
+        "idx": "sparc-23"
+    },
+    {
+        "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Which airline offers the highest number of flights?",
+            "Which airline has the most flights?",
+            "Can you tell me the airline with the maximum number of flights?",
+            "What airline serves the most flights?"
+        ],
+        "idx": "sparc-25"
+    },
+    {
+        "query": "SELECT T1.Abbreviation ,  T1.Country FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) LIMIT 1",
+        "utterances": [
+            "Show the airline abbreviation and country with the minimum number of flights.",
+            "Show the airline abbreviation and country with the least number of flights.",
+            "Which airline, with its abbreviation and country, has the fewest flights?",
+            "What is the abbreviation of the airilne has the fewest flights and what country is it in?"
+        ],
+        "idx": "sparc-26"
+    },
+    {
+        "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"AHD\"",
+        "utterances": [
+            "Which airlines operate flights from AHD airport?",
+            "Which airlines operate flights from AHD Airport?",
+            "Show me the airlines that have their flights leaving from AHD airport.",
+            "Which airlines have a flight with source airport AHD?"
+        ],
+        "idx": "sparc-27"
+    },
+    {
+        "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.DestAirport  =  \"AHD\"",
+        "utterances": [
+            "Show me the names of airlines that fly to AHD.",
+            "Can you list the airlines operating flights to AHD airport?",
+            "Can you list the airlines with flights to AHD airport?",
+            "Which airlines have a flight with destination airport AHD?"
+        ],
+        "idx": "sparc-28"
+    },
+    {
+        "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"APG\" INTERSECT SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"CVO\"",
+        "utterances": [
+            "Show me the airlines that have flights departing from APG and CVO.",
+            "Find the airlines that fly out from both APG and CVO airports.",
+            "Show me the airlines that have flights from APG and CVO.",
+            "Which airlines have departing flights from both APG and CVO airports?"
+        ],
+        "idx": "sparc-29"
+    },
+    {
+        "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"CVO\" EXCEPT SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"APG\"",
+        "utterances": [
+            "Find the airlines that have flights leaving CVO but not APG.",
+            "Find the airlines that have flights departing from CVO but not from APG.",
+            "Can you list the airlines that fly out of CVO but do not fly out of APG?",
+            "Which airlines have departures from CVO but not from APG airports?"
+        ],
+        "idx": "sparc-30"
+    },
+    {
+        "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  >  10",
+        "utterances": [
+            "Identify airlines with more than ten flights.",
+            "Which airlines have more than ten flights?",
+            "Can you provide a list of airlines that operate more than ten flights?",
+            "Which airlines have at least 10 flights?"
+        ],
+        "idx": "sparc-31"
+    },
+    {
+        "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  <  200",
+        "utterances": [
+            "List the airlines that operate under 200 flights.",
+            "Which airlines have fewer than 200 flights?",
+            "Show me the airlines that have less than 200 total flights.",
+            "Which airlines have less than 200 flights?"
+        ],
+        "idx": "sparc-32"
+    },
+    {
+        "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T2.uid  =  T1.Airline WHERE T2.Airline  =  \"United Airlines\"",
+        "utterances": [
+            "Can you show me the flight numbers for flights run by United Airlines?",
+            "Provide the flight numbers for flights scheduled by United Airlines.",
+            "List the flight numbers of all flights operated by United Airlines.",
+            "Which flight numbers correspond to United Airlines flights?"
+        ],
+        "idx": "sparc-33"
+    },
+    {
+        "query": "SELECT FlightNo FROM FLIGHTS WHERE SourceAirport  =  \"APG\"",
+        "utterances": [
+            "Show me the flight numbers departing from APG.",
+            "Show me the flight numbers for flights departing from APG.",
+            "Can you list the flight numbers that take off from APG airport?",
+            "Give the flight numbers of flights leaving from APG."
+        ],
+        "idx": "sparc-34"
+    },
+    {
+        "query": "SELECT FlightNo FROM FLIGHTS WHERE DestAirport  =  \"APG\"",
+        "utterances": [
+            "Show me the flight numbers for flights arriving at APG airport.",
+            "Can you list the flights that are destined for APG airport?",
+            "Can you list the flight numbers of flights destined for APG airport?",
+            "Give the flight numbers of flights landing at APG."
+        ],
+        "idx": "sparc-35"
+    },
+    {
+        "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.SourceAirport   =  T2.AirportCode WHERE T2.City  =  \"Aberdeen\"",
+        "utterances": [
+            "What are the flight numbers for flights that depart from Aberdeen?",
+            "Show me the flight numbers of flights departing from Aberdeen.",
+            "List the flight numbers of all flights leaving from Aberdeen.",
+            "Give the flight numbers of flights leaving from Aberdeen."
+        ],
+        "idx": "sparc-36"
+    },
+    {
+        "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport   =  T2.AirportCode WHERE T2.City  =  \"Aberdeen\"",
+        "utterances": [
+            "Can you list the flight numbers for flights landing in Aberdeen?",
+            "Can you list the flight numbers for flights arriving in Aberdeen?",
+            "What are the flight numbers for planes arriving at the Aberdeen airport?",
+            "Give the flight numbers of flights arriving in Aberdeen."
+        ],
+        "idx": "sparc-37"
+    },
+    {
+        "query": "SELECT count(*) FROM Flights AS T1 JOIN Airports AS T2 ON T1.DestAirport  =  T2.AirportCode WHERE T2.city  =  \"Aberdeen\" OR T2.city  =  \"Abilene\"",
+        "utterances": [
+            "How many flights land in either Aberdeen or Abilene?",
+            "Find the count of flights whose destinations are either in Aberdeen or Abilene.",
+            "Can you tell me the total number of flights arriving at airports in Aberdeen and Abilene?",
+            "How many flights land in Aberdeen or Abilene?"
+        ],
+        "idx": "sparc-38"
+    },
+    {
+        "query": "SELECT AirportName FROM Airports WHERE AirportCode NOT IN (SELECT SourceAirport FROM Flights UNION SELECT DestAirport FROM Flights)",
+        "utterances": [
+            "Which airports don't have any outgoing or incoming flights?",
+            "Which airports currently don't have any outgoing or incoming flights?",
+            "Can you find the names of airports that are not involved in any flight routes?",
+            "Which airports do not have departing or arriving flights?"
+        ],
+        "idx": "sparc-39"
+    },
+    {
+        "query": "SELECT count(*) FROM pets WHERE weight  >  10",
+        "utterances": [
+            "Can you tell me the number of pets that have a weight greater than 10?",
+            "How many pets weigh more than 10?",
+            "How many pets weigh more than 10 units?",
+            "How many pets have a greater weight than 10?"
+        ],
+        "idx": "sparc-40"
+    },
+    {
+        "query": "SELECT weight FROM pets ORDER BY pet_age LIMIT 1",
+        "utterances": [
+            "Show me the weight of the youngest pet.",
+            "Show me the weight of the pet that is the youngest.",
+            "Can you give me the weight of the youngest pet?",
+            "How much does the youngest dog weigh?"
+        ],
+        "idx": "sparc-41"
+    },
+    {
+        "query": "SELECT max(weight) ,  petType FROM pets GROUP BY petType",
+        "utterances": [
+            "What is the maximum weight for pets of each type?",
+            "Show me the highest weight for each pet type.",
+            "What is the maximum weight recorded for each type of pet?",
+            "List the maximum weight and type for each type of pet."
+        ],
+        "idx": "sparc-42"
+    },
+    {
+        "query": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.age  >  20",
+        "utterances": [
+            "How many students over the age of 20 have pets?",
+            "Can you tell me the number of students above 20 years old who have pets?",
+            "Count the number of students older than 20 who own pets.",
+            "How many pets are owned by students that have an age greater than 20?"
+        ],
+        "idx": "sparc-43"
+    },
+    {
+        "query": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T2.petid  =  T3.petid WHERE T1.sex  =  'F' AND T3.pettype  =  'dog'",
+        "utterances": [
+            "How many female students have dogs as pets?",
+            "Count the number of female students who own dogs.",
+            "How many female students have dogs?",
+            "How many dog pets are raised by female students?"
+        ],
+        "idx": "sparc-44"
+    },
+    {
+        "query": "SELECT count(DISTINCT pettype) FROM pets",
+        "utterances": [
+            "How many distinct types of pets are there?",
+            "What is the total count of different pet types?",
+            "Can you tell me the number of unique pet types?",
+            "How many different types of pet are there?"
+        ],
+        "idx": "sparc-45"
+    },
+    {
+        "query": "SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog'",
+        "utterances": [
+            "Find the names of students who own both a cat and a dog.",
+            "Show me the students who have both a cat and a dog.",
+            "Which students have both cats and dogs as pets?",
+            "What are the students' first names who have both cats and dogs as pets?"
+        ],
+        "idx": "sparc-47"
+    },
+    {
+        "query": "SELECT major ,  age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+        "utterances": [
+            "Find the major and age information for students who do not have cats.",
+            "Show the major and age of students who do not have cats.",
+            "Show the major and age of students who do not own a cat.",
+            "What major is every student who does not own a cat as a pet, and also how old are they?"
+        ],
+        "idx": "sparc-48"
+    },
+    {
+        "query": "SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat'",
+        "utterances": [
+            "Show me the students who do not have a cat.",
+            "Show me the list of students without a cat.",
+            "Which students do not have a cat as a pet?",
+            "What are the ids of the students who do not own cats as pets?"
+        ],
+        "idx": "sparc-49"
+    },
+    {
+        "query": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+        "utterances": [
+            "Can you show me which students have a dog but no cat, including their names and ages?",
+            "List the names and ages of students who own a dog but do not own a cat.",
+            "Find students with a dog and without a cat, and display their first names and ages.",
+            "What is the first name of every student who has a dog but does not have a cat?"
+        ],
+        "idx": "sparc-50"
+    },
+    {
+        "query": "SELECT pettype ,  weight FROM pets ORDER BY pet_age LIMIT 1",
+        "utterances": [
+            "Show me the pet type and weight of the youngest pet.",
+            "Find the type and weight of the youngest pet listed.",
+            "What type and weight of pet is the youngest?",
+            "What type of pet is the youngest animal, and how much does it weigh?"
+        ],
+        "idx": "sparc-51"
+    },
+    {
+        "query": "SELECT petid ,  weight FROM pets WHERE pet_age  >  1",
+        "utterances": [
+            "Show me the IDs and weights of pets that are older than one year.",
+            "Find the pet IDs and weights for pets whose age is greater than one year.",
+            "Can you list the pet IDs and their weights for pets aged above one year?",
+            "What is the id and weight of every pet who is older than 1?"
+        ],
+        "idx": "sparc-52"
+    },
+    {
+        "query": "SELECT avg(pet_age) ,  max(pet_age) ,  pettype FROM pets GROUP BY pettype",
+        "utterances": [
+            "Show me the average age and the highest age for every type of pet.",
+            "Find the average age and the maximum age for pets grouped by their type.",
+            "Find the average and maximum ages for pets grouped by their type.",
+            "What is the average and maximum age for each pet type?"
+        ],
+        "idx": "sparc-53"
+    },
+    {
+        "query": "SELECT avg(weight) ,  pettype FROM pets GROUP BY pettype",
+        "utterances": [
+            "What is the average weight of each type of pet?",
+            "Find the average weights for all pet types.",
+            "Find the average weight for all pet types.",
+            "What is the average weight for each type of pet?"
+        ],
+        "idx": "sparc-54"
+    },
+    {
+        "query": "SELECT DISTINCT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid",
+        "utterances": [
+            "Show the distinct first names and ages of students who own a pet.",
+            "Show the distinct names and ages of students who own a pet.",
+            "List the distinct names and ages of students who have pets.",
+            "What are the different first names and ages of the students who do have pets?"
+        ],
+        "idx": "sparc-55"
+    },
+    {
+        "query": "SELECT T2.petid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.Lname  =  'Smith'",
+        "utterances": [
+            "Show me the IDs of pets owned by students named Smith.",
+            "List the pet IDs for students whose last name is Smith.",
+            "Can you find the pet IDs of students with the surname Smith?",
+            "What is the id of the pet owned by the student whose last name is 'Smith'?"
+        ],
+        "idx": "sparc-56"
+    },
+    {
+        "query": "SELECT count(*) ,  T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid",
+        "utterances": [
+            "List the number of pets owned by each student.",
+            "How many pets does each student have?",
+            "Show the count of pets for every student.",
+            "For students who have pets, how many pets does each student have?"
+        ],
+        "idx": "sparc-57"
+    },
+    {
+        "query": "SELECT T1.fname ,  T1.sex FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid HAVING count(*)  >  1",
+        "utterances": [
+            "List the first names and sex of students owning multiple pets.",
+            "Show the names and sex of students who have more than one pet.",
+            "List the first names and genders of students owning multiple pets.",
+            "What is the first name and gender of the all the students who have more than one pet?"
+        ],
+        "idx": "sparc-58"
+    },
+    {
+        "query": "SELECT T1.lname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pet_age  =  3 AND T3.pettype  =  'cat'",
+        "utterances": [
+            "Provide the last names of the students who own a cat that is three years old.",
+            "Provide the surnames of the students who own a cat that is three years old.",
+            "List the last names of students who have a 3-year-old cat.",
+            "What is the last name of the student who has a cat that is 3 years old?"
+        ],
+        "idx": "sparc-59"
+    },
+    {
+        "query": "SELECT avg(age) FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid)",
+        "utterances": [
+            "Find the average age for students without pets.",
+            "Find the average age for students without any pets.",
+            "What is the average age of students who do not have pets?",
+            "What is the average age for all students who do not own any pets?"
+        ],
+        "idx": "sparc-60"
+    },
+    {
+        "query": "SELECT Name FROM country WHERE IndepYear  >  1950",
+        "utterances": [
+            "List the countries that gained independence post-1950.",
+            "Which countries became independent after the year 1950?",
+            "Show me the countries that gained independence after 1950.",
+            "Give the names of the nations that were founded after 1950."
+        ],
+        "idx": "sparc-61"
+    },
+    {
+        "query": "SELECT count(*) FROM country WHERE GovernmentForm  =  \"Republic\"",
+        "utterances": [
+            "Can you tell me the number of countries governed as a Republic?",
+            "What is the count of countries with a Republic form of government?",
+            "How many countries have a republican form of government?",
+            "How many countries have governments that are republics?"
+        ],
+        "idx": "sparc-62"
+    },
+    {
+        "query": "SELECT sum(SurfaceArea) FROM country WHERE Region  =  \"Caribbean\"",
+        "utterances": [
+            "Find the combined surface area of countries in the Caribbean region.",
+            "What is the total surface area of all countries in the Caribbean?",
+            "Can you determine the sum of the surface areas of countries located in the Caribbean?",
+            "How much surface area do the countires in the Carribean cover together?"
+        ],
+        "idx": "sparc-63"
+    },
+    {
+        "query": "SELECT Continent FROM country WHERE Name  =  \"Anguilla\"",
+        "utterances": [
+            "Can you tell me the continent that Anguilla belongs to?",
+            "Which continent is Anguilla located in?",
+            "Which continent is the country of Anguilla part of?",
+            "What is the continent name which Anguilla belongs to?"
+        ],
+        "idx": "sparc-64"
+    },
+    {
+        "query": "SELECT Region FROM country AS T1 JOIN city AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Name  =  \"Kabul\"",
+        "utterances": [
+            "Can you tell me the region for Kabul?",
+            "Can you tell me the region for the city named Kabul?",
+            "What region does the city of Kabul belong to?",
+            "What region is Kabul in?"
+        ],
+        "idx": "sparc-65"
+    },
+    {
+        "query": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.Name  =  \"Aruba\" ORDER BY Percentage DESC LIMIT 1",
+        "utterances": [
+            "What is the predominantly spoken language in Aruba?",
+            "Which language is spoken the most in Aruba?",
+            "What is the most spoken language in Aruba?",
+            "What language is predominantly spoken in Aruba?"
+        ],
+        "idx": "sparc-66"
+    },
+    {
+        "query": "SELECT Population ,  LifeExpectancy FROM country WHERE Name  =  \"Brazil\"",
+        "utterances": [
+            "Show me the population and life expectancy of Brazil.",
+            "What are the population and life expectancy for Brazil?",
+            "What are the population and life expectancy details for Brazil?",
+            "Give me Brazil\u2019s population and life expectancies."
+        ],
+        "idx": "sparc-67"
+    },
+    {
+        "query": "SELECT Population ,  Region FROM country WHERE Name  =  \"Angola\"",
+        "utterances": [
+            "Show the population and region of Angola.",
+            "Can you provide the population and region for Angola?",
+            "Can you provide the population and the region details for Angola?",
+            "What region does Angola belong to and what is its population?"
+        ],
+        "idx": "sparc-68"
+    },
+    {
+        "query": "SELECT avg(LifeExpectancy) FROM country WHERE Region  =  \"Central Africa\"",
+        "utterances": [
+            "Tell me the average lifespan in the region of Central Africa.",
+            "What is the average life expectancy in Central Africa?",
+            "Can you provide the mean life expectancy for countries in Central Africa?",
+            "How long is the people\u2019s average life expectancy in Central Africa?"
+        ],
+        "idx": "sparc-69"
+    },
+    {
+        "query": "SELECT Name FROM country WHERE Continent  =  \"Asia\" ORDER BY LifeExpectancy LIMIT 1",
+        "utterances": [
+            "Show me the country in Asia with the lowest life expectancy.",
+            "Show me the country in Asia with the minimum life expectancy.",
+            "What is the name of the country in Asia with the lowest life expectancy?",
+            "Give the name of the country in Asia with the lowest life expectancy."
+        ],
+        "idx": "sparc-70"
+    },
+    {
+        "query": "SELECT sum(Population) ,  max(GNP) FROM country WHERE Continent  =  \"Asia\"",
+        "utterances": [
+            "Give me the sum of the population and the maximum GNP for countries in Asia.",
+            "Give me the sum of the population and the maximum GNP for countries located in Asia.",
+            "What is the total population and the highest GNP of countries in Asia?",
+            "How many people live in Asia, and what is the largest GNP among them?"
+        ],
+        "idx": "sparc-71"
+    },
+    {
+        "query": "SELECT avg(LifeExpectancy) FROM country WHERE Continent  =  \"Africa\" AND GovernmentForm  =  \"Republic\"",
+        "utterances": [
+            "Can you tell me the average life expectancy for African republic countries?",
+            "Can you tell me the average life expectancy for African republics?",
+            "Find the mean life expectancy for countries in Africa with a republican form of government.",
+            "Give the average life expectancy for countries in Africa which are republics?"
+        ],
+        "idx": "sparc-72"
+    },
+    {
+        "query": "SELECT sum(SurfaceArea) FROM country WHERE Continent  =  \"Asia\" OR Continent  =  \"Europe\"",
+        "utterances": [
+            "What is the total surface area covered by countries in Asia and Europe?",
+            "How much total surface area is covered by countries in Asia and Europe?",
+            "Can you calculate the total surface area of countries that are either in Asia or Europe?",
+            "Give the total surface area covered by countries in Asia or Europe."
+        ],
+        "idx": "sparc-73"
+    },
+    {
+        "query": "SELECT sum(Population) FROM city WHERE District  =  \"Gelderland\"",
+        "utterances": [
+            "Can you find the sum of the population for all cities located in Gelderland district?",
+            "Can you calculate the sum of the population for all cities located in Gelderland district?",
+            "What is the total population of cities in the district of Gelderland?",
+            "What is the total population of Gelderland district?"
+        ],
+        "idx": "sparc-74"
+    },
+    {
+        "query": "SELECT avg(GNP) ,  sum(population) FROM country WHERE GovernmentForm  =  \"US Territory\"",
+        "utterances": [
+            "Can you provide the average GNP and the sum of the population for countries that are US Territories?",
+            "Find the average GNP and total number of people for US territories.",
+            "Find the average GNP and total population for US Territories.",
+            "Give the mean GNP and total population of nations which are considered US territory."
+        ],
+        "idx": "sparc-75"
+    },
+    {
+        "query": "SELECT count(DISTINCT LANGUAGE) FROM countrylanguage",
+        "utterances": [
+            "Can you tell me the total number of distinct languages?",
+            "How many unique languages are spoken across different countries?",
+            "What is the count of different languages recorded?",
+            "What is the number of distinct languages used around the world?"
+        ],
+        "idx": "sparc-76"
+    },
+    {
+        "query": "SELECT count(DISTINCT GovernmentForm) FROM country WHERE Continent  =  \"Africa\"",
+        "utterances": [
+            "What is the number of different government forms present in Africa?",
+            "What is the number of different kinds of governments present in Africa?",
+            "Can you count the distinct types of government systems found in African nations?",
+            "How many different forms of governments are there in Africa?"
+        ],
+        "idx": "sparc-77"
+    },
+    {
+        "query": "SELECT COUNT(T2.Language) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.Name  =  \"Aruba\"",
+        "utterances": [
+            "What is the number of languages spoken in Aruba?",
+            "Can you tell me the number of languages spoken in the country of Aruba?",
+            "How many different languages are spoken in Aruba?",
+            "How many languages are spoken in Aruba?"
+        ],
+        "idx": "sparc-78"
+    },
+    {
+        "query": "SELECT COUNT(*) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.Name  =  \"Afghanistan\" AND IsOfficial  =  \"T\"",
+        "utterances": [
+            "Can you tell me the number of official languages spoken in Afghanistan?",
+            "Can you tell me the number of official languages in Afghanistan?",
+            "What is the count of official languages for Afghanistan?",
+            "How many official languages are spoken in Afghanistan?"
+        ],
+        "idx": "sparc-79"
+    },
+    {
+        "query": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Name ORDER BY COUNT(*) DESC LIMIT 1",
+        "utterances": [
+            "Identify the country with the most languages spoken.",
+            "Which country has the highest number of languages?",
+            "Can you find the country that speaks the most languages?",
+            "Give the name of the nation that uses the greatest amount of languages."
+        ],
+        "idx": "sparc-80"
+    },
+    {
+        "query": "SELECT T1.Continent FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Continent ORDER BY COUNT(*) DESC LIMIT 1",
+        "utterances": [
+            "What is the continent with the largest number of countries according to the language spoken in each country?",
+            "What is the continent with the most countries according to the languages spoken in each country?",
+            "Find the continent that appears most frequently when countries are grouped by their languages."
+        ],
+        "idx": "sparc-81"
+    },
+    {
+        "query": "SELECT COUNT(*) FROM (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Dutch\")",
+        "utterances": [
+            "Give me the number of countries that have English and Dutch as their languages.",
+            "Count the number of countries where both English and Dutch are spoken.",
+            "How many countries have both English and Dutch as official languages?",
+            "What is the number of nations that use English and Dutch?"
+        ],
+        "idx": "sparc-82"
+    },
+    {
+        "query": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"French\"",
+        "utterances": [
+            "List the countries where both English and French are spoken.",
+            "Which countries have both English and French as languages?",
+            "Find the names of countries where both English and French are spoken.",
+            "Give the names of nations that speak both English and French."
+        ],
+        "idx": "sparc-83"
+    },
+    {
+        "query": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND T2.IsOfficial  =  \"T\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"French\" AND T2.IsOfficial  =  \"T\"",
+        "utterances": [
+            "Which countries have both English and French as official languages?",
+            "Can you show me the countries where both English and French are official languages?",
+            "Can you list the countries where both English and French are official languages?",
+            "Give the names of countries with English and French as official languages."
+        ],
+        "idx": "sparc-84"
+    },
+    {
+        "query": "SELECT COUNT( DISTINCT Continent) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Chinese\"",
+        "utterances": [
+            "How many distinct continents have countries where Chinese is spoken?",
+            "Show me the number of distinct continents that have countries where Chinese is a spoken language.",
+            "Count the number of distinct continents with countries speaking Chinese.",
+            "How many continents speak Chinese?"
+        ],
+        "idx": "sparc-85"
+    },
+    {
+        "query": "SELECT * FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND IsOfficial  =  \"T\" UNION SELECT * FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Dutch\" AND IsOfficial  =  \"T\"",
+        "utterances": [
+            "Show me the list of countries that have English or Dutch as an official language.",
+            "Show me the list of countries that have either English or Dutch as an official language.",
+            "Find all countries where the official language is either English or Dutch.",
+            "Which countries have either English or Dutch as an official language?"
+        ],
+        "idx": "sparc-87"
+    },
+    {
+        "query": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.Continent  =  \"Asia\" GROUP BY T2.Language ORDER BY COUNT (*) DESC LIMIT 1",
+        "utterances": [
+            "Which language has the highest number of speakers in Asian countries?",
+            "Can you tell me the language that is spoken by the most people in Asia?",
+            "Can you tell me the most popular language in Asia?",
+            "What is the language that is used by the largest number of Asian nations?"
+        ],
+        "idx": "sparc-88"
+    },
+    {
+        "query": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.GovernmentForm  =  \"Republic\" GROUP BY T2.Language HAVING COUNT(*)  =  1",
+        "utterances": [
+            "What languages are specific to just one republic-type government country?",
+            "List the languages that are unique to a single country with a republican government.",
+            "List the languages that are specific to a single republic.",
+            "What languages are only used by a single country with a republic government?"
+        ],
+        "idx": "sparc-89"
+    },
+    {
+        "query": "SELECT T1.Name ,  T1.Population FROM city AS T1 JOIN countrylanguage AS T2 ON T1.CountryCode  =  T2.CountryCode WHERE T2.Language  =  \"English\" ORDER BY T1.Population DESC LIMIT 1",
+        "utterances": [
+            "Which is the most populated city where English is spoken?",
+            "Find the city where English is spoken that has the largest population.",
+            "What city that speaks English has the highest population?",
+            "What is the most populace city that speaks English?"
+        ],
+        "idx": "sparc-90"
+    },
+    {
+        "query": "SELECT Name ,  Population ,  LifeExpectancy FROM country WHERE Continent  =  \"Asia\" ORDER BY SurfaceArea DESC LIMIT 1",
+        "utterances": [
+            "Which Asian country has the largest surface area, along with its population and life expectancy?",
+            "Show me the country with the largest surface area in Asia, including its population and life expectancy.",
+            "Show me the country with the largest area in Asia, including its population and life expectancy.",
+            "What are the name, population, and life expectancy of the largest Asian country by land?"
+        ],
+        "idx": "sparc-91"
+    },
+    {
+        "query": "SELECT avg(LifeExpectancy) FROM country WHERE Name NOT IN (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND T2.IsOfficial  =  \"T\")",
+        "utterances": [
+            "Show the average lifespan in countries where English is not an official language.",
+            "Find the average life expectancy for countries that do not have English as an official language.",
+            "What is the average life expectancy in countries where English is not an official language?",
+            "Give the mean life expectancy of countries in which English is not the official language."
+        ],
+        "idx": "sparc-92"
+    },
+    {
+        "query": "SELECT sum(Population) FROM country WHERE Name NOT IN (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\")",
+        "utterances": [
+            "Give me the sum of the population for countries that do not use English.",
+            "What is the total population of countries where English is not spoken?",
+            "Calculate the combined population of all countries that do not have English listed as a language.",
+            "How many people live in countries that do not speak English?"
+        ],
+        "idx": "sparc-93"
+    },
+    {
+        "query": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.HeadOfState  =  \"Beatrix\" AND T2.IsOfficial  =  \"T\"",
+        "utterances": [
+            "Find the official languages in the countries where the head of state is Beatrix.",
+            "Find the official languages spoken in countries with Beatrix as the current head of state.",
+            "Which official languages are spoken in countries where Beatrix is the head of state?",
+            "What is the official language used in the country the name of whose head of state is Beatrix."
+        ],
+        "idx": "sparc-94"
+    },
+    {
+        "query": "SELECT count(DISTINCT T2.Language) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE  IndepYear  <  1930 AND T2.IsOfficial  =  \"T\"",
+        "utterances": [
+            "Can you tell me the number of different official languages in countries with independence dates before 1930?",
+            "How many different official languages are there in countries that became independent before 1930?",
+            "Count the unique number of official languages in countries that became independent before 1930.",
+            "For the countries founded before 1930, what is the total number of distinct official languages?"
+        ],
+        "idx": "sparc-95"
+    },
+    {
+        "query": "SELECT Name FROM country WHERE SurfaceArea  >  (SELECT min(SurfaceArea) FROM country WHERE Continent  =  \"Europe\")",
+        "utterances": [
+            "Can you show me the countries whose surface area exceeds that of the smallest European country?",
+            "List the countries that have a surface area greater than the smallest country in Europe.",
+            "Can you show me the countries with a surface area larger than the smallest European country by surface area?",
+            "Which countries have greater area than that of any country in Europe?"
+        ],
+        "idx": "sparc-96"
+    },
+    {
+        "query": "SELECT Name FROM country WHERE Continent  =  \"Africa\"  AND population  <  (SELECT max(population) FROM country WHERE Continent  =  \"Asia\")",
+        "utterances": [
+            "Show me the names of African countries with populations less than the most populated country in Asia.",
+            "Show me the names of African countries with populations less than the most populous country in Asia.",
+            "List all countries in Africa whose populations are lower than the highest population in Asia.",
+            "Which African countries have a smaller population than that of any country in Asia?"
+        ],
+        "idx": "sparc-97"
+    },
+    {
+        "query": "SELECT Name FROM country WHERE Continent  =  \"Asia\"  AND population  >  (SELECT min(population) FROM country WHERE Continent  =  \"Africa\")",
+        "utterances": [
+            "Show me the names of Asian countries with populations exceeding the smallest population in African countries.",
+            "What are the Asian countries with a population higher than the smallest in Africa?",
+            "List the countries in Asia with a population greater than the smallest population of an African country."
+        ],
+        "idx": "sparc-98"
+    },
+    {
+        "query": "SELECT CountryCode FROM countrylanguage EXCEPT SELECT CountryCode FROM countrylanguage WHERE LANGUAGE  =  \"English\"",
+        "utterances": [
+            "Find the country codes of countries where English is not spoken.",
+            "Show me the country codes from countries that don't use English as a language.",
+            "List all country codes that do not have English as a language.",
+            "Return the country codes for countries that do not speak English."
+        ],
+        "idx": "sparc-99"
+    },
+    {
+        "query": "SELECT DISTINCT CountryCode FROM countrylanguage WHERE LANGUAGE ! =  \"English\"",
+        "utterances": [
+            "Which country codes are distinct and have languages other than English?",
+            "List all the distinct country codes where the language is not English.",
+            "Which country codes are unique and have languages other than English?",
+            "Give the country codes for countries in which people speak langauges that are not English."
+        ],
+        "idx": "sparc-100"
+    },
+    {
+        "query": "SELECT Code FROM country WHERE GovernmentForm ! =  \"Republic\" EXCEPT SELECT CountryCode FROM countrylanguage WHERE LANGUAGE  =  \"English\"",
+        "utterances": [
+            "List the country codes for non-republic governments that do not have English as one of their languages.",
+            "List the country codes for countries that do not have a republic government and do not have English as one of their languages.",
+            "Can you provide the codes of countries that are not republics and where English is not spoken?",
+            "Return the codes of countries that do not speak English and do not have Republics for governments."
+        ],
+        "idx": "sparc-101"
+    },
+    {
+        "query": "SELECT DISTINCT T2.Name FROM country AS T1 JOIN city AS T2 ON T2.CountryCode  =  T1.Code WHERE T1.Continent  =  'Europe' AND T1.Name NOT IN (SELECT T3.Name FROM country AS T3 JOIN countrylanguage AS T4 ON T3.Code  =  T4.CountryCode WHERE T4.IsOfficial  =  'T' AND T4.Language  =  'English')",
+        "utterances": [
+            "List all European cities where English is not an official language.",
+            "Find cities in Europe that belong to countries where English isn't an official language.",
+            "List all European cities in countries where English is not an official language.",
+            "What are the names of cities in Europe for which English is not the official language?"
+        ],
+        "idx": "sparc-102"
+    },
+    {
+        "query": "SELECT DISTINCT T3.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode JOIN city AS T3 ON T1.Code  =  T3.CountryCode WHERE T2.IsOfficial  =  'T' AND T2.Language  =  'Chinese' AND T1.Continent  =  \"Asia\"",
+        "utterances": [
+            "List the cities in Asia where Chinese is an official language.",
+            "Find the names of cities in Asia where Chinese is spoken as the official language.",
+            "Find the names of cities in Asian countries where Chinese is the official language.",
+            "Return the different names of cities that are in Asia and for which Chinese is the official language."
+        ],
+        "idx": "sparc-103"
+    },
+    {
+        "query": "SELECT Name ,  SurfaceArea ,  IndepYear FROM country ORDER BY Population LIMIT 1",
+        "utterances": [
+            "Show me the country with the lowest population along with its surface area and year of independence.",
+            "Which country has the least populated, and what are its name, surface area, and year of independence?",
+            "Which country has the smallest population, and what are its name, surface area, and year of independence?",
+            "Give the name, year of independence, and surface area of the country that has the lowest population."
+        ],
+        "idx": "sparc-104"
+    },
+    {
+        "query": "SELECT Name ,  population ,  HeadOfState FROM country ORDER BY SurfaceArea DESC LIMIT 1",
+        "utterances": [
+            "Which country has the largest surface area, and what is its population and head of state?",
+            "Which country has the largest surface area, and what are its population and head of state?",
+            "Can you provide the name, population, and head of state of the country with the biggest surface area?",
+            "Give the name, population, and head of state for the country that has the largest area."
+        ],
+        "idx": "sparc-105"
+    },
+    {
+        "query": "SELECT COUNT(T2.Language) ,  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Name HAVING COUNT(*)  >  2",
+        "utterances": [
+            "Can you give me the names of countries where more than two languages are spoken and the number of languages spoken in these countries?",
+            "List countries that have more than two languages spoken, along with the count of languages spoken.",
+            "Can you give me the names of countries where more than two languages are spoken and the count of languages spoken there?",
+            "What are the names of countries that speak more than 2 languages, as well as how many languages they speak?"
+        ],
+        "idx": "sparc-106"
+    },
+    {
+        "query": "SELECT count(*) ,  District FROM city WHERE Population  >  (SELECT avg(Population) FROM city) GROUP BY District",
+        "utterances": [
+            "How many cities are there in each district where the population is above the average population of all cities?",
+            "Show the number of cities per district that have populations greater than the average population of all cities.",
+            "Show the number of cities per district that have populations greater than the overall city average.",
+            "How many cities in each district have a population that is above the average population across all cities?"
+        ],
+        "idx": "sparc-107"
+    },
+    {
+        "query": "SELECT sum(Population) ,  GovernmentForm FROM country GROUP BY GovernmentForm HAVING avg(LifeExpectancy)  >  72",
+        "utterances": [
+            "What is the total population for each government form where the average life expectancy is more than 72?",
+            "Show me the sum of populations and their government form for countries with an average life expectancy greater than 72.",
+            "What is the total population of countries grouped by their government form where the average life expectancy is more than 72?",
+            "What are the different government forms and what is the total population of each for government forms that have an average life expectancy greater than 72?"
+        ],
+        "idx": "sparc-108"
+    },
+    {
+        "query": "SELECT sum(Population) ,  avg(LifeExpectancy) ,  Continent FROM country GROUP BY Continent HAVING avg(LifeExpectancy)  <  72",
+        "utterances": [
+            "Can you provide the sum of the population and the average life expectancy for continents with an average life expectancy of less than 72?",
+            "Can you provide the sum of the population and the average life expectancy for each continent with an average life expectancy of less than 72?",
+            "List the total population and average life expectancy for continents whose average life expectancy is under 72 years.",
+            "What are the different continents and the total popuation and average life expectancy corresponding to each, for continents that have an average life expectancy less than 72?"
+        ],
+        "idx": "sparc-109"
+    },
+    {
+        "query": "SELECT Name ,  SurfaceArea FROM country ORDER BY SurfaceArea DESC LIMIT 5",
+        "utterances": [
+            "Show me the five countries with the largest surface areas.",
+            "Show me the five countries with the biggest surface areas.",
+            "What are the names and surface areas of the five largest countries?",
+            "Return the names and surface areas of the 5 largest countries."
+        ],
+        "idx": "sparc-110"
+    },
+    {
+        "query": "SELECT Name FROM country ORDER BY Population DESC LIMIT 3",
+        "utterances": [
+            "Show me the names of the three most populated countries.",
+            "Which are the names of the top three countries with the highest population?",
+            "Which are the top three countries with the highest population?",
+            "Return the names of the 3 most populated countries."
+        ],
+        "idx": "sparc-111"
+    },
+    {
+        "query": "SELECT Name FROM country ORDER BY Population ASC LIMIT 3",
+        "utterances": [
+            "Find the names of the three countries with the lowest populations.",
+            "What are the names of the three least populated countries?",
+            "Can you list the three countries with the smallest populations?",
+            "Return the names of the 3 countries with the fewest people."
+        ],
+        "idx": "sparc-112"
+    },
+    {
+        "query": "SELECT count(*) FROM country WHERE continent  =  \"Asia\"",
+        "utterances": [
+            "How many countries are in Asia?",
+            "What is the total number of countries within the continent of Asia?",
+            "What is the total number of countries in Asia?",
+            "Count the number of countries in Asia."
+        ],
+        "idx": "sparc-113"
+    },
+    {
+        "query": "SELECT Name FROM country WHERE  continent  =  \"Europe\" AND Population  =  \"80000\"",
+        "utterances": [
+            "List the names of countries in Europe with a population of exactly 80,000.",
+            "Show me the countries in Europe with a population of exactly 80,000.",
+            "List the names of countries in Europe with a population of 80,000.",
+            "Give the names of countries that are in Europe and have a population equal to 80000."
+        ],
+        "idx": "sparc-114"
+    },
+    {
+        "query": "SELECT sum(Population) ,  avg(SurfaceArea) FROM country WHERE Continent  =  \"North America\" AND SurfaceArea  >  3000",
+        "utterances": [
+            "Show me the sum of the population and the average surface area of North American countries that have an area larger than 3000.",
+            "Show me the population sum and average surface area of North American countries with an area larger than 3000.",
+            "What is the total population and the average surface area of countries in North America with a surface area greater than 3000?",
+            "Give the total population and average surface area corresponding to countries in Noth America that have a surface area greater than 3000."
+        ],
+        "idx": "sparc-115"
+    },
+    {
+        "query": "SELECT name FROM city WHERE Population BETWEEN 160000 AND 90000",
+        "utterances": [
+            "Can you provide the names of cities where the population ranges between 160,000 and 90,000?",
+            "Can you provide the names of cities where the population currently ranges between 160,000 and 90,000?",
+            "List the names of cities with a population between 160,000 and 90,000."
+        ],
+        "idx": "sparc-116"
+    },
+    {
+        "query": "SELECT LANGUAGE FROM countrylanguage GROUP BY LANGUAGE ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "What is the most commonly spoken language across all countries?",
+            "Show me the language that is spoken in the highest number of countries.",
+            "Which language is the most prevalent across different countries?",
+            "Give the language that is spoken in the most countries."
+        ],
+        "idx": "sparc-117"
+    },
+    {
+        "query": "SELECT Title FROM Cartoon WHERE Directed_by = \"Ben Jones\" OR Directed_by = \"Brandon Vietti\";",
+        "utterances": [
+            "Give me the titles of cartoons that were directed by Ben Jones or Brandon Vietti.",
+            "Give me the list of cartoon titles that were directed by Ben Jones or Brandon Vietti.",
+            "Can you list the titles of cartoons directed by Ben Jones or Brandon Vietti?",
+            "List the title of all cartoon directed by \"Ben Jones\" or \"Brandon Vietti\"."
+        ],
+        "idx": "sparc-118"
+    },
+    {
+        "query": "SELECT Country ,  count(*) FROM TV_Channel GROUP BY Country ORDER BY count(*) DESC LIMIT 1;",
+        "utterances": [
+            "Find the country that has the most TV channels.",
+            "Which country has the most TV channels?",
+            "Find the country that has the largest number of TV channels.",
+            "Which country has the most of TV Channels? List the country and number of TV Channels it has."
+        ],
+        "idx": "sparc-119"
+    },
+    {
+        "query": "SELECT count(DISTINCT series_name) ,  count(DISTINCT content) FROM TV_Channel;",
+        "utterances": [
+            "Find the number of series names and content entries in the TV Channel.",
+            "Find the number of distinct series names and unique content entries in the TV Channel.",
+            "Can you provide the count of unique series and distinct content in the TV Channel?",
+            "List the number of different series names and contents in the TV Channel table."
+        ],
+        "idx": "sparc-120"
+    },
+    {
+        "query": "SELECT LANGUAGE ,  count(*) FROM TV_Channel GROUP BY LANGUAGE ORDER BY count(*) ASC LIMIT 1;",
+        "utterances": [
+            "What is the language with the fewest TV channels?",
+            "Which language is represented by the fewest number of TV channels?",
+            "Show me the language with the smallest number of TV channels.",
+            "List the language used least number of TV Channel. List language and number of TV Channel."
+        ],
+        "idx": "sparc-121"
+    },
+    {
+        "query": "SELECT T1.series_name FROM TV_Channel AS T1 JOIN Cartoon AS T2 ON T1.id = T2.Channel WHERE T2.Title = \"The Rise of the Blue Beetle!\";",
+        "utterances": [
+            "What is the series name of the TV channel showing 'The Rise of the Blue Beetle!'?",
+            "What is the name of the TV channel that airs 'The Rise of the Blue Beetle!'?",
+            "Which TV channel airs the cartoon titled 'The Rise of the Blue Beetle!'?",
+            "What is the TV Channel that shows the cartoon \"The Rise of the Blue Beetle!\"? List the TV Channel's series name."
+        ],
+        "idx": "sparc-122"
+    },
+    {
+        "query": "SELECT T2.Title FROM TV_Channel AS T1 JOIN Cartoon AS T2 ON T1.id = T2.Channel WHERE T1.series_name = \"Sky Radio\";",
+        "utterances": [
+            "What are the titles of cartoons aired on the TV channel called Sky Radio?",
+            "Can you list the cartoon titles broadcasted on the Sky Radio channel?",
+            "Can you list the cartoon titles aired on the Sky Radio channel?",
+            "List the title of all Cartoons showed on TV Channel with series name \"Sky Radio\"."
+        ],
+        "idx": "sparc-123"
+    },
+    {
+        "query": "SELECT Episode ,  Rating FROM TV_series ORDER BY Rating DESC LIMIT 3;",
+        "utterances": [
+            "Find the three best-rated episodes from the TV series.",
+            "What are the top three highest-rated episodes in the TV series?",
+            "Can you show me the three episodes with the highest ratings in the TV series?",
+            "List top 3 highest Rating TV series. List the TV series's Episode and Rating."
+        ],
+        "idx": "sparc-124"
+    },
+    {
+        "query": "SELECT max(SHARE) , min(SHARE) FROM TV_series;",
+        "utterances": [
+            "Can you provide the TV series with the maximum and minimum share values?",
+            "Find the maximum and minimum shares of all TV series.",
+            "Can you provide the highest and lowest share values among TV series?",
+            "What is minimum and maximum share of TV series?"
+        ],
+        "idx": "sparc-125"
+    },
+    {
+        "query": "SELECT T1.series_name FROM TV_Channel AS T1 JOIN TV_series AS T2 ON T1.id = T2.Channel WHERE T2.Episode = \"A Love of a Lifetime\";",
+        "utterances": [
+            "Find the TV channel that features the episode named 'A Love of a Lifetime'.",
+            "Show me the TV channel that airs the episode called 'A Love of a Lifetime'.",
+            "Show me the TV channel that broadcasted the episode called 'A Love of a Lifetime'.",
+            "What is the TV Channel of TV series with Episode \"A Love of a Lifetime\"? List the TV Channel's series name."
+        ],
+        "idx": "sparc-126"
+    },
+    {
+        "query": "SELECT T2.Episode FROM TV_Channel AS T1 JOIN TV_series AS T2 ON T1.id = T2.Channel WHERE T1.series_name = \"Sky Radio\";",
+        "utterances": [
+            "Which episodes are available for the series named 'Sky Radio'?",
+            "Can you list all episodes of the TV series 'Sky Radio'?",
+            "Show me the episodes from the TV series called 'Sky Radio'.",
+            "List the Episode of all TV series showed on TV Channel with series name \"Sky Radio\"."
+        ],
+        "idx": "sparc-127"
+    },
+    {
+        "query": "SELECT production_code ,  channel FROM cartoon ORDER BY original_air_date LIMIT 1",
+        "utterances": [
+            "Which cartoon has the earliest original air date and what is its production code and channel?",
+            "Can you provide the production code and channel of the cartoon that aired first?",
+            "Which cartoon originally aired first, and what are its production code and channel?"
+        ],
+        "idx": "sparc-128"
+    },
+    {
+        "query": "SELECT T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.Written_by  =  'Todd Casey'",
+        "utterances": [
+            "Show me the countries where TV channels feature cartoons written by Todd Casey.",
+            "List the countries with TV channels that show cartoons by Todd Casey.",
+            "Which countries have TV channels that air cartoons written by Todd Casey?",
+            "which countries' tv channels are playing some cartoon written by Todd Casey?"
+        ],
+        "idx": "sparc-129"
+    },
+    {
+        "query": "SELECT country FROM TV_Channel EXCEPT SELECT T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.written_by  =  'Todd Casey'",
+        "utterances": [
+            "Show me the countries that have TV channels which do not air cartoons written by Todd Casey.",
+            "Show me the countries that have TV channels which do not broadcast cartoons written by Todd Casey.",
+            "Find the countries with TV channels that are not associated with any cartoons written by Todd Casey.",
+            "which countries' tv channels are not playing any cartoon written by Todd Casey?"
+        ],
+        "idx": "sparc-130"
+    },
+    {
+        "query": "SELECT T1.series_name ,  T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.directed_by  =  'Michael Chang' INTERSECT SELECT T1.series_name ,  T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.directed_by  =  'Ben Jones'",
+        "utterances": [
+            "Find the TV series names and the countries they originate from for shows directed by both Michael Chang and Ben Jones.",
+            "Find the TV series names and their countries for shows directed by both Michael Chang and Ben Jones.",
+            "Can you list the TV series along with their countries that were directed by both Michael Chang and Ben Jones?",
+            "Find the series name and country of the tv channel that is playing some cartoons directed by Ben Jones and Michael Chang?"
+        ],
+        "idx": "sparc-131"
+    },
+    {
+        "query": "SELECT id FROM tv_channel GROUP BY country HAVING count(*)  >  2",
+        "utterances": [
+            "Which TV channel IDs come from countries with more than two channels?",
+            "Which TV channel IDs are in countries with more than two channels?",
+            "Can you list the IDs of TV channels from countries that have more than two channels?",
+            "find id of the tv channels that from the countries where have more than two tv channels."
+        ],
+        "idx": "sparc-132"
+    },
+    {
+        "query": "SELECT id FROM TV_Channel EXCEPT SELECT channel FROM cartoon WHERE directed_by  =  'Ben Jones'",
+        "utterances": [
+            "List the TV Channel IDs that exclude cartoons directed by Ben Jones.",
+            "Which TV Channels do not include any cartoons directed by Ben Jones?",
+            "Show me the TV Channels that do not have cartoons directed by Ben Jones.",
+            "find the id of tv channels that do not play any cartoon directed by Ben Jones."
+        ],
+        "idx": "sparc-133"
+    },
+    {
+        "query": "SELECT count(*) FROM poker_player",
+        "utterances": [
+            "How many poker players are there?",
+            "Tell me the total number of poker players?",
+            "What is the total number of poker players?",
+            "How many poker players are there?"
+        ],
+        "idx": "sparc-134"
+    },
+    {
+        "query": "SELECT Earnings FROM poker_player ORDER BY Earnings DESC",
+        "utterances": [
+            "What are the poker players' earnings sorted in decreasing order?",
+            "Show me the poker players' earnings sorted from highest to lowest.",
+            "Show me the earnings of poker players sorted from highest to lowest.",
+            "List the earnings of poker players in descending order."
+        ],
+        "idx": "sparc-135"
+    },
+    {
+        "query": "SELECT revised_Table_Made ,  Best_Finish FROM poker_player",
+        "utterances": [
+            "Can you provide the list of poker players with their revised table appearances and best finishes?",
+            "Can you provide the list of poker players with their number of revised table appearances and best finishes?",
+            "What are the revised table appearances and best finishes for poker players?",
+            "List the revised tables made and the best finishes of poker players."
+        ],
+        "idx": "sparc-136"
+    },
+    {
+        "query": "SELECT avg(Earnings) FROM poker_player",
+        "utterances": [
+            "What is the average earnings of poker players?",
+            "Can you tell me the average earnings for a poker player?",
+            "What is the average earnings for a poker player?",
+            "What is the average earnings of poker players?"
+        ],
+        "idx": "sparc-137"
+    },
+    {
+        "query": "SELECT Money_Rank FROM poker_player ORDER BY Earnings DESC LIMIT 1",
+        "utterances": [
+            "Can you tell me the money rank of the poker player with the highest earnings?",
+            "Find the money rank of the poker player with the highest earnings.",
+            "Find the money rank of the poker player who has the most earnings.",
+            "What is the money rank of the poker player with the highest earnings?"
+        ],
+        "idx": "sparc-138"
+    },
+    {
+        "query": "SELECT max(revised_Table_Made) FROM poker_player WHERE Earnings  <  200000",
+        "utterances": [
+            "Find out the maximum number of revised tables a poker player has made with earnings under $200,000.",
+            "What is the highest number of revised tables made by a poker player whose earnings are less than $200,000?",
+            "Can you find the poker player with the maximum revised tables made who earned less than $200,000?",
+            "What is the maximum number of revised tables made among poker players with earnings less than 200000?"
+        ],
+        "idx": "sparc-139"
+    },
+    {
+        "query": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID",
+        "utterances": [
+            "Show me the names of people who are poker players.",
+            "Who amongst the people are listed as poker players?",
+            "Who amongst the people are poker players?",
+            "What are the names of poker players?"
+        ],
+        "idx": "sparc-140"
+    },
+    {
+        "query": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID WHERE T2.Earnings  >  300000",
+        "utterances": [
+            "Show me the names of people with poker earnings over 300,000.",
+            "Can you list the names of people whose poker earnings exceed 300,000?",
+            "Can you provide the names of people whose earnings in poker exceed 300,000?",
+            "What are the names of poker players whose earnings is higher than 300000?"
+        ],
+        "idx": "sparc-141"
+    },
+    {
+        "query": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.revised_Table_Made",
+        "utterances": [
+            "Show me the names of poker players, sorted by the number of revised tables they have made.",
+            "Find and list the names of individuals who have reached the revised table in poker, sorted by their revised table appearances.",
+            "Show me the names of poker players, ordered by the number of revised tables they have made.",
+            "List the names of poker players ordered by the revised tables made in ascending order."
+        ],
+        "idx": "sparc-142"
+    },
+    {
+        "query": "SELECT T1.Birth_Date FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Earnings ASC LIMIT 1",
+        "utterances": [
+            "What is the birth date of the poker player with the lowest earnings?",
+            "Show me the birthdate of the least earning poker player.",
+            "Find the date of birth for the poker player who has earned the least.",
+            "What is the birth date of the poker player with the lowest earnings?"
+        ],
+        "idx": "sparc-143"
+    },
+    {
+        "query": "SELECT T2.Money_Rank FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Height DESC LIMIT 1",
+        "utterances": [
+            "What is the money rank of the tallest poker player?",
+            "Show me the money rank for the poker player who is the tallest.",
+            "Find the money rank of the poker player with the greatest height.",
+            "What is the money rank of the tallest poker player?"
+        ],
+        "idx": "sparc-144"
+    },
+    {
+        "query": "SELECT avg(T2.Earnings) FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID WHERE T1.Height  >  200",
+        "utterances": [
+            "What is the average earnings of poker players who are taller than 200 cm?",
+            "Can you find the mean earnings for poker players whose height exceeds 200 cm?",
+            "Can you find the average earnings for poker players whose height exceeds 200 cm?",
+            "What is the average earnings of poker players with height higher than 200?"
+        ],
+        "idx": "sparc-145"
+    },
+    {
+        "query": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Earnings DESC",
+        "utterances": [
+            "Show me the names of poker players ordered by their earnings from highest to lowest.",
+            "Show me the names of poker players sorted by their earnings in descending order.",
+            "Can you list the names of poker players from the highest earners to the lowest?",
+            "What are the names of poker players in descending order of earnings?"
+        ],
+        "idx": "sparc-146"
+    },
+    {
+        "query": "SELECT Nationality ,  COUNT(*) FROM people GROUP BY Nationality",
+        "utterances": [
+            "Can you provide the number of individuals for each nationality?",
+            "Can you provide the number of people for each nationality?",
+            "How many people are there from each nationality?",
+            "What are different nationalities of people and the corresponding number of people from each nation?"
+        ],
+        "idx": "sparc-147"
+    },
+    {
+        "query": "SELECT Nationality FROM people GROUP BY Nationality ORDER BY COUNT(*) DESC LIMIT 1",
+        "utterances": [
+            "Can you tell me the most common nationality among all people?",
+            "Which nationality has the highest number of people?",
+            "Which nationality has the highest number of people recorded?",
+            "What is the most common nationality of people?"
+        ],
+        "idx": "sparc-148"
+    },
+    {
+        "query": "SELECT Nationality FROM people GROUP BY Nationality HAVING COUNT(*)  >=  2",
+        "utterances": [
+            "Which nationalities are represented by two or more individuals?",
+            "Show the nationalities that have at least two members.",
+            "Can you list the nationalities that have at least two people?",
+            "What are the nationalities that are shared by at least two people?"
+        ],
+        "idx": "sparc-149"
+    },
+    {
+        "query": "SELECT Name ,  Birth_Date FROM people ORDER BY Name ASC",
+        "utterances": [
+            "Get the names and birth dates of all individuals sorted by name.",
+            "Get the names and birth dates of all individuals sorted by name in ascending order.",
+            "Show me the names and birth dates of everyone sorted by name in ascending order.",
+            "List the names and birth dates of people in ascending alphabetical order of name."
+        ],
+        "idx": "sparc-150"
+    },
+    {
+        "query": "SELECT Name FROM people WHERE Nationality != \"Russia\"",
+        "utterances": [
+            "Show me the names of individuals whose nationality is not Russian.",
+            "Which people have a nationality other than Russian?",
+            "Can you list the names of people who are not from Russia?",
+            "Show names of people whose nationality is not \"Russia\"."
+        ],
+        "idx": "sparc-151"
+    },
+    {
+        "query": "SELECT Name FROM people WHERE People_ID NOT IN (SELECT People_ID FROM poker_player)",
+        "utterances": [
+            "Which people are not poker players?",
+            "Show me the names of people who are not poker players.",
+            "Can you list the people who are not involved in poker?",
+            "List the names of people that are not poker players."
+        ],
+        "idx": "sparc-152"
+    },
+    {
+        "query": "SELECT max(killed) ,  min(killed) FROM death",
+        "utterances": [
+            "Show me the highest and lowest number of deaths recorded.",
+            "What is the maximum and minimum number of people killed from the death records?",
+            "Show me the record with the most and the least number of deaths.",
+            "What is maximum and minimum death toll caused each time?"
+        ],
+        "idx": "sparc-153"
+    },
+    {
+        "query": "SELECT T1.killed ,  T1.injured FROM death AS T1 JOIN ship AS T2 ON T1.caused_by_ship_id  =  T2.id WHERE T2.tonnage  =  't'",
+        "utterances": [
+            "Show me the number of people killed and injured by a ship with a tonnage of 't'.",
+            "Show the number of people killed and injured by a ship with a tonnage of 't'.",
+            "Can you provide details of deaths and injuries caused by ships with a tonnage of 't'?",
+            "What are the death and injury situations caused by the ship with tonnage 't'?"
+        ],
+        "idx": "sparc-154"
+    },
+    {
+        "query": "SELECT DISTINCT T1.id ,  T1.name FROM battle AS T1 JOIN ship AS T2 ON T1.id  =  T2.lost_in_battle WHERE T2.ship_type  =  'Brig'",
+        "utterances": [
+            "Which battles involved the loss of Brig-class ships?",
+            "Show me the battles that had losses of ships classified as Brig.",
+            "Which distinct battles involved the loss of Brig-class ships?",
+            "What are the different ids and names of the battles that lost any 'Brig' type ships?"
+        ],
+        "idx": "sparc-155"
+    },
+    {
+        "query": "SELECT T1.id ,  T1.name FROM battle AS T1 JOIN ship AS T2 ON T1.id  =  T2.lost_in_battle JOIN death AS T3 ON T2.id  =  T3.caused_by_ship_id GROUP BY T1.id HAVING sum(T3.killed)  >  10",
+        "utterances": [
+            "Show battles where the total number of deaths exceeds 10, including the battle names and IDs.",
+            "Which battles resulted in a total of more than 10 deaths, and what are their names and IDs?",
+            "Show battles where the total number of deaths caused by ships exceeds 10, including the battle names and IDs.",
+            "What are the ids and names of the battles that led to more than 10 people killed in total."
+        ],
+        "idx": "sparc-156"
+    },
+    {
+        "query": "SELECT T2.id ,  T2.name FROM death AS T1 JOIN ship AS t2 ON T1.caused_by_ship_id  =  T2.id GROUP BY T2.id ORDER BY sum(T1.injured) DESC LIMIT 1",
+        "utterances": [
+            "Identify the ship with the most injuries associated with it.",
+            "Which ship caused the highest number of injuries?",
+            "Identify the ship with the most recorded injuries associated with it.",
+            "What is the ship id and name that caused most total injuries?"
+        ],
+        "idx": "sparc-157"
+    },
+    {
+        "query": "SELECT name FROM battle WHERE bulgarian_commander  =  'Kaloyan' AND latin_commander  =  'Baldwin I'",
+        "utterances": [
+            "Find the battle names where the Bulgarian commander was Kaloyan and the Latin commander was Baldwin I.",
+            "What are the names of battles where Kaloyan was the Bulgarian commander and Baldwin I was the Latin commander?",
+            "Can you list the names of battles commanded by Kaloyan for Bulgaria and Baldwin I for the Latin Empire?",
+            "What are the distinct battle names which are between bulgarian commander 'Kaloyan' and latin commander 'Baldwin I'?"
+        ],
+        "idx": "sparc-158"
+    },
+    {
+        "query": "SELECT count(*) FROM battle WHERE id NOT IN ( SELECT lost_in_battle FROM ship WHERE tonnage  =  '225' );",
+        "utterances": [
+            "How many battles are there where no 225-ton ships were lost?",
+            "How many battles are there where no ships weighing 225 tons were lost?",
+            "Count the number of battles that did not have any ships with a tonnage of 225 lost.",
+            "How many battles did not lose any ship with tonnage '225'?"
+        ],
+        "idx": "sparc-159"
+    },
+    {
+        "query": "SELECT T1.name ,  T1.date FROM battle AS T1 JOIN ship AS T2 ON T1.id  =  T2.lost_in_battle WHERE T2.name  =  'Lettice' INTERSECT SELECT T1.name ,  T1.date FROM battle AS T1 JOIN ship AS T2 ON T1.id  =  T2.lost_in_battle WHERE T2.name  =  'HMS Atalanta'",
+        "utterances": [
+            "Find the battles where both 'Lettice' and 'HMS Atalanta' were lost.",
+            "Find the battles where both ships named 'Lettice' and 'HMS Atalanta' were lost.",
+            "Show me the dates and names of battles in which both 'Lettice' and 'HMS Atalanta' were involved and lost.",
+            "List the name and date of the battle that has lost the ship named 'Lettice' and the ship named 'HMS Atalanta'"
+        ],
+        "idx": "sparc-160"
+    },
+    {
+        "query": "SELECT name ,  RESULT ,  bulgarian_commander FROM battle EXCEPT SELECT T1.name ,  T1.result ,  T1.bulgarian_commander FROM battle AS T1 JOIN ship AS T2 ON T1.id  =  T2.lost_in_battle WHERE T2.location  =  'English Channel'",
+        "utterances": [
+            "Show the names, results, and Bulgarian commanders of battles, excluding those involving ships lost in the English Channel.",
+            "Show the names, outcomes, and Bulgarian commanders of battles, excluding those associated with ships lost in the English Channel.",
+            "List the battle names, results, and Bulgarian commanders of battles that didn't take place in the English Channel.",
+            "Show names, results and bulgarian commanders of the battles with no ships lost in the 'English Channel'."
+        ],
+        "idx": "sparc-161"
+    },
+    {
+        "query": "SELECT T1.ContId ,  T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.Continent GROUP BY T1.ContId;",
+        "utterances": [
+            "Provide the ID, continent name, and number of countries for each continent.",
+            "List the ContId, name, and number of countries for each continent.",
+            "Provide the ContId, continent name, and a country count for each continent.",
+            "How many countries does each continent have? List the continent id, continent name and the number of countries."
+        ],
+        "idx": "sparc-162"
+    },
+    {
+        "query": "SELECT T1.FullName ,  T1.Id ,  count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id;",
+        "utterances": [
+            "Provide the ID, name, and the number of models for each car maker.",
+            "Provide the number of models, ID, and full name for each car maker.",
+            "Show me the full names and IDs of car makers along with a count of how many models each one has.",
+            "How many models does each car maker produce? List maker full name, id and the number."
+        ],
+        "idx": "sparc-163"
+    },
+    {
+        "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.horsepower ASC LIMIT 1;",
+        "utterances": [
+            "Show me the car model that comes with the minimum horsepower.",
+            "Show me the car model that has the lowest horsepower.",
+            "What is the car model with the lowest horsepower?",
+            "Which model of the car has the minimum horsepower?"
+        ],
+        "idx": "sparc-164"
+    },
+    {
+        "query": "SELECT T1.model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Weight  <  (SELECT avg(Weight) FROM CARS_DATA)",
+        "utterances": [
+            "Which car models have a weight below the average?",
+            "Which car models are lighter than the average weight?",
+            "Show me the car models where the weight is below the average weight.",
+            "Find the model of the car whose weight is below the average weight."
+        ],
+        "idx": "sparc-165"
+    },
+    {
+        "query": "SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model JOIN CARS_DATA AS T4 ON T3.MakeId  =  T4.id WHERE T4.year  =  '1970';",
+        "utterances": [
+            "Which car makers produced models in the year 1970?",
+            "Which car makers released models in the year 1970?",
+            "List all distinct car manufacturers that had models released in 1970.",
+            "Find the name of the makers that produced some cars in the year of 1970?"
+        ],
+        "idx": "sparc-166"
+    },
+    {
+        "query": "SELECT T2.Make ,  T1.Year FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Year  =  (SELECT min(YEAR) FROM CARS_DATA);",
+        "utterances": [
+            "Can you provide the make and the year of the car with the earliest manufacturing year?",
+            "Can you provide the make and year of the car that has the oldest manufacturing year?",
+            "Show the car make and the year for the car with the earliest manufacturing year in the records.",
+            "Find the make and production time of the cars that were produced in the earliest year?"
+        ],
+        "idx": "sparc-167"
+    },
+    {
+        "query": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.model  =  T2.model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.id WHERE T3.year  >  1980;",
+        "utterances": [
+            "What are the unique car models available for cars made after 1980?",
+            "Show me a list of distinct car models that were manufactured after 1980.",
+            "Can you find all distinct car models where the cars are newer than 1980?",
+            "Which distinct car models are the produced after 1980?"
+        ],
+        "idx": "sparc-168"
+    },
+    {
+        "query": "SELECT T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.continent JOIN car_makers AS T3 ON T2.CountryId  =  T3.Country GROUP BY T1.Continent;",
+        "utterances": [
+            "Show me the number of car makers in different continents.",
+            "Show me the number of car makers in each continent.",
+            "How many car makers exist in each continent?",
+            "How many car makers are there in each continents? List the continent name and the count."
+        ],
+        "idx": "sparc-169"
+    },
+    {
+        "query": "SELECT T2.CountryName FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId GROUP BY T1.Country ORDER BY Count(*) DESC LIMIT 1;",
+        "utterances": [
+            "Identify the country with the most car manufacturers.",
+            "Name the country with the most car manufacturers.",
+            "Which country has the most car makers?",
+            "Which of the countries has the most car makers? List the country name."
+        ],
+        "idx": "sparc-170"
+    },
+    {
+        "query": "SELECT Count(*) ,  T2.FullName FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id GROUP BY T2.id;",
+        "utterances": [
+            "Show me the number of models each car manufacturer has, along with the manufacturer names.",
+            "Show me the number of models each car manufacturer has, including the manufacturer names.",
+            "How many models does each car maker have?",
+            "How many car models are produced by each maker? List the count and the maker full name."
+        ],
+        "idx": "sparc-171"
+    },
+    {
+        "query": "SELECT T1.Accelerate FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Make  =  'amc hornet sportabout (sw)';",
+        "utterances": [
+            "Find the acceleration rate for the AMC Hornet Sportabout (SW).",
+            "Find the acceleration performance for the AMC Hornet Sportabout (SW).",
+            "What is the acceleration rate for the AMC Hornet Sportabout (SW)?",
+            "What is the accelerate of the car make amc hornet sportabout (sw)?"
+        ],
+        "idx": "sparc-172"
+    },
+    {
+        "query": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId WHERE T2.CountryName  =  'france';",
+        "utterances": [
+            "How many car manufacturers are there in France?",
+            "What is the total number of car makers located in France?",
+            "What is the total number of car makers in France?",
+            "How many car makers are there in france?"
+        ],
+        "idx": "sparc-173"
+    },
+    {
+        "query": "SELECT count(*) FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id JOIN COUNTRIES AS T3 ON T2.Country  =  T3.CountryId WHERE T3.CountryName  =  'usa';",
+        "utterances": [
+            "Find the total number of car models made by car manufacturers in the USA.",
+            "Find the total number of car models made by US car manufacturers.",
+            "Can you count the number of car models from manufacturers based in the USA?",
+            "How many car models are produced in the usa?"
+        ],
+        "idx": "sparc-174"
+    },
+    {
+        "query": "SELECT Weight FROM CARS_DATA WHERE Cylinders  =  8 AND YEAR  =  1974 ORDER BY Weight ASC LIMIT 1;",
+        "utterances": [
+            "Find the car with the minimum weight from 1974 that has 8 cylinders.",
+            "Show me the least heavy car from 1974 that has 8 cylinders.",
+            "Show me the lightest car from 1974 that has 8 cylinders.",
+            "What is the smallest weight of the car produced with 8 cylinders in 1974?"
+        ],
+        "idx": "sparc-175"
+    },
+    {
+        "query": "SELECT T1.CountryName ,  T1.CountryId FROM COUNTRIES AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >=  1;",
+        "utterances": [
+            "Can you show me the names and IDs of countries with car makers?",
+            "Can you show me the names and IDs of countries that have car makers?",
+            "List the countries that have one or more car manufacturers.",
+            "What are the countries having at least one car maker? List name and id."
+        ],
+        "idx": "sparc-176"
+    },
+    {
+        "query": "SELECT T1.CountryName FROM COUNTRIES AS T1 JOIN CONTINENTS AS T2 ON T1.Continent  =  T2.ContId JOIN CAR_MAKERS AS T3 ON T1.CountryId  =  T3.Country WHERE T2.Continent  =  'europe' GROUP BY T1.CountryName HAVING count(*)  >=  3;",
+        "utterances": [
+            "Which countries in Europe have at least three car makers?",
+            "List the European countries that have three or more car manufacturers.",
+            "Which countries in Europe have at least three car manufacturers?",
+            "Which countries in europe have at least 3 car manufacturers?"
+        ],
+        "idx": "sparc-177"
+    },
+    {
+        "query": "SELECT T2.horsepower ,  T1.Make FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.cylinders  =  3 ORDER BY T2.horsepower DESC LIMIT 1;",
+        "utterances": [
+            "Show the car make and its highest horsepower for a 3-cylinder car.",
+            "Which car make has the highest horsepower among those with 3 cylinders?",
+            "Find the car make and horsepower for the top horsepower 3-cylinder car.",
+            "What is the maximum horsepower and the make of the car models with 3 cylinders?"
+        ],
+        "idx": "sparc-178"
+    },
+    {
+        "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.mpg DESC LIMIT 1;",
+        "utterances": [
+            "Show me the car model with the highest fuel efficiency.",
+            "Show me the car model with the best fuel efficiency.",
+            "What is the car model with the best fuel economy?",
+            "Which model saves the most gasoline? That is to say, have the maximum miles per gallon."
+        ],
+        "idx": "sparc-179"
+    },
+    {
+        "query": "SELECT avg(T2.edispl) FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T1.Model  =  'volvo';",
+        "utterances": [
+            "Find the average displacement of engines in Volvo vehicles.",
+            "What is the average engine displacement for Volvo cars?",
+            "Can you tell me the average engine size of Volvo models?",
+            "What is the average edispl of the cars of model volvo?"
+        ],
+        "idx": "sparc-180"
+    },
+    {
+        "query": "SELECT Model FROM CAR_NAMES GROUP BY Model ORDER BY count(*) DESC LIMIT 1;",
+        "utterances": [
+            "Identify the most listed car model.",
+            "What is the most common car model?",
+            "Which car model is listed most frequently?",
+            "Which model has the most version(make) of cars?"
+        ],
+        "idx": "sparc-181"
+    },
+    {
+        "query": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker WHERE T1.FullName  =  'American Motor Company';",
+        "utterances": [
+            "Find the total number of car models made by the American Motor Company.",
+            "Find the total number of car models from the American Motor Company.",
+            "Can you find the total number of car models produced by the American Motor Company?",
+            "How many car models were produced by the maker with full name American Motor Company?"
+        ],
+        "idx": "sparc-182"
+    },
+    {
+        "query": "SELECT T1.FullName ,  T1.Id FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >  3;",
+        "utterances": [
+            "Can you show me the car makers with over three models?",
+            "List the car manufacturers who have more than three models.",
+            "List the car manufacturers who have more than three different models in their lineup.",
+            "Which makers designed more than 3 car models? List full name and the id."
+        ],
+        "idx": "sparc-183"
+    },
+    {
+        "query": "SELECT DISTINCT T2.Model FROM CAR_NAMES AS T1 JOIN MODEL_LIST AS T2 ON T1.Model  =  T2.Model JOIN CAR_MAKERS AS T3 ON T2.Maker  =  T3.Id JOIN CARS_DATA AS T4 ON T1.MakeId  =  T4.Id WHERE T3.FullName  =  'General Motors' OR T4.weight  >  3500;",
+        "utterances": [
+            "List all the unique car models manufactured by General Motors or cars that weigh more than 3500 pounds.",
+            "Could you show me distinct models of cars either made by General Motors or having a weight greater than 3500 pounds?",
+            "Find all unique car models either from General Motors or those with a weight exceeding 3500 pounds.",
+            "Which distinctive models are produced by maker with the full name General Motors or weighing more than 3500?"
+        ],
+        "idx": "sparc-184"
+    },
+    {
+        "query": "SELECT DISTINCT T1.Year FROM CARS_DATA AS T1 WHERE T1.Weight  >  3000 AND T1.weight  <  4000;",
+        "utterances": [
+            "Find the distinct years for cars with weights greater than 3000 pounds but less than 4000 pounds.",
+            "Can you list the unique years in which cars with weights between 3000 and 4000 pounds were manufactured?",
+            "Find the distinct years for cars that have a weight greater than 3000 pounds but less than 4000 pounds.",
+            "In which years cars were produced weighing no less than 3000 and no more than 4000?"
+        ],
+        "idx": "sparc-185"
+    },
+    {
+        "query": "SELECT T1.horsepower FROM CARS_DATA AS T1 ORDER BY T1.accelerate DESC LIMIT 1;",
+        "utterances": [
+            "Show me the horsepower of the car with the top acceleration.",
+            "What car has the highest horsepower according to its acceleration?",
+            "Find the fastest accelerating car and provide its horsepower.",
+            "What is the horsepower of the car with the largest accelerate?"
+        ],
+        "idx": "sparc-186"
+    },
+    {
+        "query": "SELECT T1.cylinders FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Model  =  'volvo' ORDER BY T1.accelerate ASC LIMIT 1;",
+        "utterances": [
+            "Can you find the number of cylinders for the Volvo vehicle with the quickest acceleration?",
+            "Can you find the number of cylinders for the Volvo model with the quickest acceleration?",
+            "What is the number of cylinders in the Volvo car with the fastest acceleration?"
+        ],
+        "idx": "sparc-187"
+    },
+    {
+        "query": "SELECT COUNT(*) FROM CARS_DATA WHERE Accelerate  >  ( SELECT Accelerate FROM CARS_DATA ORDER BY Horsepower DESC LIMIT 1 );",
+        "utterances": [
+            "Can you tell me how many cars have acceleration greater than the car with the top horsepower?",
+            "Can you tell me how many cars have an acceleration rate greater than the car with the top horsepower?",
+            "Count the number of cars that accelerate faster than the car with the highest horsepower.",
+            "How many cars have a larger accelerate than the car with the largest horsepower?"
+        ],
+        "idx": "sparc-188"
+    },
+    {
+        "query": "SELECT COUNT(*) FROM ( SELECT T1.CountryId ,  COUNT(*) FROM COUNTRIES AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >  2 );",
+        "utterances": [
+            "Count the number of countries that have over two car manufacturers.",
+            "Can you tell me how many countries are home to more than two car maker companies?",
+            "Can you tell me how many countries have more than two car maker companies?",
+            "How many countries has more than 2 car makers?"
+        ],
+        "idx": "sparc-189"
+    },
+    {
+        "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Cylinders  =  4 ORDER BY T2.horsepower DESC LIMIT 1;",
+        "utterances": [
+            "Find the car model with four cylinders that has the greatest horsepower.",
+            "Show me the car model that has the highest horsepower among those with four cylinders.",
+            "Show me the car model that has the highest horsepower with four cylinders.",
+            "For the cars with 4 cylinders, which model has the largest horsepower?"
+        ],
+        "idx": "sparc-190"
+    },
+    {
+        "query": "SELECT T2.MakeId ,  T2.Make FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Horsepower  >  (SELECT min(Horsepower) FROM CARS_DATA) AND T1.Cylinders  <=  3;",
+        "utterances": [
+            "Find the make ID and name of cars with more horsepower than the minimum and with three or fewer cylinders.",
+            "Retrieve the make ID and name of cars that exceed the minimum horsepower and have a maximum of three cylinders.",
+            "Show me the make ID and name for cars that have more than the least horsepower and have up to three cylinders.",
+            "Among the cars with more than lowest horsepower, which ones do not have more than 3 cylinders? List the car makeid and make name."
+        ],
+        "idx": "sparc-191"
+    },
+    {
+        "query": "SELECT mpg FROM CARS_DATA WHERE Cylinders  =  8 OR YEAR  <  1980 ORDER BY mpg DESC LIMIT 1;",
+        "utterances": [
+            "Show me the car with the highest miles per gallon that has 8 cylinders or was made before 1980.",
+            "Find the car with the highest miles per gallon that has 8 cylinders or was produced before the year 1980.",
+            "What is the car with the highest mpg that either has 8 cylinders or was made before 1980?",
+            "What is the maximum miles per gallon of the car with 8 cylinders or produced before 1980?"
+        ],
+        "idx": "sparc-192"
+    },
+    {
+        "query": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.Model  =  T2.Model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.Id JOIN CAR_MAKERS AS T4 ON T1.Maker  =  T4.Id WHERE T3.weight  <  3500 AND T4.FullName != 'Ford Motor Company';",
+        "utterances": [
+            "Which car models have a weight below 3500 pounds and are not produced by Ford Motor Company?",
+            "Which car models weigh below 3500 pounds and are not produced by Ford Motor Company?",
+            "Show me the distinct car models that weigh less than 3500 pounds and are not made by Ford Motor Company.",
+            "Which models are lighter than 3500 but not built by the 'Ford Motor Company'?"
+        ],
+        "idx": "sparc-193"
+    },
+    {
+        "query": "SELECT CountryName FROM countries EXCEPT SELECT T1.CountryName FROM countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.countryId  =  T2.Country;",
+        "utterances": [
+            "Show me the countries without any car manufacturers.",
+            "Show me the countries that have no car makers.",
+            "List the countries that do not produce any cars.",
+            "What are the name of the countries where there is not a single car maker?"
+        ],
+        "idx": "sparc-194"
+    },
+    {
+        "query": "SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >=  2 INTERSECT SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model GROUP BY T1.Id HAVING count(*)  >  3;",
+        "utterances": [
+            "Find the car makers who have at least two car models listed and also have more than three distinct car model names.",
+            "Identify the car makers with at least two car models and more than three distinct car model names.",
+            "Identify the manufacturers with at least two models and more than three distinct model names.",
+            "Which are the car makers which produce at least 2 models and more than 3 car makes? List the id and the maker."
+        ],
+        "idx": "sparc-195"
+    },
+    {
+        "query": "SELECT avg(loser_age) ,  avg(winner_age) FROM matches",
+        "utterances": [
+            "Find the average ages of both losers and winners from the matches.",
+            "What is the average age of the losers and winners in all matches?",
+            "Can you tell me the average ages of the losers and winners from the matches?",
+            "Find the average age of losers and winners of all matches."
+        ],
+        "idx": "sparc-196"
+    },
+    {
+        "query": "SELECT tourney_name FROM matches GROUP BY tourney_name HAVING count(*)  >  10",
+        "utterances": [
+            "Find the names of tournaments with over 10 matches played.",
+            "Show me the tournaments where the number of matches exceeds 10.",
+            "Which tournaments have hosted more than 10 matches?",
+            "Find the name of tourney that has more than 10 matches."
+        ],
+        "idx": "sparc-197"
+    },
+    {
+        "query": "SELECT winner_name FROM matches WHERE YEAR  =  2013 INTERSECT SELECT winner_name FROM matches WHERE YEAR  =  2016",
+        "utterances": [
+            "Who won matches in both 2013 and 2016?",
+            "Who won matches in both the years 2013 and 2016?",
+            "Identify the winners that are the same in both 2013 and 2016 matches.",
+            "List the names of all winners who played in both 2013 and 2016."
+        ],
+        "idx": "sparc-198"
+    },
+    {
+        "query": "SELECT count(*) FROM matches WHERE YEAR  =  2013 OR YEAR  =  2016",
+        "utterances": [
+            "Can you give me the total number of matches that took place in 2013 or 2016?",
+            "How many matches were played in the years 2013 or 2016?",
+            "Find the count of matches held in the years 2013 or 2016.",
+            "List the number of all matches who played in years of 2013 or 2016."
+        ],
+        "idx": "sparc-199"
+    },
+    {
+        "query": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'WTA Championships' INTERSECT SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'Australian Open'",
+        "utterances": [
+            "Can you provide the first names and country codes of the players who have won the WTA Championships as well as the Australian Open?",
+            "Can you provide the first names and country codes of the players who have won the WTA Championships and the Australian Open?",
+            "List the players who have won both the WTA Championships and the Australian Open, including their country codes and first names.",
+            "What are the country code and first name of the players who won in both tourney WTA Championships and Australian Open?"
+        ],
+        "idx": "sparc-200"
+    },
+    {
+        "query": "SELECT first_name ,  country_code FROM players ORDER BY birth_date LIMIT 1",
+        "utterances": [
+            "Who is the player with the earliest birth date and what is their country code?",
+            "Show me the player with the earliest birth date and their country code.",
+            "Who is the oldest player and what is their country code?",
+            "Find the first name and country code of the oldest player."
+        ],
+        "idx": "sparc-201"
+    },
+    {
+        "query": "SELECT first_name ,  last_name FROM players WHERE hand  =  'L' ORDER BY birth_date",
+        "utterances": [
+            "Can you provide the names of players who are left-handed, ordered by their birth dates?",
+            "Find all left-handed players and display their first and last names in order of birth date.",
+            "Can you provide the first and last names of players who are left-handed, ordered by their birth dates?",
+            "List the first and last name of all players who are left / L hand in the order of birth date."
+        ],
+        "idx": "sparc-202"
+    },
+    {
+        "query": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id ORDER BY T2.tours DESC LIMIT 1",
+        "utterances": [
+            "Which player has the most tours, along with their country code and first name?",
+            "Which player has participated in the most tours, and what is their country code and first name?",
+            "Who is the player with the highest number of tours, including their country code and first name?",
+            "Find the first name and country code of the player who did the most number of tours."
+        ],
+        "idx": "sparc-203"
+    },
+    {
+        "query": "SELECT YEAR FROM matches GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Find the year with the most matches.",
+            "Which year had the highest number of matches?",
+            "Find the year with the most matches played.",
+            "Find the year that has the most number of matches."
+        ],
+        "idx": "sparc-204"
+    },
+    {
+        "query": "SELECT winner_name ,  winner_rank_points FROM matches GROUP BY winner_name ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Identify the player with the highest number of victories and their rank points.",
+            "Identify the player with the highest number of wins and their winner rank points.",
+            "Who is the player with the most wins and how many rank points do they have?",
+            "Find the name and rank points of the winner who won the most times."
+        ],
+        "idx": "sparc-205"
+    },
+    {
+        "query": "SELECT winner_name FROM matches WHERE tourney_name  =  'Australian Open' ORDER BY winner_rank_points DESC LIMIT 1",
+        "utterances": [
+            "Show me the winner of the Australian Open with the most rank points.",
+            "Show me the winner of the Australian Open who had the most rank points.",
+            "Which player with the highest ranking points won the Australian Open?",
+            "Find the name of the winner who has the highest rank points and participated in the Australian Open tourney."
+        ],
+        "idx": "sparc-206"
+    },
+    {
+        "query": "SELECT winner_name ,  loser_name FROM matches ORDER BY minutes DESC LIMIT 1",
+        "utterances": [
+            "Find the winner and loser of the match with the highest duration in minutes.",
+            "Find the winner and loser of the match with the highest duration.",
+            "Who won the match that lasted the longest in terms of minutes?",
+            "find the names of loser and winner who played in the match with greatest number of minutes."
+        ],
+        "idx": "sparc-207"
+    },
+    {
+        "query": "SELECT avg(ranking) ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+        "utterances": [
+            "What is the average ranking of players when grouped by their first names?",
+            "What is the average ranking of each player grouped by their first name?",
+            "Can you find the average ranking for players based on their first names?",
+            "Find the average ranking for each player and their first name."
+        ],
+        "idx": "sparc-208"
+    },
+    {
+        "query": "SELECT sum(ranking_points) ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+        "utterances": [
+            "Can you tell me the sum of ranking points grouped by each player's first name?",
+            "Show me the total ranking points accumulated by players, grouped by their first names.",
+            "Show me the total ranking points accumulated by players, organized by their first names.",
+            "Find the total ranking points for each player and their first name."
+        ],
+        "idx": "sparc-209"
+    },
+    {
+        "query": "SELECT country_code FROM players GROUP BY country_code ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Show me the country code with the highest number of players.",
+            "Find the country with the most players.",
+            "Show me the country with the most players.",
+            "find the code of the country where has the greatest number of players."
+        ],
+        "idx": "sparc-210"
+    },
+    {
+        "query": "SELECT country_code FROM players GROUP BY country_code HAVING count(*)  >  50",
+        "utterances": [
+            "Show the country codes where there are more than 50 players.",
+            "Can you show the country codes where there are more than 50 players?",
+            "Can you list the country codes of countries with more than 50 players?",
+            "Find the codes of countries that have more than 50 players."
+        ],
+        "idx": "sparc-211"
+    },
+    {
+        "query": "SELECT DISTINCT winner_name ,  winner_rank FROM matches ORDER BY winner_age LIMIT 3",
+        "utterances": [
+            "List the names and ranks of the youngest three distinct winners from the matches.",
+            "Show me the names and ranks of the top three youngest distinct match winners.",
+            "Can you provide the names and ranks of the youngest three winners from the matches?",
+            "Find the name and rank of the 3 youngest winners across all matches."
+        ],
+        "idx": "sparc-212"
+    },
+    {
+        "query": "SELECT count(DISTINCT winner_name) FROM matches WHERE tourney_name  =  'WTA Championships' AND winner_hand  =  'L'",
+        "utterances": [
+            "How many distinct left-handed winners have there been at the WTA Championships?",
+            "How many distinct left-handed players have won at the WTA Championships?",
+            "Find the number of different left-handed players who have won at the WTA Championships.",
+            "How many different winners both participated in the WTA Championships and were left handed?"
+        ],
+        "idx": "sparc-213"
+    },
+    {
+        "query": "SELECT count(*) FROM conductor",
+        "utterances": [
+            "How many conductors are there?",
+            "What is the total count of conductors?",
+            "Can you give me the total number of conductors?",
+            "How many conductors are there?"
+        ],
+        "idx": "sparc-214"
+    },
+    {
+        "query": "SELECT Name FROM conductor ORDER BY Age ASC",
+        "utterances": [
+            "List the conductors' names in order of increasing age.",
+            "What are the names of the conductors sorted by their ages in ascending order?",
+            "What are the names of the conductors sorted by their ages from youngest to oldest?",
+            "List the names of conductors in ascending order of age."
+        ],
+        "idx": "sparc-215"
+    },
+    {
+        "query": "SELECT Name FROM conductor WHERE Nationality != 'USA'",
+        "utterances": [
+            "Show me the names of conductors who are not American.",
+            "Show me the names of conductors who are not from the USA.",
+            "Find the names of conductors who are not American.",
+            "What are the names of conductors whose nationalities are not \"USA\"?"
+        ],
+        "idx": "sparc-216"
+    },
+    {
+        "query": "SELECT Record_Company FROM orchestra ORDER BY Year_of_Founded DESC",
+        "utterances": [
+            "Can you show me the record companies in the orchestra, ordered by the year they were founded in descending order?",
+            "Find all record companies from the orchestra, ordered by the year they were established from the latest to the earliest.",
+            "Show me the record companies, ordered by the year they were founded from newest to oldest.",
+            "What are the record companies of orchestras in descending order of years in which they were founded?"
+        ],
+        "idx": "sparc-217"
+    },
+    {
+        "query": "SELECT avg(Attendance) FROM SHOW",
+        "utterances": [
+            "What is the average attendance for the shows?",
+            "Can you provide the average number of attendees for all the shows?",
+            "What is the average attendance for all the shows?",
+            "What is the average attendance of shows?"
+        ],
+        "idx": "sparc-218"
+    },
+    {
+        "query": "SELECT max(SHARE) ,  min(SHARE) FROM performance WHERE TYPE != \"Live revised\"",
+        "utterances": [
+            "What are the maximum and minimum shares for performances that are not of the 'Live revised' type?",
+            "Find the maximum and minimum share values for performances, excluding the 'Live revised' ones.",
+            "Can you provide the highest and lowest share values for performances excluding those categorized as 'Live revised'?",
+            "What are the maximum and minimum share of performances whose type is not \"Live revised\"."
+        ],
+        "idx": "sparc-219"
+    },
+    {
+        "query": "SELECT count(DISTINCT Nationality) FROM conductor",
+        "utterances": [
+            "What is the total number of distinct nationalities of the conductors?",
+            "What is the number of unique nationalities of the conductors?",
+            "How many unique nationalities are there among the conductors?",
+            "How many different nationalities do conductors have?"
+        ],
+        "idx": "sparc-220"
+    },
+    {
+        "query": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC",
+        "utterances": [
+            "Can you list the conductors sorted by their years of work in descending order?",
+            "Can you list the names of conductors sorted by their years of work in descending order?",
+            "Show me the names of conductors from the ones with the most recent year of work to the least recent.",
+            "List names of conductors in descending order of years of work."
+        ],
+        "idx": "sparc-221"
+    },
+    {
+        "query": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC LIMIT 1",
+        "utterances": [
+            "Find the conductor with the most years of service.",
+            "Show me the conductor who has worked here the longest.",
+            "Who is the most recent conductor with the highest years of work?",
+            "List the name of the conductor with the most years of work."
+        ],
+        "idx": "sparc-222"
+    },
+    {
+        "query": "SELECT T1.Name ,  T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID",
+        "utterances": [
+            "Show me the conductors' names along with their associated orchestras.",
+            "Show me the conductors' names along with the orchestras they work with.",
+            "List the names of conductors and their respective orchestras.",
+            "Show the names of conductors and the orchestras they have conducted."
+        ],
+        "idx": "sparc-223"
+    },
+    {
+        "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T2.Conductor_ID HAVING COUNT(*)  >  1",
+        "utterances": [
+            "List the names of conductors with more than one orchestra.",
+            "Which conductors have associations with multiple orchestras?",
+            "Show the names of conductors associated with more than one orchestra.",
+            "Show the names of conductors that have conducted more than one orchestras."
+        ],
+        "idx": "sparc-224"
+    },
+    {
+        "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T2.Conductor_ID ORDER BY COUNT(*) DESC LIMIT 1",
+        "utterances": [
+            "Can you tell me the name of the conductor who conducts the highest number of orchestras?",
+            "Who is the conductor associated with the most orchestras?",
+            "Who is the conductor currently associated with the most orchestras?"
+        ],
+        "idx": "sparc-225"
+    },
+    {
+        "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID WHERE Year_of_Founded  >  2008",
+        "utterances": [
+            "List the names of conductors associated with orchestras founded after 2008.",
+            "Which conductors are associated with orchestras that were founded post-2008?",
+            "Which conductors are linked to orchestras that were founded post-2008?",
+            "Please show the name of the conductor that has conducted orchestras founded after 2008."
+        ],
+        "idx": "sparc-226"
+    },
+    {
+        "query": "SELECT Record_Company ,  COUNT(*) FROM orchestra GROUP BY Record_Company",
+        "utterances": [
+            "Can you list the record companies with the count of orchestras they have?",
+            "Show the number of orchestras for every record company.",
+            "Can you list the record companies with the number of orchestras they are associated with?",
+            "Please show the different record companies and the corresponding number of orchestras."
+        ],
+        "idx": "sparc-227"
+    },
+    {
+        "query": "SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY COUNT(*) ASC",
+        "utterances": [
+            "What are the different major record formats in the orchestra table, ordered from least to most frequent?",
+            "What are the different major record formats and their counts in the orchestra table, sorted from least to most frequent?",
+            "List the unique major record formats in the orchestra table sorted by their count in ascending order.",
+            "Please show the record formats of orchestras in ascending order of count."
+        ],
+        "idx": "sparc-228"
+    },
+    {
+        "query": "SELECT Record_Company FROM orchestra GROUP BY Record_Company ORDER BY COUNT(*) DESC LIMIT 1",
+        "utterances": [
+            "Which record company represents the most orchestras?",
+            "Show me the record company that has the largest number of orchestras represented.",
+            "Can you identify the record company with the most orchestras?",
+            "List the record company shared by the most number of orchestras."
+        ],
+        "idx": "sparc-229"
+    },
+    {
+        "query": "SELECT Orchestra FROM orchestra WHERE Orchestra_ID NOT IN (SELECT Orchestra_ID FROM performance)",
+        "utterances": [
+            "Can you list the orchestras that haven't had any performances?",
+            "Can you list the orchestras that haven't been recorded in any performances?",
+            "Which orchestras are missing from the performance records?",
+            "List the names of orchestras that have no performance."
+        ],
+        "idx": "sparc-230"
+    },
+    {
+        "query": "SELECT Record_Company FROM orchestra WHERE Year_of_Founded  <  2003 INTERSECT SELECT Record_Company FROM orchestra WHERE Year_of_Founded  >  2003",
+        "utterances": [
+            "Show the record companies that represent orchestras founded in both periods: before and after 2003.",
+            "List the same record companies from orchestras founded both before and after 2003.",
+            "List the record companies from orchestras founded both before and after 2003.",
+            "Show the record companies shared by orchestras founded before 2003 and after 2003."
+        ],
+        "idx": "sparc-231"
+    },
+    {
+        "query": "SELECT COUNT(*) FROM orchestra WHERE Major_Record_Format  =  \"CD\" OR Major_Record_Format  =  \"DVD\"",
+        "utterances": [
+            "What is the number of orchestra records available in CD or DVD formats?",
+            "What is the number of orchestra entries available in CD or DVD formats?",
+            "How many records in the orchestra are in CD or DVD format?",
+            "Find the number of orchestras whose record format is \"CD\" or \"DVD\"."
+        ],
+        "idx": "sparc-232"
+    },
+    {
+        "query": "SELECT document_id ,  document_name ,  document_description FROM Documents",
+        "utterances": [
+            "Show me the IDs, names, and descriptions of all documents.",
+            "Provide me with the document IDs, names, and descriptions.",
+            "Can you list all document IDs, names, and descriptions?",
+            "List document IDs, document names, and document descriptions for all documents."
+        ],
+        "idx": "sparc-233"
+    },
+    {
+        "query": "SELECT document_id ,  template_id ,  Document_Description FROM Documents WHERE document_name  =  \"Robbin CV\"",
+        "utterances": [
+            "What are the document ID, template ID, and description for the document called 'Robbin CV'?",
+            "Get the document ID, template ID, and description for the document named 'Robbin CV'.",
+            "Can you provide the document ID, template ID, and description for 'Robbin CV'?",
+            "What is the document id, template id and description for document named \"Robbin CV\"?"
+        ],
+        "idx": "sparc-235"
+    },
+    {
+        "query": "SELECT count(DISTINCT template_id) FROM Documents",
+        "utterances": [
+            "Can you tell me the number of different template IDs present among the documents?",
+            "What is the count of distinct template IDs in the collection of documents?",
+            "Can you tell me the number of different template IDs present in the Documents?",
+            "How many different templates do all document use?"
+        ],
+        "idx": "sparc-236"
+    },
+    {
+        "query": "SELECT count(*) FROM Documents AS T1 JOIN Templates AS T2 ON T1.Template_ID  =  T2.Template_ID WHERE T2.Template_Type_Code  =  'PPT'",
+        "utterances": [
+            "How many documents are using a template with the type code 'PPT'?",
+            "Get the total number of documents that use templates with the type code 'PPT'.",
+            "Get the total number of documents based on templates that have the type code 'PPT'.",
+            "How many documents are using the template with type code 'PPT'?"
+        ],
+        "idx": "sparc-237"
+    },
+    {
+        "query": "SELECT template_id ,  count(*) FROM Documents GROUP BY template_id",
+        "utterances": [
+            "Show me the number of documents for each template ID.",
+            "How many documents exist for each template ID?",
+            "Show me the count of documents grouped by template ID.",
+            "Show all template ids and number of documents using each template."
+        ],
+        "idx": "sparc-238"
+    },
+    {
+        "query": "SELECT T1.template_id ,  T2.Template_Type_Code FROM Documents AS T1 JOIN Templates AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_id ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Which template, based on its ID and type code, is the most common in the Documents records?",
+            "Show me the template ID and type code for the template that appears most often in the Documents table.",
+            "What is the template ID and type code of the most frequently used template in the Documents table?",
+            "What is the id and type code for the template used by the most documents?"
+        ],
+        "idx": "sparc-239"
+    },
+    {
+        "query": "SELECT template_id FROM Documents GROUP BY template_id HAVING count(*)  >  1",
+        "utterances": [
+            "Identify the template IDs that are used in multiple documents.",
+            "Find all the template IDs assigned to more than one document.",
+            "Find all the template IDs that have been assigned to more than one document.",
+            "Show ids for all templates that are used by more than one document."
+        ],
+        "idx": "sparc-240"
+    },
+    {
+        "query": "SELECT template_id FROM Templates EXCEPT SELECT template_id FROM Documents",
+        "utterances": [
+            "Show me the template IDs that are not used in any documents.",
+            "Show me the template IDs that are not used in any of the documents.",
+            "Find the template IDs that do not appear in any documents.",
+            "Show ids for all templates not used by any document."
+        ],
+        "idx": "sparc-241"
+    },
+    {
+        "query": "SELECT count(*) FROM Templates",
+        "utterances": [
+            "Tell me the total number of templates.",
+            "What is the count of templates available?",
+            "Can you tell me the total number of templates?",
+            "How many templates do we have?"
+        ],
+        "idx": "sparc-242"
+    },
+    {
+        "query": "SELECT template_id ,  version_number ,  template_type_code FROM Templates",
+        "utterances": [
+            "Can you list the template id, version number, and type code for all templates?",
+            "Can you list the template id, version number, and template type for all templates?",
+            "Show me the template ID, version number, and template type for all templates.",
+            "Show template ids, version numbers, and template type codes for all templates."
+        ],
+        "idx": "sparc-243"
+    },
+    {
+        "query": "SELECT DISTINCT template_type_code FROM Templates",
+        "utterances": [
+            "Show me all the different template type codes available.",
+            "Can you list all distinct template type codes from the Templates data?",
+            "Can you list all distinct template type codes from the available data?",
+            "Show all distinct template type codes for all templates."
+        ],
+        "idx": "sparc-244"
+    },
+    {
+        "query": "SELECT template_id FROM Templates WHERE template_type_code  =  \"PP\" OR template_type_code  =  \"PPT\"",
+        "utterances": [
+            "What are the IDs for templates that have the type codes 'PP' or 'PPT'?",
+            "What are the IDs of templates whose type codes are 'PP' or 'PPT'?",
+            "Find template IDs where the template type code is 'PP' or 'PPT'.",
+            "What are the ids of templates with template type code PP or PPT?"
+        ],
+        "idx": "sparc-245"
+    },
+    {
+        "query": "SELECT count(*) FROM Templates WHERE template_type_code  =  \"CV\"",
+        "utterances": [
+            "Can you find the number of CV templates available?",
+            "What is the total number of CV templates?",
+            "Can you count the number of CV templates available?",
+            "How many templates have template type code CV?"
+        ],
+        "idx": "sparc-246"
+    },
+    {
+        "query": "SELECT version_number ,  template_type_code FROM Templates WHERE version_number  >  5",
+        "utterances": [
+            "Can you list the template type codes and their version numbers that are above 5?",
+            "Can you list the templates with version numbers above 5 along with their type codes?",
+            "Show me all template type codes and version numbers greater than 5.",
+            "What is the version number and template type code for the template with version number later than 5?"
+        ],
+        "idx": "sparc-247"
+    },
+    {
+        "query": "SELECT template_type_code ,  count(*) FROM Templates GROUP BY template_type_code",
+        "utterances": [
+            "Show the count of templates for each template type code.",
+            "Show the count of templates grouped by their type codes.",
+            "How many templates are there for each template type code?",
+            "Show all template type codes and number of templates for each."
+        ],
+        "idx": "sparc-248"
+    },
+    {
+        "query": "SELECT template_type_code FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "What is the most frequently occurring template type code?",
+            "Find the template type code that appears the most often in the Templates dataset.",
+            "What is the most frequently occurring template type code in the Templates table?",
+            "Which template type code has most number of templates?"
+        ],
+        "idx": "sparc-249"
+    },
+    {
+        "query": "SELECT template_type_code FROM Templates GROUP BY template_type_code HAVING count(*)  <  3",
+        "utterances": [
+            "Find template type codes that occur fewer than three times.",
+            "Can you list the template type codes that have fewer than three entries?",
+            "Which template type codes appear less than three times?",
+            "Show all template type codes with less than three templates."
+        ],
+        "idx": "sparc-250"
+    },
+    {
+        "query": "SELECT min(Version_Number) ,  template_type_code FROM Templates",
+        "utterances": [
+            "What is the minimum version number available for each template type?",
+            "Find the smallest version number and its corresponding template type in the templates.",
+            "Show me the lowest version number and the associated template type from the templates.",
+            "What the smallest version number and its template type code?"
+        ],
+        "idx": "sparc-251"
+    },
+    {
+        "query": "SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id WHERE T2.document_name  =  \"Data base\"",
+        "utterances": [
+            "Find the template type code for the document called 'Data base'.",
+            "Find the code for the template type linked to the document called 'Data base'.",
+            "Show the template type code for templates associated with the document named 'Data base'.",
+            "What is the template type code of the template used by document with the name \"Data base\"?"
+        ],
+        "idx": "sparc-252"
+    },
+    {
+        "query": "SELECT T2.document_name FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id WHERE T1.template_type_code  =  \"BK\"",
+        "utterances": [
+            "List all document names for templates of type BK.",
+            "Show me the document names for templates with type BK.",
+            "List all document names linked to templates that have the type code BK.",
+            "Show all document names using templates with template type code BK."
+        ],
+        "idx": "sparc-253"
+    },
+    {
+        "query": "SELECT T1.template_type_code ,  count(*) FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_type_code",
+        "utterances": [
+            "What is the count of documents for each template type?",
+            "Can you provide the number of documents categorized by template type code?",
+            "How many documents exist for each type of template?",
+            "Show all template type codes and the number of documents using each type."
+        ],
+        "idx": "sparc-254"
+    },
+    {
+        "query": "SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_type_code ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "What is the most frequently used template type code in the documents?",
+            "Show me the template type code that is most common among all document entries.",
+            "Show me the template type code that appears most often across all documents.",
+            "Which template type code is used by most number of documents?"
+        ],
+        "idx": "sparc-255"
+    },
+    {
+        "query": "SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id",
+        "utterances": [
+            "Which template type codes exist in the Templates table but are not associated with any documents?",
+            "Can you list template type codes that are present in the Templates table but are not used in any documents?",
+            "Which template type codes exist in the Templates table but are not linked to any documents?",
+            "Show all template type codes that are not used by any document."
+        ],
+        "idx": "sparc-256"
+    },
+    {
+        "query": "SELECT template_type_code ,  template_type_description FROM Ref_template_types",
+        "utterances": [
+            "Show me the template type codes and their corresponding descriptions.",
+            "Can you list all the template type codes along with their descriptions?",
+            "What are the codes and descriptions for all template types?",
+            "Show all template type codes and descriptions."
+        ],
+        "idx": "sparc-257"
+    },
+    {
+        "query": "SELECT template_type_description FROM Ref_template_types WHERE template_type_code  =  \"AD\"",
+        "utterances": [
+            "Find the description for the template type with the code 'AD'.",
+            "Find the description for the template type identified by the code 'AD'.",
+            "What is the description of the template type with the code 'AD'?",
+            "What is the template type descriptions for template type code \"AD\"."
+        ],
+        "idx": "sparc-258"
+    },
+    {
+        "query": "SELECT template_type_code FROM Ref_template_types WHERE template_type_description  =  \"Book\"",
+        "utterances": [
+            "Can you tell me the code for the template type described as 'Book'?",
+            "Get the code for the template type if its description is 'Book'.",
+            "What is the code for the template type that has the description 'Book'?",
+            "What is the template type code for template type description \"Book\"."
+        ],
+        "idx": "sparc-259"
+    },
+    {
+        "query": "SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code JOIN Documents AS T3 ON T2.Template_ID  =  T3.template_ID",
+        "utterances": [
+            "Provide the different template type descriptions that are used in the documents.",
+            "Can you list the unique template type descriptions associated across templates and documents?",
+            "Can you list unique template type descriptions associated with templates and documents?",
+            "What are the distinct template type descriptions for the templates ever used by any document?"
+        ],
+        "idx": "sparc-260"
+    },
+    {
+        "query": "SELECT T2.template_id FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code WHERE T1.template_type_description  =  \"Presentation\"",
+        "utterances": [
+            "What are the IDs of templates associated with the Presentation type description?",
+            "What are the IDs of templates with the Presentation type description?",
+            "Show me the template IDs where the template type is described as 'Presentation'.",
+            "What are the template ids with template type description \"Presentation\"."
+        ],
+        "idx": "sparc-261"
+    },
+    {
+        "query": "SELECT count(*) FROM Paragraphs",
+        "utterances": [
+            "Can you give me the total number of paragraphs?",
+            "Can you give me the total paragraphs?",
+            "What is the count of paragraphs?",
+            "How many paragraphs in total?"
+        ],
+        "idx": "sparc-262"
+    },
+    {
+        "query": "SELECT count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_ID  =  T2.document_ID WHERE T2.document_name  =  'Summer Show'",
+        "utterances": [
+            "Can you tell me the total number of paragraphs found in the 'Summer Show' document?",
+            "How many paragraphs are there in the document named 'Summer Show'?",
+            "Count the number of paragraphs in the 'Summer Show' document.",
+            "How many paragraphs for the document with name 'Summer Show'?"
+        ],
+        "idx": "sparc-263"
+    },
+    {
+        "query": "SELECT Other_Details FROM Paragraphs WHERE paragraph_text  =  'Korea'",
+        "utterances": [
+            "Fetch other details from paragraphs containing the word 'Korea'.",
+            "What additional details are there in paragraphs that mention 'Korea'?",
+            "Fetch other details from paragraphs that include the word 'Korea'."
+        ],
+        "idx": "sparc-264"
+    },
+    {
+        "query": "SELECT T1.paragraph_id ,   T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id  =  T2.document_id WHERE T2.Document_Name  =  'Welcome to NY'",
+        "utterances": [
+            "Show me the text and IDs of paragraphs in the document named 'Welcome to NY'.",
+            "Fetch the paragraph IDs and their text from the document called 'Welcome to NY'.",
+            "Can you provide the paragraph IDs and text from the document titled 'Welcome to NY'?",
+            "Show all paragraph ids and texts for the document with name 'Welcome to NY'."
+        ],
+        "idx": "sparc-265"
+    },
+    {
+        "query": "SELECT T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id  =  T2.document_id WHERE T2.document_name  =  \"Customer reviews\"",
+        "utterances": [
+            "Show me the text of paragraphs found in the 'Customer reviews' document.",
+            "Show me the text of paragraphs in the 'Customer reviews' document.",
+            "Can you retrieve all paragraphs from the document named 'Customer reviews'?",
+            "Show all paragraph texts for the document \"Customer reviews\"."
+        ],
+        "idx": "sparc-266"
+    },
+    {
+        "query": "SELECT document_id ,  count(*) FROM Paragraphs GROUP BY document_id ORDER BY document_id",
+        "utterances": [
+            "How many paragraphs are there in each document, listed by document ID?",
+            "How many paragraphs are there in each document, listed and grouped by document ID?",
+            "Show the number of paragraphs per document, grouped and ordered by document ID.",
+            "Show all document ids and the number of paragraphs in each document. Order by document id."
+        ],
+        "idx": "sparc-267"
+    },
+    {
+        "query": "SELECT T1.document_id ,  T2.document_name ,  count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id  =  T2.document_id GROUP BY T1.document_id",
+        "utterances": [
+            "Show me the document IDs and their names along with the count of paragraphs for each document.",
+            "Show me the document IDs and their names along with the count of paragraphs in each document.",
+            "Can you provide the document ID, document name, and the total number of paragraphs for each document?",
+            "Show all document ids, names and the number of paragraphs in each document."
+        ],
+        "idx": "sparc-268"
+    },
+    {
+        "query": "SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*)  >=  2",
+        "utterances": [
+            "Show me the document IDs that have at least two paragraphs.",
+            "Show me the document IDs that contain at least two paragraphs.",
+            "Which document IDs contain two or more paragraphs?",
+            "List all document ids with at least two paragraphs."
+        ],
+        "idx": "sparc-269"
+    },
+    {
+        "query": "SELECT T1.document_id ,  T2.document_name FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id  =  T2.document_id GROUP BY T1.document_id ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Find the document that contains the largest number of paragraphs.",
+            "What is the document with the highest number of paragraphs?",
+            "Find the document that currently contains the largest number of paragraphs in the listings.",
+            "What is the document id and name with greatest number of paragraphs?"
+        ],
+        "idx": "sparc-270"
+    },
+    {
+        "query": "SELECT document_id FROM Paragraphs GROUP BY document_id ORDER BY count(*) ASC LIMIT 1",
+        "utterances": [
+            "Find the document with the smallest count of paragraphs.",
+            "Can you identify the document with the lowest number of paragraphs?",
+            "Which document has the fewest paragraphs?",
+            "What is the document id with least number of paragraphs?"
+        ],
+        "idx": "sparc-271"
+    },
+    {
+        "query": "SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) BETWEEN 1 AND 2",
+        "utterances": [
+            "Which document IDs have between one and two paragraphs?",
+            "Which document IDs have a count of paragraphs between one and two?",
+            "Show document IDs that are associated with one or two paragraphs.",
+            "What is the document id with 1 to 2 paragraphs?"
+        ],
+        "idx": "sparc-272"
+    },
+    {
+        "query": "SELECT count(*) FROM singer",
+        "utterances": [
+            "Can you tell me the total number of singers?",
+            "Can you tell me the total number of singers listed?",
+            "How many singers are there?",
+            "How many singers do we have?"
+        ],
+        "idx": "sparc-273"
+    },
+    {
+        "query": "SELECT name ,  country ,  age FROM singer ORDER BY age DESC",
+        "utterances": [
+            "List the names, countries, and ages of the singers, sorted from oldest to youngest.",
+            "List the names, countries, and ages of the singers, in order of age from oldest to youngest.",
+            "Can you show me the singers' names, countries, and ages, starting with the oldest?",
+            "Show name, country, age for all singers ordered by age from the oldest to the youngest."
+        ],
+        "idx": "sparc-274"
+    },
+    {
+        "query": "SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'",
+        "utterances": [
+            "What is the average, minimum, and maximum age of singers from France?",
+            "Can you provide the average, youngest, and oldest ages of singers who are from France?",
+            "Show me the average, youngest, and oldest ages of singers from France.",
+            "What is the average, minimum, and maximum age of all singers from France?"
+        ],
+        "idx": "sparc-275"
+    },
+    {
+        "query": "SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1",
+        "utterances": [
+            "Show me the song and its release year by the youngest performer.",
+            "What is the song name and release year of the youngest singer?",
+            "Can you find the song and its release year from the youngest artist in the list?",
+            "Show the name and the release year of the song by the youngest singer."
+        ],
+        "idx": "sparc-276"
+    },
+    {
+        "query": "SELECT DISTINCT country FROM singer WHERE age  >  20",
+        "utterances": [
+            "Which countries have singers older than 20?",
+            "List all unique countries where singers are older than 20.",
+            "Which distinct countries have singers older than 20?",
+            "What are all distinct countries where singers above age 20 are from?"
+        ],
+        "idx": "sparc-277"
+    },
+    {
+        "query": "SELECT country ,  count(*) FROM singer GROUP BY country",
+        "utterances": [
+            "Provide the number of singers for each country.",
+            "Provide the count of singers for each country.",
+            "Show me the total number of singers grouped by their country.",
+            "Show all countries and the number of singers in each country."
+        ],
+        "idx": "sparc-278"
+    },
+    {
+        "query": "SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)",
+        "utterances": [
+            "Show me the songs by singers older than the average.",
+            "Show me the songs by singers whose age is higher than the average.",
+            "Which songs are sung by singers with an age above the average age?",
+            "List all song names by singers above the average age."
+        ],
+        "idx": "sparc-279"
+    },
+    {
+        "query": "SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000",
+        "utterances": [
+            "Show me the stadiums with a capacity between 5,000 and 10,000, including their location and name.",
+            "List the stadiums with capacities ranging from 5,000 to 10,000, including their names and locations.",
+            "Show me the stadiums with a capacity between 5,000 and 10,000, including both their names and locations.",
+            "Show location and name for all stadiums with a capacity between 5000 and 10000."
+        ],
+        "idx": "sparc-280"
+    },
+    {
+        "query": "SELECT avg(capacity) ,  max(capacity) FROM stadium",
+        "utterances": [
+            "Give me the average capacity and the maximum capacity of the stadiums.",
+            "What are the average and maximum stadium capacities?",
+            "What are the average and maximum capacities of the stadiums?",
+            "What is the average and the maximum capacity of all stadiums?"
+        ],
+        "idx": "sparc-281"
+    },
+    {
+        "query": "SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1",
+        "utterances": [
+            "What is the name and capacity of the stadium with the highest average attendance?",
+            "Show me the stadium with the highest average attendance and provide its name and capacity.",
+            "Find the stadium that has the highest average attendance and show its name and capacity.",
+            "What is the name and capacity for the stadium with highest average attendance?"
+        ],
+        "idx": "sparc-282"
+    },
+    {
+        "query": "SELECT count(*) FROM concert WHERE YEAR  =  2014 OR YEAR  =  2015",
+        "utterances": [
+            "What is the count of concerts that occurred in 2014 or 2015?",
+            "What is the count of concerts that occurred in either 2014 or 2015?",
+            "How many concerts took place in 2014 or 2015?",
+            "How many concerts are there in year 2014 or 2015?"
+        ],
+        "idx": "sparc-283"
+    },
+    {
+        "query": "SELECT T2.name ,  count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id GROUP BY T1.stadium_id",
+        "utterances": [
+            "Show the names of the stadiums and the number of concerts held at each.",
+            "Show the names of stadiums and the number of concerts held in each.",
+            "List each stadium and how many concerts have taken place there.",
+            "Show the stadium name and the number of concerts in each stadium."
+        ],
+        "idx": "sparc-284"
+    },
+    {
+        "query": "SELECT T2.name ,  T2.capacity FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  >=  2014 GROUP BY T2.stadium_id ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Show me the stadium with the highest number of concerts since 2014 along with its name and capacity.",
+            "Which stadium has had the most concerts since 2014, and what is its name and capacity?",
+            "Show me the name and capacity of the stadium with the highest number of concerts since 2014.",
+            "Show the stadium name and capacity with most number of concerts in year 2014 or after."
+        ],
+        "idx": "sparc-285"
+    },
+    {
+        "query": "SELECT YEAR FROM concert GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+        "utterances": [
+            "Can you tell me the year with the highest number of concerts?",
+            "What year had the greatest number of concerts held?",
+            "Which year had the most concerts?",
+            "Which year has most number of concerts?"
+        ],
+        "idx": "sparc-286"
+    },
+    {
+        "query": "SELECT name FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert)",
+        "utterances": [
+            "Show me the stadiums that do not have any concerts scheduled.",
+            "Can you provide the names of stadiums where no concerts have been held?",
+            "Show me the stadiums that currently have no concerts recorded.",
+            "Show the stadium names without any concert."
+        ],
+        "idx": "sparc-287"
+    },
+    {
+        "query": "SELECT country FROM singer WHERE age  >  40 INTERSECT SELECT country FROM singer WHERE age  <  30",
+        "utterances": [
+            "Find the countries of singers who are older than 40 or younger than 30.",
+            "Find the countries where there are singers older than 40 and also singers younger than 30.",
+            "Show me the countries of the singers who are above 40 or below 30.",
+            "Show countries where a singer above age 40 and a singer below 30 are from."
+        ],
+        "idx": "sparc-288"
+    },
+    {
+        "query": "SELECT name FROM stadium EXCEPT SELECT T2.name FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  =  2014",
+        "utterances": [
+            "Show me the names of stadiums where no concerts were held in 2014.",
+            "Which stadiums did not host a concert in the year 2014?",
+            "List the stadiums that did not hold any concerts in 2014.",
+            "Show names for all stadiums except for stadiums having a concert in year 2014."
+        ],
+        "idx": "sparc-289"
+    },
+    {
+        "query": "SELECT T2.concert_name ,  T2.theme ,  count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id  =  T2.concert_id GROUP BY T2.concert_id",
+        "utterances": [
+            "List all concerts with their themes and the number of singers performing in each.",
+            "Show me the name and theme of each concert along with the number of singers in each.",
+            "Show me the name and theme of each concert along with the total number of singers in each.",
+            "Show the name and theme for all concerts and the number of singers in each concert."
+        ],
+        "idx": "sparc-290"
+    },
+    {
+        "query": "SELECT T2.name ,  count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id GROUP BY T2.singer_id",
+        "utterances": [
+            "List each singer along with the total number of their concerts.",
+            "Show the number of concerts each singer has performed.",
+            "How many concerts has each singer participated in?",
+            "List singer names and number of concerts for each singer."
+        ],
+        "idx": "sparc-291"
+    },
+    {
+        "query": "SELECT T2.name FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id JOIN concert AS T3 ON T1.concert_id  =  T3.concert_id WHERE T3.year  =  2014",
+        "utterances": [
+            "Find the names of the singers who performed in concerts during 2014.",
+            "Which singers performed in concerts in 2014?",
+            "Can you list all the singers who had concerts in 2014?",
+            "List all singer names in concerts in year 2014."
+        ],
+        "idx": "sparc-292"
+    }
+]
