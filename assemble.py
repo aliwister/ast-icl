@@ -1,6 +1,5 @@
 import numpy as np
 import torch
-import torch.nn as nn
 from itertools import chain
 from argparse import ArgumentParser
 import pandas as pd
@@ -8,25 +7,20 @@ from torch_geometric.loader import DataLoader
 #from torch.utils.data import Dataset, DataLoader
 
 from sklearn.cluster import KMeans
-from math import ceil
 from sklearn.metrics.pairwise import cosine_similarity
-import torch.nn.functional as F
-from torch_geometric.nn import GCNConv, global_mean_pool
+from torch_geometric.nn import global_mean_pool
 
-
-import evaluate
 from util.ast_icl_sage import SAGE
 from util.ast_icl_gcn import GCN
 from util.ast_icl_gat import GAT
 
 from util.dataset import load_orig_dataset, load_new_test_dataset
-from util.prompt import create_cot_prompt, create_incontext_prompt2, create_justcode_prompt, create_zeroshot_prompt, get_answer
+from util.prompt import create_cot_prompt, create_incontext_prompt2, create_zeroshot_prompt
 import os
 
 from torch_geometric.data import Data #, Daparse_querytaLoader
 from util.sql_tree import parse_query
 from rank_bm25 import BM25Okapi
-from sklearn.cluster import AgglomerativeClustering
 from nltk.tokenize import word_tokenize
 import string
 import time
