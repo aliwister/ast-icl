@@ -1,0 +1,2741 @@
+[
+    {
+        "utterances":[
+            "How many singers are there?",
+            "Please provide the total number of singers.",
+            "Can you count the total number of singers?",
+            "How many singers do we have?"
+        ],
+        "query":"SELECT count(*) FROM singer",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List all the singers along with their country and age, sorted from oldest to youngest.",
+            "List all the singers along with their country and age, sorted decreasingly by age.",
+            "Show me a list of singers with their names, countries, and ages, sorted by age from oldest to youngest.",
+            "Show name, country, age for all singers ordered by age from the oldest to the youngest."
+        ],
+        "query":"SELECT name ,  country ,  age FROM singer ORDER BY age DESC",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the average, lowest, and highest ages of singers from France.",
+            "Find the average, lowest, and highest ages of French singers.",
+            "Can you tell me the average, youngest, and oldest ages of singers hailing from France?",
+            "What is the average, minimum, and maximum age of all singers from France?"
+        ],
+        "query":"SELECT avg(age) ,  min(age) ,  max(age) FROM singer WHERE country  =  'France'",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the song name and release year of the youngest singer.",
+            "Find the song and its release year for the youngest singer.",
+            "Find the song name and release year for the youngest singer.",
+            "Show the name and the release year of the song by the youngest singer."
+        ],
+        "query":"SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which countries have singers over the age of 20?",
+            "Find the distinct countries of singers who are above 20 years old.",
+            "Find the unique countries of singers who are above 20 years old.",
+            "What are all distinct countries where singers above age 20 are from?"
+        ],
+        "query":"SELECT DISTINCT country FROM singer WHERE age  >  20",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the count of singers by country.",
+            "Can you provide the number of singers grouped by their country?",
+            "How many singers are there per country?",
+            "Show all countries and the number of singers in each country."
+        ],
+        "query":"SELECT country ,  count(*) FROM singer GROUP BY country",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the song names of singers whose age is above the average.",
+            "Show me the song names of singers who are older than the average.",
+            "Which songs are associated with singers older than the average age?",
+            "List all song names by singers above the average age."
+        ],
+        "query":"SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Can you list the stadium names and their locations that have a capacity ranging from 5000 to 10000?",
+            "Can you list the stadium names and their locations that have a capacity between 5000 and 10000?",
+            "Show me the names and locations of stadiums with a capacity between 5000 and 10000.",
+            "Show location and name for all stadiums with a capacity between 5000 and 10000."
+        ],
+        "query":"SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the maximum capacity of the stadia, and what is the average capacity?",
+            "Show the stadium with the highest capacity value and average capacity across all stadiums.",
+            "Show me the stadium with the highest capacity and the average capacity across all stadiums.",
+            "What is the maximum capacity and the average of all stadiums ?"
+        ],
+        "query":"select max(capacity), average from stadium",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the average and the maximum capacity of the stadiums?",
+            "Show me the average and the highest capacities among all stadiums.",
+            "Can you provide the average and the maximum capacity of the stadiums?",
+            "What is the average and maximum capacities for all stadiums ?"
+        ],
+        "query":"select avg(capacity) ,  max(capacity) from stadium",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you provide the number of concerts that took place in 2014 or 2015?",
+            "What is the count of concerts from the years 2014 and 2015?",
+            "Can you provide the number of concerts that took place in 2014 and 2015?",
+            "How many concerts are there in year 2014 or 2015?"
+        ],
+        "query":"SELECT count(*) FROM concert WHERE YEAR  =  2014 OR YEAR  =  2015",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the number of concerts held in each stadium, along with the stadium names.",
+            "Show me the name of each stadium and the number of concerts held in them.",
+            "Can you list each stadium and the number of concerts held there?",
+            "Show the stadium name and the number of concerts in each stadium."
+        ],
+        "query":"SELECT T2.name ,  count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id GROUP BY T1.stadium_id",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the stadium with the highest number of concerts since 2014 and provide its name and capacity.",
+            "Find the stadium with the highest number of concerts held since 2014 and provide its name and capacity.",
+            "What is the name and capacity of the stadium that has hosted the largest number of concerts from the year 2014 onwards?",
+            "Show the stadium name and capacity with most number of concerts in year 2014 or after."
+        ],
+        "query":"SELECT T2.name ,  T2.capacity FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  >=  2014 GROUP BY T2.stadium_id ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Which stadium hosted the most concerts after 2013, and what is its capacity?",
+            "What is the name and capacity of the stadium with the most concerts since 2013?",
+            "Show me the name and capacity of the stadium with the highest number of concerts since 2013.",
+            "What is the name and capacity of the stadium with the most concerts after 2013 ?"
+        ],
+        "query":"select t2.name ,  t2.capacity from concert as t1 join stadium as t2 on t1.stadium_id  =  t2.stadium_id where t1.year  >  2013 group by t2.stadium_id order by count(*) desc limit 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the year with the highest number of concerts.",
+            "What year had the highest number of concerts?",
+            "Which year had the most concerts?",
+            "Which year has most number of concerts?"
+        ],
+        "query":"SELECT YEAR FROM concert GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the names of stadiums that are not hosting any concerts.",
+            "List the stadiums that do not have any concerts booked.",
+            "Which stadiums have no concerts scheduled?",
+            "Show the stadium names without any concert."
+        ],
+        "query":"SELECT name FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Find the countries with singers in both the age groups below 30 and above 40.",
+            "Can you list the countries of singers who are either under 30 or over 40 years old?",
+            "Which countries have singers that are both older than 40 and younger than 30?",
+            "Show countries where a singer above age 40 and a singer below 30 are from."
+        ],
+        "query":"SELECT country FROM singer WHERE age  >  40 INTERSECT SELECT country FROM singer WHERE age  <  30",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List all the stadiums that did not host a concert in the year 2014.",
+            "Show me the names of stadiums that did not host any concerts in 2014.",
+            "Show me the names of stadiums that had no concerts in 2014.",
+            "Show names for all stadiums except for stadiums having a concert in year 2014."
+        ],
+        "query":"SELECT name FROM stadium EXCEPT SELECT T2.name FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  =  2014",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the number of singers for each concert along with its name and theme.",
+            "List the number of singers per concert, along with the concert's name and theme.",
+            "List the number of singers for each concert, along with the concert's name and theme.",
+            "Show the name and theme for all concerts and the number of singers in each concert."
+        ],
+        "query":"SELECT T2.concert_name ,  T2.theme ,  count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id  =  T2.concert_id GROUP BY T2.concert_id",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Give me the names and themes of concerts and the count of singers for each concert.",
+            "Give me the names and themes of concerts and the number of singers for each concert.",
+            "Show the concert names, their themes, and how many singers are participating in each concert.",
+            "What are the names , themes , and number of singers for every concert ?"
+        ],
+        "query":"select t2.concert_name ,  t2.theme ,  count(*) from singer_in_concert as t1 join concert as t2 on t1.concert_id  =  t2.concert_id group by t2.concert_id",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the singers along with the count of concerts they have appeared in.",
+            "Show me the names of singers and how many concerts they've performed in.",
+            "Show me the names of each singer and how many concerts they've performed in.",
+            "List singer names and number of concerts for each singer."
+        ],
+        "query":"SELECT T2.name ,  count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id GROUP BY T2.singer_id",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the names of singers who had concerts in 2014.",
+            "Show me the names of singers who performed in concerts in 2014.",
+            "Which singers participated in concerts during 2014?",
+            "List all singer names in concerts in year 2014."
+        ],
+        "query":"SELECT T2.name FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id JOIN concert AS T3 ON T1.concert_id  =  T3.concert_id WHERE T3.year  =  2014",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the singers and their countries who have songs containing the word 'Hey'.",
+            "Which singers and their countries have a song with 'Hey' in the title?",
+            "Can you list the names and countries of singers with 'Hey' in a song title?",
+            "what is the name and nation of the singer who have a song having 'Hey' in its name?"
+        ],
+        "query":"SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List stadiums where concerts took place in 2014 and 2015.",
+            "Which stadiums hosted concerts in both 2014 and 2015?",
+            "Can you provide the stadium names and locations that had concerts for 2014 and 2015?",
+            "Find the name and location of the stadiums which some concerts happened in the years of both 2014 and 2015."
+        ],
+        "query":"SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2014 INTERSECT SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2015",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the total number of concerts held at the stadium with the most seating capacity?",
+            "Count the number of concerts that took place in the stadium with the highest capacity.",
+            "How many concerts have been held in the largest stadium by capacity?",
+            "Find the number of concerts happened in the stadium with the highest capacity ."
+        ],
+        "query":"select count(*) from concert where stadium_id = (select stadium_id from stadium order by capacity desc limit 1)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "What is the count of pets that are heavier than 10 pounds?",
+            "Find out the count of pets that are heavier than 10 pounds.",
+            "How many pets weigh more than 10 pounds?",
+            "Find the number of pets whose weight is heavier than 10."
+        ],
+        "query":"SELECT count(*) FROM pets WHERE weight  >  10",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the weight of the youngest pet.",
+            "Find the weight of the pet with the least age.",
+            "What is the weight of the youngest pet?",
+            "Find the weight of the youngest dog."
+        ],
+        "query":"SELECT weight FROM pets ORDER BY pet_age LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the maximum weight for pets, grouped by their type.",
+            "Can you provide the maximum weight for each pet category?",
+            "Can you provide the maximum weight for each type of pet?",
+            "Find the maximum weight for each type of pet. List the maximum weight and pet type."
+        ],
+        "query":"SELECT max(weight) ,  petType FROM pets GROUP BY petType",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many students older than 20 have pets?",
+            "Can you tell me how many students with pets are over 20 years old?",
+            "Count the number of students above the age of 20 who have a pet.",
+            "Find number of pets owned by students who are older than 20."
+        ],
+        "query":"SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.age  >  20",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many female students have dogs as pets?",
+            "How many female students own dogs as pets?",
+            "Count the number of female students who own a dog.",
+            "Find the number of dog pets that are raised by female students (with sex F)."
+        ],
+        "query":"SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T2.petid  =  T3.petid WHERE T1.sex  =  'F' AND T3.pettype  =  'dog'",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many unique types of pets are there?",
+            "What is the total number of distinct pet types available?",
+            "Can you count the different kinds of pets we have?",
+            "Find the number of distinct type of pets."
+        ],
+        "query":"SELECT count(DISTINCT pettype) FROM pets",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the names of students who own either a cat or a dog.",
+            "Show me the names of students who are pet owners of either a cat or a dog.",
+            "List the names of students who have either a cat or a dog as a pet.",
+            "Find the first name of students who have cat or dog pet."
+        ],
+        "query":"SELECT DISTINCT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' OR T3.pettype  =  'dog'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the first names of students who own a cat as well as a dog.",
+            "List the first names of students who own both a cat and a dog.",
+            "Can you find the students who are owners of both cats and dogs?",
+            "Find the first name of students who have both cat and dog pets ."
+        ],
+        "query":"select t1.fname from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid join pets as t3 on t3.petid  =  t2.petid where t3.pettype  =  'cat' intersect select t1.fname from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid join pets as t3 on t3.petid  =  t2.petid where t3.pettype  =  'dog'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the names of students who have both cats and dogs as pets.",
+            "Can you list the students who have both a cat and a dog?",
+            "Which students own both cats and dogs?",
+            "What are the students' first names who have both cats and dogs as pets?"
+        ],
+        "query":"SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which students, along with their majors and ages, do not own a cat?",
+            "Which students, along with their majors and ages, do not own any cats?",
+            "List the major and age of students who aren't pet owners of cats.",
+            "Find the major and age of students who do not have a cat pet."
+        ],
+        "query":"SELECT major ,  age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Find the IDs of students who do not have a pet cat.",
+            "Show me the students who do not have cats as pets.",
+            "Which students do not own a cat?",
+            "Find the id of students who do not have a cat pet."
+        ],
+        "query":"SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the names and ages of students who own dogs but do not have cats.",
+            "List the names and ages of students who have dogs but do not have cats.",
+            "Can you provide the names and ages of students who own a dog but do not own a cat?",
+            "Find the first name and age of students who have a dog but do not have a cat as a pet."
+        ],
+        "query":"SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Find the type and weight of the youngest pet.",
+            "What is the type and weight of the youngest pet?",
+            "Find the type and weight of the pet with the smallest age.",
+            "Find the type and weight of the youngest pet."
+        ],
+        "query":"SELECT pettype ,  weight FROM pets ORDER BY pet_age LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the IDs and weights of pets older than one year.",
+            "Find the pet IDs and their weights for pets with an age greater than one year.",
+            "Can you retrieve the IDs and weights of pets that are more than one year old?",
+            "Find the id and weight of all pets whose age is older than 1."
+        ],
+        "query":"SELECT petid ,  weight FROM pets WHERE pet_age  >  1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the average and maximum age of each type of pet?",
+            "Show me the average and maximum ages grouped by pet type.",
+            "Show me the average and maximum ages for each pet type.",
+            "Find the average and maximum age for each type of pet."
+        ],
+        "query":"SELECT avg(pet_age) ,  max(pet_age) ,  pettype FROM pets GROUP BY pettype",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the average weight of each type of pet?",
+            "Show me the average weight categorized by pet type.",
+            "Can you provide the average weight for different pet types?",
+            "Find the average weight for each pet type."
+        ],
+        "query":"SELECT avg(weight) ,  pettype FROM pets GROUP BY pettype",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the distinct names and ages of students who own pets.",
+            "List the distinct names and ages of students who have pets.",
+            "Can you provide the different names and ages of students who possess pets?",
+            "Find the first name and age of students who have a pet."
+        ],
+        "query":"SELECT DISTINCT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the pet IDs of students who are named Smith.",
+            "Find the pet IDs of students whose last name is 'Smith'.",
+            "Which pets belong to students with the last name Smith?",
+            "Find the id of the pet owned by student whose last name is \u2018Smith\u2019."
+        ],
+        "query":"SELECT T2.petid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.Lname  =  'Smith'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Provide a count of pets owned by each student.",
+            "Show the number of pets associated with each student.",
+            "Show the number of pets each student owns.",
+            "Find the number of pets for each student who has any pet and student id."
+        ],
+        "query":"SELECT count(*) ,  T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show the number of pets owned by each student and include their student IDs.",
+            "How many pets does each student have?",
+            "Show the number of pets owned by each student.",
+            "For students who have pets , how many pets does each student have ? list their ids instead of names ."
+        ],
+        "query":"select count(*) ,  t1.stuid from student as t1 join has_pet as t2 on t1.stuid  =  t2.stuid group by t1.stuid",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Which students have more than one pet, along with their gender?",
+            "Show me the names and gender of students who own more than one pet.",
+            "Show me the first names and gender of students who own more than one pet.",
+            "Find the first name and gender of student who have more than one pet."
+        ],
+        "query":"SELECT T1.fname ,  T1.sex FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid HAVING count(*)  >  1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the last names of students with a 3-year-old cat.",
+            "Show me the last names of students who have a 3-year-old cat.",
+            "Which students have a cat that is 3 years old?",
+            "Find the last name of the student who has a cat that is age 3."
+        ],
+        "query":"SELECT T1.lname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pet_age  =  3 AND T3.pettype  =  'cat'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the average age of students who do not have pets?",
+            "Calculate the average age of students who are not pet owners.",
+            "Find the mean age of students who do not own any pets.",
+            "Find the average age of students who do not have any pet ."
+        ],
+        "query":"select avg(age) from student where stuid not in (select stuid from has_pet)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "How many continents are there?",
+            "What is the count of continents?",
+            "Can you tell me the total number of continents?",
+            "How many continents are there?"
+        ],
+        "query":"SELECT count(*) FROM CONTINENTS;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the number of countries per continent along with their IDs and continent names.",
+            "Can you provide the number of countries per continent including their IDs and names?",
+            "List the number of countries for each continent, along with their IDs and names.",
+            "How many countries does each continent have? List the continent id, continent name and the number of countries."
+        ],
+        "query":"SELECT T1.ContId ,  T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.Continent GROUP BY T1.ContId;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the count of all the countries?",
+            "How many countries are there?",
+            "Can you tell me the total number of countries?",
+            "How many countries are listed?"
+        ],
+        "query":"SELECT count(*) FROM COUNTRIES;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show the full names and IDs of car makers and the number of models per maker.",
+            "Show the full names and IDs of car makers and the number of car models per maker.",
+            "Get the names, IDs, and the total number of models for each car maker.",
+            "How many models does each car maker produce? List maker full name, id and the number."
+        ],
+        "query":"SELECT T1.FullName ,  T1.Id ,  count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the car model with the minimum horsepower available?",
+            "Which car model has the lowest horsepower?",
+            "What is the car model with the minimum horsepower in the database?",
+            "Which model of the car has the minimum horsepower?"
+        ],
+        "query":"SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.horsepower ASC LIMIT 1;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the car models that are lighter than the average weight.",
+            "Show me the car models with a weight less than the average weight.",
+            "Show me the car models with a weight less than the average weight of available cars.",
+            "Find the model of the car whose weight is below the average weight."
+        ],
+        "query":"SELECT T1.model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Weight  <  (SELECT avg(Weight) FROM CARS_DATA)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Which car makers produced distinct models available in the year 1970?",
+            "Can you find all the different car makers who had models released in 1970?",
+            "Can you find all the different car makers who had models available in 1970?",
+            "Find the name of the makers that produced some cars in the year of 1970?"
+        ],
+        "query":"SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model JOIN CARS_DATA AS T4 ON T3.MakeId  =  T4.id WHERE T4.year  =  '1970';",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the make and year of the car with the earliest year in the dataset.",
+            "Which car make and year correspond to the oldest year recorded in the database?",
+            "Which car make and year correspond to the oldest year from the dataset?",
+            "Find the make and production time of the cars that were produced in the earliest year?"
+        ],
+        "query":"SELECT T2.Make ,  T1.Year FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Year  =  (SELECT min(YEAR) FROM CARS_DATA);",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Which distinct car models were manufactured after 1980?",
+            "List all unique car models from after the year 1980.",
+            "Which car models, manufactured after 1980, are unique?",
+            "Which distinct car models are the produced after 1980?"
+        ],
+        "query":"SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.model  =  T2.model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.id WHERE T3.year  >  1980;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the number of car manufacturers grouped by continent.",
+            "Show the number of car manufacturers in each continent.",
+            "Show the count of car makers in each continent.",
+            "How many car makers are there in each continents? List the continent name and the count."
+        ],
+        "query":"SELECT T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.continent JOIN car_makers AS T3 ON T2.CountryId  =  T3.Country GROUP BY T1.Continent;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the country with the highest number of car makers?",
+            "From which country do the majority of car manufacturers originate?",
+            "Which country manufactures the most cars in the dataset?",
+            "Which of the countries has the most car makers? List the country name."
+        ],
+        "query":"SELECT T2.CountryName FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId GROUP BY T1.Country ORDER BY Count(*) DESC LIMIT 1;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the count of car models along with the name of each car manufacturer.",
+            "Show the count of car models for each car manufacturer with their names.",
+            "How many car models does each car maker have?",
+            "How many car models are produced by each maker ? Only list the count and the maker full name ."
+        ],
+        "query":"select count(*) ,  t2.fullname from model_list as t1 join car_makers as t2 on t1.maker  =  t2.id group by t2.id;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you provide the number of models, along with the full names and identification numbers, for each car manufacturer?",
+            "Provide the number of car models for each car maker, including their names and IDs.",
+            "Provide the number of car models for each car maker, along with their names and identification numbers.",
+            "What is the number of car models that are produced by each maker and what is the id and full name of each maker?"
+        ],
+        "query":"SELECT Count(*) ,  T2.FullName ,  T2.id FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id GROUP BY T2.id;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you retrieve the acceleration for the car model named 'amc hornet sportabout (sw)'?",
+            "What is the acceleration value for the 'amc hornet sportabout (sw)' from the car data?",
+            "Find the acceleration information for the 'amc hornet sportabout (sw)' from the dataset.",
+            "What is the accelerate of the car make amc hornet sportabout (sw)?"
+        ],
+        "query":"SELECT T1.Accelerate FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Make  =  'amc hornet sportabout (sw)';",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "How many car makers are there in France?",
+            "Can you provide the number of car manufacturers located in France?",
+            "Can you provide the number of car manufacturers based in France?",
+            "How many car makers are there in france?"
+        ],
+        "query":"SELECT count(*) FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId WHERE T2.CountryName  =  'france';",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you tell me the total number of car models from car makers in the USA?",
+            "What is the total number of car models from car makers based in the USA?",
+            "How many car models are from makers based in the USA?",
+            "How many car models are produced in the usa?"
+        ],
+        "query":"SELECT count(*) FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id JOIN COUNTRIES AS T3 ON T2.Country  =  T3.CountryId WHERE T3.CountryName  =  'usa';",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the average MPG for vehicles that have 4 cylinders.",
+            "Find the average miles per gallon for vehicles that have 4 cylinders.",
+            "Can you tell me the average miles per gallon for 4-cylinder cars?",
+            "What is the average miles per gallon(mpg) of the cars with 4 cylinders?"
+        ],
+        "query":"SELECT avg(mpg) FROM CARS_DATA WHERE Cylinders  =  4;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the minimum weight of cars with 8 cylinders from the year 1974?",
+            "Can you show me the car with the least weight among those with 8 cylinders from 1974?",
+            "Find the lightest car from 1974 that has 8 cylinders.",
+            "What is the smallest weight of the car produced with 8 cylinders on 1974 ?"
+        ],
+        "query":"select min(weight) from cars_data where cylinders  =  8 and year  =  1974",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Provide the maker and model information.",
+            "Show the makers and their models.",
+            "Show me the list of makers and their models.",
+            "What are all the makers and models?"
+        ],
+        "query":"SELECT Maker ,  Model FROM MODEL_LIST;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show the names and IDs of countries with at least one car maker.",
+            "Show the names and IDs of countries with at least one car maker associated with them.",
+            "Which countries have at least one car maker?",
+            "What are the countries having at least one car maker? List name and id."
+        ],
+        "query":"SELECT T1.CountryName ,  T1.CountryId FROM COUNTRIES AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >=  1;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many cars have a horsepower greater than 150?",
+            "How many cars have more than 150 horsepower?",
+            "Count the cars with horsepower over 150.",
+            "What is the number of the cars with horsepower more than 150?"
+        ],
+        "query":"SELECT count(*) FROM CARS_DATA WHERE horsepower  >  150;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the average car weight by year.",
+            "What is the average weight of cars for each year?",
+            "Can you provide the average weight of cars, grouped by year?",
+            "What is the average weight of cars each year?"
+        ],
+        "query":"SELECT avg(Weight) ,  YEAR FROM CARS_DATA GROUP BY YEAR;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the European countries where there are three or more car manufacturers.",
+            "List the countries in Europe that have three or more car makers.",
+            "List the European countries that have three or more car makers.",
+            "Which countries in europe have at least 3 car manufacturers?"
+        ],
+        "query":"SELECT T1.CountryName FROM COUNTRIES AS T1 JOIN CONTINENTS AS T2 ON T1.Continent  =  T2.ContId JOIN CAR_MAKERS AS T3 ON T1.CountryId  =  T3.Country WHERE T2.Continent  =  'europe' GROUP BY T1.CountryName HAVING count(*)  >=  3;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the car make and its horsepower for the three-cylinder car with the highest horsepower.",
+            "Find the make and horsepower of the three-cylinder car with the highest horsepower.",
+            "What is the make and horsepower of the highest horsepower three-cylinder car?",
+            "What is the maximum horsepower and the make of the car models with 3 cylinders?"
+        ],
+        "query":"SELECT T2.horsepower ,  T1.Make FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.cylinders  =  3 ORDER BY T2.horsepower DESC LIMIT 1;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the car model with the best fuel efficiency.",
+            "Can you show me the car model with the best fuel efficiency?",
+            "Which car model has the highest fuel economy?",
+            "Which model saves the most gasoline? That is to say, have the maximum miles per gallon."
+        ],
+        "query":"SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.mpg DESC LIMIT 1;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which car model has the highest miles per gallon?",
+            "What is the car model with the highest miles per gallon?",
+            "Show me the car model with the best fuel efficiency.",
+            "What is the car model with the highest mpg ?"
+        ],
+        "query":"select t1.model from car_names as t1 join cars_data as t2 on t1.makeid  =  t2.id order by t2.mpg desc limit 1;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the average horsepower of vehicles produced prior to 1980.",
+            "Can you provide the average horsepower for cars made before the year 1980?",
+            "Can you provide the average horsepower for cars made before 1980?",
+            "What is the average horsepower of the cars before 1980?"
+        ],
+        "query":"SELECT avg(horsepower) FROM CARS_DATA WHERE YEAR  <  1980;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the average horsepower of cars made before 1980?",
+            "What is the average horsepower of cars made before the year 1980?",
+            "Show me the average horsepower for vehicles produced before 1980.",
+            "What is the average horsepower for all cars produced before 1980 ?"
+        ],
+        "query":"select avg(horsepower) from cars_data where year  <  1980;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you find the average engine displacement for Volvo vehicles?",
+            "Can you find the mean engine displacement for Volvo vehicles?",
+            "Show me the average engine size for cars made by Volvo.",
+            "What is the average edispl of the cars of model volvo?"
+        ],
+        "query":"SELECT avg(T2.edispl) FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T1.Model  =  'volvo';",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the highest acceleration values grouped by the number of cylinders.",
+            "What is the maximum acceleration for each cylinder group in the car data?",
+            "What is the maximum acceleration for each number of cylinders in the car data?",
+            "What is the maximum accelerate for different number of cylinders?"
+        ],
+        "query":"SELECT max(Accelerate) ,  Cylinders FROM CARS_DATA GROUP BY Cylinders;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you tell me the most common car model available in the car names list?",
+            "What is the car model that appears most often in the car names list?",
+            "What is the top car model by frequency in the database?",
+            "Which model has the most version(make) of cars?"
+        ],
+        "query":"SELECT Model FROM CAR_NAMES GROUP BY Model ORDER BY count(*) DESC LIMIT 1;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many cars have more than 4 cylinders?",
+            "How many cars are there that have over 4 cylinders?",
+            "What is the total number of cars that have over 4 cylinders?",
+            "How many cars have more than 4 cylinders?"
+        ],
+        "query":"SELECT count(*) FROM CARS_DATA WHERE Cylinders  >  4;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many cars were produced in the year 1980?",
+            "Can you provide the count of cars made in 1980?",
+            "Can you provide the count of cars manufactured in 1980?",
+            "how many cars were produced in 1980?"
+        ],
+        "query":"SELECT count(*) FROM CARS_DATA WHERE YEAR  =  1980;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Give me the total number of car models from American Motor Company.",
+            "Count the number of car models produced by the American Motor Company.",
+            "How many car models are made by American Motor Company?",
+            "How many car models were produced by the maker with full name American Motor Company?"
+        ],
+        "query":"SELECT count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker WHERE T1.FullName  =  'American Motor Company';",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you show the car manufacturers with more than three models, including their full names and IDs?",
+            "Can you show the car manufacturers with more than three models along with their names and IDs?",
+            "List the names and IDs of car makers who produce more than three different models.",
+            "Which makers designed more than 3 car models? List full name and the id."
+        ],
+        "query":"SELECT T1.FullName ,  T1.Id FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >  3;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the distinct car models of General Motors or those cars that have a weight greater than 3500 pounds.",
+            "Find the unique car models of General Motors or those cars that have a weight greater than 3500 pounds.",
+            "List all unique car models either made by General Motors or weighing more than 3500 pounds.",
+            "Which distinctive models are produced by maker with the full name General Motors or weighing more than 3500?"
+        ],
+        "query":"SELECT DISTINCT T2.Model FROM CAR_NAMES AS T1 JOIN MODEL_LIST AS T2 ON T1.Model  =  T2.Model JOIN CAR_MAKERS AS T3 ON T2.Maker  =  T3.Id JOIN CARS_DATA AS T4 ON T1.MakeId  =  T4.Id WHERE T3.FullName  =  'General Motors' OR T4.weight  >  3500;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you provide the unique years of cars whose weight falls within the range of 3000 to 4000 pounds?",
+            "Which recorded years had cars weighing between 3000 and 4000 pounds?",
+            "Show me the distinct years of cars that have a weight between 3000 and 4000 pounds.",
+            "In which years cars were produced weighing no less than 3000 and no more than 4000 ?"
+        ],
+        "query":"select distinct year from cars_data where weight between 3000 and 4000;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you show the cylinders of the Volvo car with the quickest acceleration?",
+            "What is the number of cylinders for the Volvo car with the fastest acceleration rate?",
+            "Can you show the cylinders of the Volvo car with the fastest acceleration?"
+        ],
+        "query":"SELECT T1.cylinders FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Model  =  'volvo' ORDER BY T1.accelerate ASC LIMIT 1;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Count the number of cars that accelerate faster than the car with the highest horsepower.",
+            "How many cars have acceleration greater than the car with the highest horsepower?",
+            "Count the number of cars that accelerate faster than the car currently with the highest horsepower.",
+            "How many cars have a larger accelerate than the car with the largest horsepower?"
+        ],
+        "query":"SELECT COUNT(*) FROM CARS_DATA WHERE Accelerate  >  ( SELECT Accelerate FROM CARS_DATA ORDER BY Horsepower DESC LIMIT 1 );",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Show the count of countries that have more than two car makers.",
+            "List the countries that have more than two car makers.",
+            "How many countries have more than two distinct car makers associated with them?",
+            "How many countries has more than 2 car makers ?"
+        ],
+        "query":"select count(*) from countries as t1 join car_makers as t2 on t1.countryid  =  t2.country group by t1.countryid having count(*)  >  2",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the number of cars with more than six cylinders?",
+            "How many cars have more than 6 cylinders?",
+            "How many cars are there with more than 6 cylinders?",
+            "How many cars has over 6 cylinders?"
+        ],
+        "query":"SELECT COUNT(*) FROM CARS_DATA WHERE Cylinders  >  6;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Which car model has 4 cylinders and the greatest horsepower?",
+            "Which car model with 4 cylinders has the greatest horsepower?",
+            "What is the model of the car with 4 cylinders that has the highest horsepower?",
+            "For the cars with 4 cylinders, which model has the largest horsepower?"
+        ],
+        "query":"SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Cylinders  =  4 ORDER BY T2.horsepower DESC LIMIT 1;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the makes and their IDs of cars that have more power than the weakest car and have no more than 3 cylinders.",
+            "Find the car makes and their IDs that have more power than the least powerful car and have no more than 3 cylinders.",
+            "Show me the car makes whose horsepower is above the minimum horsepower and have 3 or fewer cylinders.",
+            "Among the cars with more than lowest horsepower, which ones do not have more than 3 cylinders? List the car makeid and make name."
+        ],
+        "query":"SELECT T2.MakeId ,  T2.Make FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Horsepower  >  (SELECT min(Horsepower) FROM CARS_DATA) AND T1.Cylinders  <=  3;",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Show me the make and make ID of cars with more horsepower than the minimum recorded and fewer than 4 cylinders.",
+            "List the make IDs and make names of cars that have more horsepower than the minimum recorded and have less than 4 cylinders.",
+            "Show me the make and make ID of cars with horsepower greater than the minimum horsepower and fewer than 4 cylinders.",
+            "Among the cars that do not have the minimum horsepower , what are the make ids and names of all those with less than 4 cylinders ?"
+        ],
+        "query":"select t2.makeid ,  t2.make from cars_data as t1 join car_names as t2 on t1.id  =  t2.makeid where t1.horsepower  >  (select min(horsepower) from cars_data) and t1.cylinders  <  4;",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Can you find the maximum mpg for cars that have 8 cylinders or were made before the year 1980?",
+            "Can you find the maximum mpg for cars that have 8 cylinders or were manufactured before the year 1980?",
+            "Show me the highest mpg of cars with 8 cylinders or produced before 1980.",
+            "What is the maximum miles per gallon of the car with 8 cylinders or produced before 1980 ?"
+        ],
+        "query":"select max(mpg) from cars_data where cylinders  =  8 or year  <  1980",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you provide a list of distinct models from car makers, excluding Ford, where the cars weigh under 3500?",
+            "Can you provide a list of distinct models from car makers, excluding Ford, where the cars weigh under 3500 pounds?",
+            "List all unique car models from manufacturers other than Ford Motor Company that have a weight of less than 3500.",
+            "Which models are lighter than 3500 but not built by the 'Ford Motor Company'?"
+        ],
+        "query":"SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.Model  =  T2.Model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.Id JOIN CAR_MAKERS AS T4 ON T1.Maker  =  T4.Id WHERE T3.weight  <  3500 AND T4.FullName != 'Ford Motor Company';",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the countries without any car manufacturers.",
+            "Which countries are without any car manufacturers?",
+            "Which countries are not associated with any car manufacturers?",
+            "What are the name of the countries where there is not a single car maker?"
+        ],
+        "query":"SELECT CountryName FROM countries EXCEPT SELECT T1.CountryName FROM countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.countryId  =  T2.Country;",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show the IDs and names of car makers that meet the requirement of having at least two models and are linked to more than three car names.",
+            "Find the car makers who have two or more models and are also connected to greater than three distinct car names.",
+            "Show the IDs and names of car makers with at least two models and more than three associated car names.",
+            "Which are the car makers which produce at least 2 models and more than 3 car makers ? List the id and the maker ."
+        ],
+        "query":"select t1.id ,  t1.maker from car_makers as t1 join model_list as t2 on t1.id  =  t2.maker group by t1.id having count(*)  >=  2 intersect select t1.id ,  t1.maker from car_makers as t1 join model_list as t2 on t1.id  =  t2.maker join car_names as t3 on t2.model  =  t3.model group by t1.id having count(*)  >  3;",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Show me the car manufacturers with a minimum of two models listed and more than three named models.",
+            "Find the car makers who have at least two models and more than three named models.",
+            "Which car makers have at least two models in the database and over three models with names?",
+            "What are the ids and makers of all car makers that produce at least 2 models and make more than 3 cars?"
+        ],
+        "query":"SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >=  2 INTERSECT SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model GROUP BY T1.Id HAVING count(*)  >  3;",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Can you find the country IDs and country names that either have more than three car manufacturers or where the 'fiat' car model is produced?",
+            "Can you provide the country IDs and names for countries with over three car manufacturers or where the 'fiat' car model is made?",
+            "Show the country IDs and names for countries with more than three car makers or those that have 'fiat' car models.",
+            "What are the id and names of the countries which have more than 3 car makers or produce the 'fiat' model?"
+        ],
+        "query":"SELECT T1.countryId ,  T1.CountryName FROM Countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.countryId HAVING count(*)  >  3 UNION SELECT T1.countryId ,  T1.CountryName FROM Countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country JOIN MODEL_LIST AS T3 ON T2.Id  =  T3.Maker WHERE T3.Model  =  'fiat';",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "List the countries where there are more than three different car makers, or where the Fiat model is produced.",
+            "Which countries have more than three car makers or produce Fiat models?",
+            "List the countries where there are more than three different car makers, or where car makers produce the Fiat model.",
+            "What are the ids and names of all countries that either have more than 3 car makers or produce fiat model ?"
+        ],
+        "query":"select t1.countryid ,  t1.countryname from countries as t1 join car_makers as t2 on t1.countryid  =  t2.country group by t1.countryid having count(*)  >  3 union select t1.countryid ,  t1.countryname from countries as t1 join car_makers as t2 on t1.countryid  =  t2.country join model_list as t3 on t2.id  =  t3.maker where t3.model  =  'fiat';",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Find the country of origin for JetBlue Airways.",
+            "Which country is JetBlue Airways based in?",
+            "Can you tell me the country where JetBlue Airways is based?",
+            "Which country does Airline \"JetBlue Airways\" belong to?"
+        ],
+        "query":"SELECT Country FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the abbreviation for JetBlue Airways?",
+            "Show me the abbreviation for JetBlue Airways.",
+            "Show me the short form for JetBlue Airways.",
+            "What is the abbreviation of Airline \"JetBlue Airways\"?"
+        ],
+        "query":"SELECT Abbreviation FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the airlines and their abbreviations that are located in the USA.",
+            "Show me the airlines and their abbreviations that are based in the USA.",
+            "Can you provide the names and abbreviations of airlines based in the United States?",
+            "List all airline names and their abbreviations in \"USA\"."
+        ],
+        "query":"SELECT Airline ,  Abbreviation FROM AIRLINES WHERE Country  =  \"USA\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What are the codes and names of airports in Anthony?",
+            "Can you provide the codes and names of airports located in Anthony?",
+            "Can you provide the airport codes and names for airports located in Anthony?",
+            "List the airport code and name in the city of Anthony."
+        ],
+        "query":"SELECT AirportCode ,  AirportName FROM AIRPORTS WHERE city  =  \"Anthony\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the count of airlines available?",
+            "What is the total count of airlines?",
+            "Can you provide the total number of airlines?",
+            "How many airlines do we have?"
+        ],
+        "query":"SELECT count(*) FROM AIRLINES",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you tell me the total number of airports?",
+            "What is the total count of airports?",
+            "Can you tell me the total number of airports listed?",
+            "How many airports do we have?"
+        ],
+        "query":"SELECT count(*) FROM AIRPORTS",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the total number of flights?",
+            "How many flights are available?",
+            "How many flights are there in total?",
+            "How many flights do we have?"
+        ],
+        "query":"SELECT count(*) FROM FLIGHTS",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you provide the airline that has the abbreviation UAL?",
+            "Which airline corresponds to the abbreviation UAL?",
+            "Show me the airline name for the abbreviation UAL.",
+            "Which airline has abbreviation 'UAL'?"
+        ],
+        "query":"SELECT Airline FROM AIRLINES WHERE Abbreviation  =  \"UAL\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "How many airlines are there based in the USA?",
+            "How many airlines are based in the USA?",
+            "What is the total number of airlines based in the USA?",
+            "How many airlines are from USA?"
+        ],
+        "query":"SELECT count(*) FROM AIRLINES WHERE Country  =  \"USA\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you tell me the city and country for the Alton airport?",
+            "Find the city and country of the airport called Alton.",
+            "Can you tell me which city and country the Alton airport is located in?",
+            "Which city and country is the Alton airport at?"
+        ],
+        "query":"SELECT City ,  Country FROM AIRPORTS WHERE AirportName  =  \"Alton\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the name of the airport that has the code 'AKO'.",
+            "Can you tell me the name of the airport with the code 'AKO'?",
+            "Find the airport that has the code 'AKO'.",
+            "What is the airport name for airport 'AKO'?"
+        ],
+        "query":"SELECT AirportName FROM AIRPORTS WHERE AirportCode  =  \"AKO\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the airport name for the city of Aberdeen.",
+            "Find the airport name in Aberdeen.",
+            "What is the name of the airport in Aberdeen?",
+            "What are airport names at City 'Aberdeen'?"
+        ],
+        "query":"SELECT AirportName FROM AIRPORTS WHERE City = \"Aberdeen\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the count of flights departing from APG airport?",
+            "What is the count of flights that have APG as their departure airport?",
+            "How many flights depart from APG airport?",
+            "How many flights depart from 'APG'?"
+        ],
+        "query":"SELECT count(*) FROM FLIGHTS WHERE SourceAirport  =  \"APG\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the count of flights with ATO as their destination airport?",
+            "Can you tell me the total number of flights with ATO as their destination?",
+            "What is the count of flights heading to ATO?",
+            "How many flights have destination ATO?"
+        ],
+        "query":"SELECT count(*) FROM FLIGHTS WHERE DestAirport  =  \"ATO\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many flights are departing from the city of Aberdeen?",
+            "Find the number of flights that depart from Aberdeen.",
+            "What is the total count of flights leaving from Aberdeen?",
+            "How many flights depart from City Aberdeen?"
+        ],
+        "query":"SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.SourceAirport  =  T2.AirportCode WHERE T2.City  =  \"Aberdeen\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many flights arrive in Aberdeen?",
+            "Tell me the total number of flights that arrive in Aberdeen.",
+            "Give me the total number of flights to Aberdeen.",
+            "How many flights arriving in Aberdeen city?"
+        ],
+        "query":"SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode WHERE T2.City  =  \"Aberdeen\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the total number of flights traveling between Aberdeen and Ashley.",
+            "How many flights are there from Aberdeen to Ashley?",
+            "Can you count the number of flights that depart from Aberdeen and arrive in Ashley?",
+            "How many flights depart from City 'Aberdeen' and have destination City 'Ashley'?"
+        ],
+        "query":"SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode JOIN AIRPORTS AS T3 ON T1.SourceAirport  =  T3.AirportCode WHERE T2.City  =  \"Ashley\" AND T3.City  =  \"Aberdeen\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the total number of flights that JetBlue Airways runs?",
+            "What is the total number of flights operated by JetBlue Airways?",
+            "How many flights are operated by JetBlue Airways?",
+            "How many flights does airline 'JetBlue Airways' have?"
+        ],
+        "query":"SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T1.Airline  =  T2.uid WHERE T2.Airline = \"JetBlue Airways\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many flights from United Airlines are heading to ASY airport?",
+            "Find the number of United Airlines flights with ASY as their destination.",
+            "Can you tell me the total count of United Airlines flights landing in ASY?",
+            "How many 'United Airlines' flights go to Airport 'ASY'?"
+        ],
+        "query":"SELECT count(*) FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T2.Airline  =  T1.uid WHERE T1.Airline  =  \"United Airlines\" AND T2.DestAirport  =  \"ASY\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the total number of flights by United Airlines that have AHD as the departure airport.",
+            "Find the total number of United Airlines flights departing from AHD.",
+            "Can you count the number of flights departing from AHD airport under United Airlines?",
+            "How many 'United Airlines' flights depart from Airport 'AHD'?"
+        ],
+        "query":"SELECT count(*) FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T2.Airline  =  T1.uid WHERE T1.Airline  =  \"United Airlines\" AND T2.SourceAirport  =  \"AHD\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the total number of flights operated by United Airlines arriving at Aberdeen.",
+            "Can you find the total number of United Airlines flights that have Aberdeen as their destination?",
+            "Can you count the number of United Airlines flights that have Aberdeen as their destination?",
+            "How many United Airlines flights go to City 'Aberdeen'?"
+        ],
+        "query":"SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode JOIN AIRLINES AS T3 ON T3.uid  =  T1.Airline WHERE T2.City  =  \"Aberdeen\" AND T3.Airline  =  \"United Airlines\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the city that has the greatest number of flights arriving.",
+            "Can you tell me the city with the most incoming flights?",
+            "Identify the city with the highest number of arriving flights.",
+            "Which city has most number of arriving flights?"
+        ],
+        "query":"SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you identify the airport that appears most often in flights as either the departure or arrival?",
+            "Can you identify the airport that appears most often in flights as either the source or destination?",
+            "Find the airport code of the airport that is used the most in flights, either as a departure or arrival airport.",
+            "What is the code of airport that has the highest number of flights?"
+        ],
+        "query":"SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the airline that operates the most flights.",
+            "Could you tell me the airline with the highest number of flights?",
+            "Which airline has the most flights?",
+            "Which airline has most number of flights?"
+        ],
+        "query":"SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the airline with the lowest number of flights and provide its abbreviation and country.",
+            "Find the airline with the smallest flight count and provide its abbreviation and country.",
+            "Which airline has the fewest flights, and what are its abbreviation and country?",
+            "Find the abbreviation and country of the airline that has fewest number of flights?"
+        ],
+        "query":"SELECT T1.Abbreviation ,  T1.Country FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the airlines that have flights departing from AHD.",
+            "Which airlines operate flights departing from AHD airport?",
+            "Can you list the airlines that have flights departing from AHD?",
+            "What are airlines that have some flight departing from airport 'AHD'?"
+        ],
+        "query":"SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"AHD\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the airlines operating flights that arrive at AHD airport.",
+            "Which airlines have flights destined for AHD airport?",
+            "Can you list the airlines that fly to AHD airport?",
+            "What are airlines that have flights arriving at airport 'AHD'?"
+        ],
+        "query":"SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.DestAirport  =  \"AHD\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the airlines that fly from both the APG and CVO airports.",
+            "Which airlines operate flights from both APG and CVO airports?",
+            "Show me the airlines that have flights originating from APG and also from CVO.",
+            "Find all airlines that have flights from both airports 'APG' and 'CVO'."
+        ],
+        "query":"SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"APG\" INTERSECT SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"CVO\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the airlines that fly out of 'CVO' but don't have flights from 'APG'.",
+            "Which airlines operate flights from the 'CVO' airport but not from the 'APG' airport?",
+            "Can you list the airlines that fly out of 'CVO' but not from 'APG'?",
+            "Find all airlines that have flights from airport 'CVO' but not from 'APG'."
+        ],
+        "query":"SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"CVO\" EXCEPT SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"APG\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which airlines have more than 10 flights?",
+            "List the airlines that operate more than 10 flights.",
+            "Can you show me the airlines with over 10 flights?",
+            "Find all airlines that have at least 10 flights."
+        ],
+        "query":"SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  >  10",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the airlines that operate less than 200 flights.",
+            "Show the airlines that have operated under 200 flights.",
+            "List the airlines that operate fewer than 200 flights.",
+            "Find all airlines that have fewer than 200 flights."
+        ],
+        "query":"SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  <  200",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Which flight numbers belong to United Airlines?",
+            "Can you tell me which flight numbers belong to United Airlines?",
+            "Can you provide the flight numbers for flights operated by United Airlines?",
+            "What are flight numbers of Airline \"United Airlines\"?"
+        ],
+        "query":"SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T2.uid  =  T1.Airline WHERE T2.Airline  =  \"United Airlines\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What are the flight numbers for flights departing from the APG airport?",
+            "Can you list the flight numbers for flights departing from APG?",
+            "Show the flight numbers for all flights departing from APG airport.",
+            "What are flight numbers of flights departing from Airport \"APG\"?"
+        ],
+        "query":"SELECT FlightNo FROM FLIGHTS WHERE SourceAirport  =  \"APG\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What are all the flight numbers for flights going to APG?",
+            "Show me all flight numbers that are headed to APG airport.",
+            "What are the flight numbers for flights going to APG?",
+            "What are flight numbers of flights arriving at Airport \"APG\"?"
+        ],
+        "query":"SELECT FlightNo FROM FLIGHTS WHERE DestAirport  =  \"APG\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which flight numbers have Aberdeen as their departure point?",
+            "Which flight numbers depart from the airport in Aberdeen?",
+            "List the flight numbers for flights that take off from Aberdeen's airport.",
+            "What are flight numbers of flights departing from City \"Aberdeen \"?"
+        ],
+        "query":"SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.SourceAirport   =  T2.AirportCode WHERE T2.City  =  \"Aberdeen\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which flight numbers are headed to the city of Aberdeen?",
+            "Can you give me the flight numbers for all flights arriving in Aberdeen?",
+            "Can you provide the flight numbers for all flights arriving in Aberdeen?",
+            "What are flight numbers of flights arriving at City \"Aberdeen\"?"
+        ],
+        "query":"SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport   =  T2.AirportCode WHERE T2.City  =  \"Aberdeen\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "How many flights are there to either Aberdeen or Abilene?",
+            "Show me the total flights that are headed to Aberdeen or Abilene.",
+            "Show me the total number of flights that are headed to Aberdeen or Abilene.",
+            "Find the number of flights landing in the city of Aberdeen or Abilene."
+        ],
+        "query":"SELECT count(*) FROM Flights AS T1 JOIN Airports AS T2 ON T1.DestAirport  =  T2.AirportCode WHERE T2.city  =  \"Aberdeen\" OR T2.city  =  \"Abilene\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Which airports are not used as either departure or arrival points in any flight?",
+            "Which airports are not currently used as either departure or arrival points in any flight?",
+            "Can you list the airports that do not appear as source or destination in the flights database?",
+            "Find the name of airports which do not have any flight in and out."
+        ],
+        "query":"SELECT AirportName FROM Airports WHERE AirportCode NOT IN (SELECT SourceAirport FROM Flights UNION SELECT DestAirport FROM Flights)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Can you tell me the number of employees?",
+            "What is the total number of employees?",
+            "Can you count the number of employees for me?",
+            "How many employees are there?"
+        ],
+        "query":"SELECT count(*) FROM employee",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the names of employees ordered by their age.",
+            "Give me the names of employees listed according to their age.",
+            "Which employees are there, listed according to their age?",
+            "Sort employee names by their age in ascending order."
+        ],
+        "query":"SELECT name FROM employee ORDER BY age",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "How many employees are there in each city?",
+            "Show me the count of employees for each city.",
+            "Show me the count of employees for each individual city.",
+            "What is the number of employees from each city?"
+        ],
+        "query":"SELECT count(*) ,  city FROM employee GROUP BY city",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the cities that have a count of employees below 30 years old greater than one.",
+            "List the cities that have multiple employees younger than 30.",
+            "Show me the cities where there are multiple employees younger than 30 years old.",
+            "Which cities do more than one employee under age 30 come from?"
+        ],
+        "query":"SELECT city FROM employee WHERE age  <  30 GROUP BY city HAVING count(*)  >  1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many shops are there in each location?",
+            "How many shops or stores are there in each location?",
+            "Show me how many shops there are in each area.",
+            "Find the number of shops in each location."
+        ],
+        "query":"SELECT count(*) ,  LOCATION FROM shop GROUP BY LOCATION",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the manager and district for the shop with the largest inventory.",
+            "Who is the manager of the shop with the highest number of products, and in which district is it located?",
+            "Who is the manager of the shop with the highest number of products, and which district is it in?",
+            "Find the manager name and district of the shop whose number of products is the largest."
+        ],
+        "query":"SELECT manager_name ,  district FROM shop ORDER BY number_products DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the range of quantities of products in the shop, from the minimum to the maximum?",
+            "Show me the lowest and highest product counts in the shop.",
+            "What are the minimum and maximum amounts of products available in the shop?",
+            "find the minimum and maximum number of products of all stores."
+        ],
+        "query":"SELECT min(Number_products) ,  max(Number_products) FROM shop",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the shops with their names, locations, and districts sorted by the number of products in descending order.",
+            "Show me the names, locations, and districts of shops sorted by the number of products in descending order.",
+            "Find the shops along with their names and districts and sort them by the number of products in descending order.",
+            "Return the name, location and district of all shops in descending order of number of products."
+        ],
+        "query":"SELECT name ,  LOCATION ,  district FROM shop ORDER BY number_products DESC",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the shops where the number of products exceeds the average in the shops.",
+            "Show me the shops where the number of products is higher than the average number of products in the shops.",
+            "Can you list the names of shops where the number of products exceeds the average across all shops?",
+            "Find the names of stores whose number products is more than the average number of products."
+        ],
+        "query":"SELECT name FROM shop WHERE number_products  >  (SELECT avg(number_products) FROM shop)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Which employee has received the most evaluations?",
+            "Show me the name of the employee who has the most evaluations.",
+            "What is the name of the employee who has the most evaluations?",
+            "find the name of employee who was awarded the most times in the evaluation."
+        ],
+        "query":"SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID  =  t2.Employee_ID GROUP BY t2.Employee_ID ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Who is the employee with the highest bonus?",
+            "Which employee has received the highest bonus?",
+            "Which employee has earned the highest bonus?",
+            "Find the name of the employee who got the highest one time bonus."
+        ],
+        "query":"SELECT t1.name FROM employee AS t1 JOIN evaluation AS t2 ON t1.Employee_ID  =  t2.Employee_ID ORDER BY t2.bonus DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the names of employees who haven't been evaluated.",
+            "Can you provide the names of employees whose performance evaluations are missing?",
+            "Show me the names of the employees who are yet to be evaluated.",
+            "Find the names of employees who never won any award in the evaluation."
+        ],
+        "query":"SELECT name FROM employee WHERE Employee_ID NOT IN (SELECT Employee_ID FROM evaluation)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Can you tell me the shop name with the highest number of hires?",
+            "Can you tell me the shop name with the most hires currently?",
+            "Find the shop that is the top hirer.",
+            "What is the name of the shop that is hiring the largest number of employees?"
+        ],
+        "query":"SELECT t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id  =  t2.shop_id GROUP BY t1.shop_id ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the number of hirings for every shop.",
+            "Show me the number of hirings for every shop, grouping them by shop name.",
+            "Can you provide the count of hirings grouped by each shop name?",
+            "Find the number of employees hired in each shop; show the shop name as well."
+        ],
+        "query":"SELECT count(*) ,  t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id  =  t2.shop_id GROUP BY t2.name",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the total amount of bonuses recorded?",
+            "Can you calculate the cumulative bonus amount from the evaluations?",
+            "What is the total sum of bonuses recorded in the evaluation table?",
+            "What is total bonus given in all evaluations?"
+        ],
+        "query":"SELECT sum(bonus) FROM evaluation",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me all the information related to hiring.",
+            "Can you provide all the details about hiring?",
+            "List all the hiring records.",
+            "Give me all the information about hiring."
+        ],
+        "query":"SELECT * FROM hiring",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the count of matches that occurred in the year 2013 or 2016.",
+            "How many matches took place in the years 2013 or 2016?",
+            "Find the count of matches that occurred in either the year 2013 or 2016.",
+            "List the number of all matches who played in years of 2013 or 2016."
+        ],
+        "query":"SELECT count(*) FROM matches WHERE YEAR  =  2013 OR YEAR  =  2016",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the number of countries with a Republic as their form of government?",
+            "How many countries have their government form listed as Republic?",
+            "How many countries have a government form classified as a Republic?",
+            "How many countries have a republic as their form of government?"
+        ],
+        "query":"SELECT count(*) FROM country WHERE GovernmentForm  =  \"Republic\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you tell me the average earnings for poker players?",
+            "Find the average income of poker players.",
+            "Can you tell me the average income for poker players?",
+            "What is the average earnings of poker players?"
+        ],
+        "query":"SELECT avg(Earnings) FROM poker_player",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you tell me Kyle's grade?",
+            "What is Kyle's grade?",
+            "Find out the grade for Kyle.",
+            "What grade is Kyle in?"
+        ],
+        "query":"SELECT grade FROM Highschooler WHERE name  =  \"Kyle\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What continent does Anguilla belong to?",
+            "Which continent is Anguilla a part of?",
+            "Can you tell me the continent that Anguilla belongs to?",
+            "Which continent is Anguilla in?"
+        ],
+        "query":"SELECT Continent FROM country WHERE Name  =  \"Anguilla\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Provide the names of singers born in either 1948 or 1949.",
+            "Provide the names of singers with a birth year of either 1948 or 1949.",
+            "Can you list the singers who were born in 1948 or 1949?",
+            "Show the name of singers whose birth year is either 1948 or 1949?"
+        ],
+        "query":"SELECT Name FROM singer WHERE Birth_Year  =  1948 OR Birth_Year  =  1949",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the hometown of the youngest teacher?",
+            "Can you tell me the hometown of the youngest teacher?",
+            "Find the hometown of the teacher who is the youngest.",
+            "What is the hometown of the youngest teacher?"
+        ],
+        "query":"SELECT Hometown FROM teacher ORDER BY Age ASC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the maximum number of final tables made by poker players whose earnings are below 200,000?",
+            "What is the maximum number of final tables made by a poker player with earnings below 200,000?",
+            "Find the greatest number of final tables achieved by poker players with earnings under 200,000.",
+            "What is the maximum number of final tables made among poker players with earnings less than 200000?"
+        ],
+        "query":"SELECT max(Final_Table_Made) FROM poker_player WHERE Earnings  <  200000",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show the professionals either based in Indiana or those who've performed more than two treatments, including their last names and cell numbers.",
+            "Find professionals who are located in Indiana or have conducted more than two treatments and show their last names and cell numbers.",
+            "Find professionals who are either located in Indiana or have conducted more than two treatments, along with their last names and cell numbers.",
+            "Which professionals live in the state of Indiana or have done treatment on more than 2 treatments? List his or her id, last name and cell phone."
+        ],
+        "query":"SELECT professional_id ,  last_name ,  cell_number FROM Professionals WHERE state  =  'Indiana' UNION SELECT T1.professional_id ,  T1.last_name ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >  2",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many countries are there in Asia?",
+            "What is the total number of countries in Asia?",
+            "Can you give me the total number of countries located in Asia?",
+            "how many countries are in Asia?"
+        ],
+        "query":"SELECT count(*) FROM country WHERE continent  =  \"Asia\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the earnings of poker players in descending order.",
+            "List the poker players' earnings in descending order.",
+            "Show the earnings of poker players sorted from highest to lowest.",
+            "List the earnings of poker players in descending order."
+        ],
+        "query":"SELECT Earnings FROM poker_player ORDER BY Earnings DESC",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "How many countries speak both English and Dutch?",
+            "What is the number of countries that have both English and Dutch languages spoken?",
+            "What is the total number of countries where both English and Dutch are spoken as languages?",
+            "How many countries speak both English and Dutch?"
+        ],
+        "query":"SELECT COUNT(*) FROM (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Dutch\")",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Provide a list of people with their names and birth dates arranged alphabetically.",
+            "Provide a list of people with their names and birth dates arranged in alphabetical order by name.",
+            "Show me the names and birth dates of individuals, sorted alphabetically by name.",
+            "List the names and birth dates of people in ascending alphabetical order of name."
+        ],
+        "query":"SELECT Name ,  Birth_Date FROM people ORDER BY Name ASC",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which email addresses belong to professionals located in Hawaii or Wisconsin?",
+            "Can you provide the email addresses of professionals located in either Hawaii or Wisconsin?",
+            "Can you provide the email addresses of professionals who are in either Hawaii or Wisconsin?",
+            "List the emails of the professionals who live in the state of Hawaii or the state of Wisconsin."
+        ],
+        "query":"SELECT email_address FROM Professionals WHERE state  =  'Hawaii' OR state  =  'Wisconsin'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you show me the names and results of battles where the Bulgarian commander was someone other than Boril?",
+            "List the names and outcomes of battles where Boril was not the Bulgarian commander.",
+            "List the names and results of battles where Boril was not the Bulgarian commander.",
+            "What are the name and results of the battles when the bulgarian commander is not 'Boril'"
+        ],
+        "query":"SELECT name ,  RESULT FROM battle WHERE bulgarian_commander != 'Boril'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the TV channel IDs that exclude those featured in cartoons directed by Ben Jones.",
+            "Which TV channel IDs are not featured in cartoons directed by Ben Jones?",
+            "List the IDs of TV channels excluding those that appear in cartoons directed by Ben Jones.",
+            "find the id of tv channels that do not play any cartoon directed by Ben Jones."
+        ],
+        "query":"SELECT id FROM TV_Channel EXCEPT SELECT channel FROM cartoon WHERE directed_by  =  'Ben Jones'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the names of people who are not from Russia.",
+            "Can you provide the names of individuals who do not have Russian nationality?",
+            "Show me the names of people apart from those with a Russian nationality.",
+            "Show names of people whose nationality is not \"Russia\"."
+        ],
+        "query":"SELECT Name FROM people WHERE Nationality != \"Russia\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the number of visitors who haven't gone to museums established after 2010.",
+            "How many visitors have not visited any museums that opened after 2010?",
+            "Find the number of visitors who haven't visited museums that opened after 2010.",
+            "Find the number of visitors who did not visit any museum opened after 2010."
+        ],
+        "query":"SELECT count(*) FROM visitor WHERE id NOT IN (SELECT t2.visitor_id FROM museum AS t1 JOIN visit AS t2 ON t1.Museum_ID  =  t2.Museum_ID WHERE t1.open_year  >  2010)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Which semesters have no students enrolled?",
+            "Can you list the semesters where there are no student enrollments?",
+            "Can you list the semesters where there is no student enrollment?",
+            "Which semesters do not have any student enrolled? List the semester name."
+        ],
+        "query":"SELECT semester_name FROM Semesters WHERE semester_id NOT IN( SELECT semester_id FROM Student_Enrolment )",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "List all cartoon titles directed by either Ben Jones or Brandon Vietti.",
+            "Which cartoon titles were directed by either Ben Jones or Brandon Vietti?",
+            "Which cartoons were directed by Ben Jones or Brandon Vietti?",
+            "List the title of all cartoon directed by \"Ben Jones\" or \"Brandon Vietti\"."
+        ],
+        "query":"SELECT Title FROM Cartoon WHERE Directed_by = \"Ben Jones\" OR Directed_by = \"Brandon Vietti\";",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the names of teachers along with the courses they teach.",
+            "Provide a list of teachers and corresponding courses they are scheduled to teach.",
+            "Provide a list of teachers and the courses they are currently teaching.",
+            "Show names of teachers and the courses they are arranged to teach."
+        ],
+        "query":"SELECT T3.Name ,  T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID  =  T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID  =  T3.Teacher_ID",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the money rank of the tallest poker player?",
+            "Find the money rank for the tallest poker player.",
+            "Show me the money rank for the tallest individual among poker players.",
+            "What is the money rank of the tallest poker player?"
+        ],
+        "query":"SELECT T2.Money_Rank FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Height DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which citizenship is most common among singers?",
+            "What citizenship appears most frequently among the singers?",
+            "Identify the most prevalent citizenship among the singers.",
+            "What is the most common singer citizenship ?"
+        ],
+        "query":"select citizenship from singer group by citizenship order by count(*) desc limit 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List all players\u2019 first and last names sorted by their date of birth.",
+            "Show the first and last names of players in the order of their birthdays.",
+            "Show the first and last names of players sorted by their birth date.",
+            "List the first and last name of all players in the order of birth date."
+        ],
+        "query":"SELECT first_name ,  last_name FROM players ORDER BY birth_date",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the average attendance for the shows.",
+            "Find the mean attendance for the shows.",
+            "Can you provide the average number of attendees across shows?",
+            "What is the average attendance of shows?"
+        ],
+        "query":"SELECT avg(Attendance) FROM SHOW",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Provide the first name, last name, and email address of owners located in states with 'North' in their name.",
+            "Show the names and email addresses of owners from states that have 'North' in their name.",
+            "Show the names and emails of owners from any states that include 'North' in their name.",
+            "Which owners live in the state whose name contains the substring 'North'? List his first name, last name and email."
+        ],
+        "query":"SELECT first_name ,  last_name ,  email_address FROM Owners WHERE state LIKE '%North%'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the weekly position in the rankings for the TV series episode 'A Love of a Lifetime'.",
+            "What is the weekly rank for the TV series episode 'A Love of a Lifetime'?",
+            "Show me the weekly position for the episode named 'A Love of a Lifetime'.",
+            "What is Weekly Rank of TV series with Episode \"A Love of a Lifetime\"?"
+        ],
+        "query":"SELECT Weekly_Rank FROM TV_series WHERE Episode = \"A Love of a Lifetime\";",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find out the date when the TV episode 'A Love of a Lifetime' was broadcasted.",
+            "Find out the date when the TV episode 'A Love of a Lifetime' was aired.",
+            "When was the episode titled 'A Love of a Lifetime' of the TV series aired?",
+            "What is the air date of TV series with Episode \"A Love of a Lifetime\"?"
+        ],
+        "query":"SELECT Air_Date FROM TV_series WHERE Episode = \"A Love of a Lifetime\";",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "How many friends does the high school student named Kyle have?",
+            "How many friends does the high schooler named Kyle have?",
+            "Can you tell me the number of friends of the high school student called Kyle?",
+            "How many friends does the high school student Kyle have?"
+        ],
+        "query":"SELECT count(*) FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id WHERE T2.name  =  \"Kyle\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Which dogs have treatment costs that never exceed $1000?",
+            "List the names of dogs with treatments that haven't cost more than $1000.",
+            "Which dogs have never accumulated treatment costs over $1000?",
+            "Which dogs have not cost their owner more than 1000 for treatment ? List the dog names ."
+        ],
+        "query":"select name from dogs where dog_id not in ( select dog_id from treatments group by dog_id having sum(cost_of_treatment)  >  1000 )",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Provide details of treatment costs along with their respective type descriptions.",
+            "Provide a summary of treatment costs paired with their respective treatment type descriptions.",
+            "What are the costs and type descriptions for each treatment?",
+            "List the cost of each treatment and the corresponding treatment type description."
+        ],
+        "query":"SELECT T1.cost_of_treatment ,  T2.treatment_type_description FROM Treatments AS T1 JOIN treatment_types AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show the ID and text of each paragraph from the document named 'Welcome to NY'.",
+            "List paragraphs with their IDs from the document called 'Welcome to NY'.",
+            "List paragraphs along with their IDs from the document called 'Welcome to NY'.",
+            "Show all paragraph ids and texts for the document with name 'Welcome to NY'."
+        ],
+        "query":"SELECT T1.paragraph_id ,   T1.paragraph_text FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id  =  T2.document_id WHERE T2.Document_Name  =  'Welcome to NY'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the population and region of Angola?",
+            "Find the population and region associated with Angola.",
+            "Can you provide the population and the region where Angola is located?",
+            "What are the region and population of Angola?"
+        ],
+        "query":"SELECT Population ,  Region FROM country WHERE Name  =  \"Angola\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the voting information such as date, state, and phone number for the contestant named Tabatha Gehling?",
+            "What is the voting information including the date, state, and phone number for the contestant named Tabatha Gehling?",
+            "Show me the details of the votes, specifically the date, state, and phone number, for the contestant Tabatha Gehling.",
+            "What are the create dates, states, and phone numbers of the votes that were for the contestant named 'Tabatha Gehling'?"
+        ],
+        "query":"SELECT T2.created ,  T2.state ,  T2.phone_number FROM contestants AS T1 JOIN votes AS T2 ON T1.contestant_number  =  T2.contestant_number WHERE T1.contestant_name  =  'Tabatha Gehling'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What are the arrival and departure dates for each dog?",
+            "Show me the dates when the dogs arrived and departed.",
+            "Provide the arrival and departure dates for all dogs.",
+            "What are the arriving date and the departing date of all the dogs?"
+        ],
+        "query":"SELECT date_arrived ,  date_departed FROM Dogs",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the record company with the greatest number of orchestra connections.",
+            "Find the record company with the most orchestra associations.",
+            "Which record company represents the most orchestras?",
+            "List the record company shared by the most number of orchestras."
+        ],
+        "query":"SELECT Record_Company FROM orchestra GROUP BY Record_Company ORDER BY COUNT(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Identify the countries associated with TV channels that feature cartoons authored by Todd Casey.",
+            "Identify the countries associated with TV channels that air cartoons authored by Todd Casey.",
+            "Which countries have TV channels that air cartoons written by Todd Casey?",
+            "which countries' tv channels are playing some cartoon written by Todd Casey?"
+        ],
+        "query":"SELECT T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.written_by  =  'Todd Casey'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the first names of students with a permanent address in Haiti or those whose mobile number is 09700166582.",
+            "Can you list the first names of students whose permanent address is in Haiti, or their cell number is 09700166582?",
+            "Can you list the first names of students whose permanent address is in Haiti or whose mobile number is 09700166582?",
+            "Find the first name of the students who permanently live in the country Haiti or have the cell phone number 09700166582 ."
+        ],
+        "query":"select t1.first_name from students as t1 join addresses as t2 on t1.permanent_address_id  =  t2.address_id where t2.country  =  'haiti' or t1.cell_mobile_number  =  '09700166582'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Get the yearly total of matches.",
+            "How many matches were played each year?",
+            "How many total matches were played each year?",
+            "Find the number of matches happened in each year."
+        ],
+        "query":"SELECT count(*) ,  YEAR FROM matches GROUP BY YEAR",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Provide the count of cities where the population of cities in each district exceeds the average population.",
+            "Can you list the number of cities grouped by district that have a higher than average population?",
+            "How many cities have populations greater than the average population, grouped by district?",
+            "Find the number of cities in each district whose population is greater than the average population of cities?"
+        ],
+        "query":"SELECT count(*) ,  District FROM city WHERE Population  >  (SELECT avg(Population) FROM city) GROUP BY District",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Identify the conductor leading the highest number of orchestras.",
+            "Identify the conductor associated with the highest number of orchestras.",
+            "Who is the conductor with the most orchestras?",
+            "Show the name of the conductor that has conducted the most number of orchestras."
+        ],
+        "query":"SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T2.Conductor_ID ORDER BY COUNT(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the dates of treatments along with the first names of the professionals.",
+            "List the dates of treatments along with the first names of the professionals involved.",
+            "What are the treatment dates and the corresponding professionals' first names involved?",
+            "List the date of each treatment, together with the first name of the professional who operated it."
+        ],
+        "query":"SELECT T1.date_of_treatment ,  T2.first_name FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id  =  T2.professional_id",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the number of paragraphs for every document based on their ID order.",
+            "How many paragraphs are there in each document, sorted by document ID?",
+            "How many paragraphs are there for each document, sorted by document ID?",
+            "Show all document ids and the number of paragraphs in each document. Order by document id."
+        ],
+        "query":"SELECT document_id ,  count(*) FROM Paragraphs GROUP BY document_id ORDER BY document_id",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the professionals in cities, whose names have 'West', alongside their roles and addresses.",
+            "Can you give me information about professionals in cities with 'West' in the name, including their roles and addresses?",
+            "Which professionals are located in cities containing 'West', and what are their roles and addresses?",
+            "Which professionals live in a city containing the substring 'West'? List his or her role, street, city and state."
+        ],
+        "query":"SELECT role_code ,  street ,  city ,  state FROM professionals WHERE city LIKE '%West%'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which countries have English or Dutch as an official language?",
+            "Show me countries where either English or Dutch is an official language.",
+            "Show me the countries where English and Dutch are recognized as official languages.",
+            "Which countries have either English or Dutch as an official language?"
+        ],
+        "query":"SELECT * FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND IsOfficial  =  \"T\" UNION SELECT * FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Dutch\" AND IsOfficial  =  \"T\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the pixel aspect ratios and countries for non-English TV channels.",
+            "Find the pixel aspect ratios and countries for TV channels not using English.",
+            "Can you list the pixel aspect ratio and country for TV channels not in English?",
+            "find the pixel aspect ratio and nation of the tv channels that do not use English."
+        ],
+        "query":"SELECT Pixel_aspect_ratio_PAR ,  country FROM tv_channel WHERE LANGUAGE != 'English'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you provide the count of votes recorded in either New York or California?",
+            "Can you provide the number of votes recorded in New York or California?",
+            "How many votes were cast in New York or California?",
+            "What are the number of votes from state 'NY' or 'CA'?"
+        ],
+        "query":"SELECT count(*) FROM votes WHERE state  =  'NY' OR state  =  'CA'",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many cartoons were written by Joseph Kuhr?",
+            "Find the total number of cartoons Joseph Kuhr has written.",
+            "Find the total cartoons Joseph Kuhr has written.",
+            "How many cartoons were written by \"Joseph Kuhr\"?"
+        ],
+        "query":"SELECT count(*) FROM Cartoon WHERE Written_by = \"Joseph Kuhr\";",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Who are the professionals whose first and last names are associated with treatments costing less than the average?",
+            "Which professionals have first and last names linked to treatments that are priced under the average treatment cost?",
+            "List the names of professionals whose treatment costs are below the average.",
+            "What are the first name and last name of the professionals who have done treatment with cost below average?"
+        ],
+        "query":"SELECT DISTINCT T1.first_name ,  T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 WHERE cost_of_treatment  <  ( SELECT avg(cost_of_treatment) FROM Treatments )",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Which property names belong to either houses or multi-room apartments?",
+            "List the property names for houses or apartments with more than one room.",
+            "Which properties are either houses or multi-room apartments?",
+            "What are the names of properties that are either houses or apartments with more than 1 room?"
+        ],
+        "query":"SELECT property_name FROM Properties WHERE property_type_code  =  \"House\" UNION SELECT property_name FROM Properties WHERE property_type_code  =  \"Apartment\" AND room_count  >  1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the names of singers with the titles of their songs.",
+            "Get a list of songs along with their corresponding singer names.",
+            "Get me a list of songs with their corresponding singer names.",
+            "Show titles of songs and names of singers."
+        ],
+        "query":"SELECT T2.Title ,  T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the count of TV channels available in English?",
+            "Can you tell me the number of English-language TV channels?",
+            "How many TV channels are available in English?",
+            "How many TV Channel using language English?"
+        ],
+        "query":"SELECT count(*) FROM TV_Channel WHERE LANGUAGE = \"English\";",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Which battles saw the loss of a Brig ship?",
+            "Which battles involved losing a Brig ship?",
+            "Find the distinct battles and their names where a Brig ship was lost.",
+            "What are the different ids and names of the battles that lost any 'Brig' type shipes?"
+        ],
+        "query":"SELECT DISTINCT T1.id ,  T1.name FROM battle AS T1 JOIN ship AS T2 ON T1.id  =  T2.lost_in_battle WHERE T2.ship_type  =  'Brig'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the Plaza Museum's number of employees and the year it was established.",
+            "What are the staff count and the opening year of the Plaza Museum?",
+            "Retrieve the number of staff and the year it opened for the Plaza Museum.",
+            "What are the opening year and staff number of the museum named Plaza Museum?"
+        ],
+        "query":"SELECT Num_of_Staff ,  Open_Year FROM museum WHERE name  =  'Plaza Museum'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the total number of poker players?",
+            "Could you tell me how many poker players exist?",
+            "How many poker players are there in total?",
+            "How many poker players are there?"
+        ],
+        "query":"SELECT count(*) FROM poker_player",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Can you show me the total number of courses?",
+            "Can you give me the total number of courses?",
+            "How many courses are available?",
+            "How many courses in total are listed?"
+        ],
+        "query":"SELECT count(*) FROM Courses",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the average lifespan in the Central Africa area.",
+            "Find the average life expectancy for the Central Africa region.",
+            "Can you provide the mean life expectancy for countries in the Central African region?",
+            "What is the average expected life expectancy for countries in the region of Central Africa?"
+        ],
+        "query":"SELECT avg(LifeExpectancy) FROM country WHERE Region  =  \"Central Africa\"",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the player along with their country code who has the highest number of tour participations.",
+            "Find the player and their country code with the greatest number of tours completed.",
+            "Who has participated in the most tours, and what is their country code?",
+            "Find the first name and country code of the player who did the most number of tours."
+        ],
+        "query":"SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id ORDER BY T2.tours DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the museum with the largest staff count.",
+            "Show me the museum that employs the most staff.",
+            "Find the museum with the highest number of staff.",
+            "Find the id and name of the museum that has the most staff members?"
+        ],
+        "query":"SELECT museum_id ,  name FROM museum ORDER BY num_of_staff DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you show me the people whose poker earnings surpass $300,000?",
+            "Who are the people with poker earnings exceeding $300,000?",
+            "List the names of individuals who have won more than $300,000 from poker.",
+            "What are the names of poker players whose earnings is higher than 300000?"
+        ],
+        "query":"SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID WHERE T2.Earnings  >  300000",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which contestant received the lowest number of votes?",
+            "Find the contestant that has the least amount of votes in the tally.",
+            "Who is the contestant with the fewest votes?",
+            "Of all the contestants who got voted, what is the contestant number and name of the contestant who got least votes?"
+        ],
+        "query":"SELECT T1.contestant_number , T1.contestant_name FROM contestants AS T1 JOIN votes AS T2 ON T1.contestant_number  =  T2.contestant_number GROUP BY T1.contestant_number ORDER BY count(*) ASC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "How many TV channels are available in each language?",
+            "Show me the number of TV channels for each language.",
+            "Show me the number of TV channels for every language.",
+            "List each language and the number of TV Channels using it."
+        ],
+        "query":"SELECT LANGUAGE ,  count(*) FROM TV_Channel GROUP BY LANGUAGE",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the match that took the most time and provide the names of the winner and loser.",
+            "Identify the match with the longest duration and tell me the winner and loser.",
+            "Who were the winner and loser in the match that lasted the longest?",
+            "find the names of loser and winner who played in the match with greatest number of minutes."
+        ],
+        "query":"SELECT winner_name ,  loser_name FROM matches ORDER BY minutes DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Calculate the average age for visitors with a membership level not exceeding 4.",
+            "Calculate the average age for visitors who have a membership level of 4 or below.",
+            "What is the average age of visitors with a membership level of 4 or below?",
+            "What is the average age of the visitors whose membership level is not higher than 4?"
+        ],
+        "query":"SELECT avg(age) FROM visitor WHERE Level_of_membership  <=  4",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What is the number of documents associated with the 'PPT' template type?",
+            "What is the number of documents linked to the 'PPT' template type?",
+            "Count the documents associated with the 'PPT' template type.",
+            "How many documents are using the template with type code 'PPT'?"
+        ],
+        "query":"SELECT count(*) FROM Documents AS T1 JOIN Templates AS T2 ON T1.Template_ID  =  T2.Template_ID WHERE T2.Template_Type_Code  =  'PPT'",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the names of singers who have had sales exceeding 300,000 for their songs.",
+            "List the names of singers whose songs have exceeded sales of 300,000 copies.",
+            "Which singers have songs that have sold more than 300,000 copies?",
+            "Show distinct names of singers that have songs with sales more than 300000."
+        ],
+        "query":"SELECT DISTINCT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID WHERE T2.Sales  >  300000",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the names of teachers who are aged 32 or 33.",
+            "Which teachers are 32 or 33 years old?",
+            "Who are the teachers that are either 32 or 33 years old?",
+            "Show the name of teachers aged either 32 or 33?"
+        ],
+        "query":"SELECT Name FROM teacher WHERE Age  =  32 OR Age  =  33",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the names of conductors who are not from the USA.",
+            "Can you show me the conductors with a nationality other than USA?",
+            "Can you show me conductors who are from countries other than the USA?",
+            "What are the names of conductors whose nationalities are not \"USA\"?"
+        ],
+        "query":"SELECT Name FROM conductor WHERE Nationality != 'USA'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the maximum net worth among singers categorized by their citizenship?",
+            "What is the maximum net worth of singers grouped by their citizenship?",
+            "Can you tell me the highest net worth for singers of different citizenships?",
+            "Show different citizenships and the maximum net worth of singers of each citizenship."
+        ],
+        "query":"SELECT Citizenship ,  max(Net_Worth_Millions) FROM singer GROUP BY Citizenship",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find countries where the TV channels do not feature any cartoons by Todd Casey.",
+            "Show the list of countries with TV channels that are not linked to cartoons authored by Todd Casey.",
+            "Show the list of countries with TV channels that are not linked to cartoons written by Todd Casey.",
+            "which countries' tv channels are not playing any cartoon written by Todd Casey?"
+        ],
+        "query":"SELECT country FROM TV_Channel EXCEPT SELECT T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.written_by  =  'Todd Casey'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the date of the most recent transcript entry.",
+            "Can you provide the date of the latest transcript entry?",
+            "Can you tell me the date of the latest transcript?",
+            "What is the last transcript release date?"
+        ],
+        "query":"SELECT transcript_date FROM Transcripts ORDER BY transcript_date DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the total number of dogs that have not undergone any treatments?",
+            "How many dogs have never received a treatment?",
+            "Count the number of dogs that have not been treated.",
+            "How many dogs have not gone through any treatment?"
+        ],
+        "query":"SELECT count(*) FROM Dogs WHERE dog_id NOT IN ( SELECT dog_id FROM Treatments )",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Show me the content of the series named 'Sky Radio'.",
+            "What is the list of content for the series 'Sky Radio'?",
+            "Show me the details of the series named 'Sky Radio'.",
+            "What is the content of TV Channel with serial name \"Sky Radio\"?"
+        ],
+        "query":"SELECT Content FROM TV_Channel WHERE series_name = \"Sky Radio\";",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What are the names of the three least populated countries?",
+            "Can you list the three countries with the smallest populations?",
+            "Show me the names of the top three countries with the lowest population count.",
+            "What are the names of the nations with the 3 lowest populations?"
+        ],
+        "query":"SELECT Name FROM country ORDER BY Population ASC LIMIT 3",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the average age for both the losing and winning players in the matches.",
+            "Can you provide the average ages of both the losing and winning players from the matches?",
+            "What is the average age of players who lost and those who won in the matches?",
+            "Find the average age of losers and winners of all matches."
+        ],
+        "query":"SELECT avg(loser_age) ,  avg(winner_age) FROM matches",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Please provide the mobile number for a student called Timmothy Ward.",
+            "What is the mobile number of the student named Timmothy Ward?",
+            "Can you find Timmothy Ward's cell phone number?",
+            "What is the mobile phone number of the student named Timmothy Ward ?"
+        ],
+        "query":"select cell_mobile_number from students where first_name  =  'timmothy' and last_name  =  'ward'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which are the top three most populated countries?",
+            "Which are the top three most populous countries?",
+            "What are the names of the three most populous countries?",
+            "What are names of countries with the top 3 largest population?"
+        ],
+        "query":"SELECT Name FROM country ORDER BY Population DESC LIMIT 3",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which singers do not have any songs associated with them?",
+            "Which singers have no songs linked to them?",
+            "Find the singers who haven't released any tracks.",
+            "List the name of singers that do not have any song."
+        ],
+        "query":"SELECT Name FROM singer WHERE Singer_ID NOT IN (SELECT Singer_ID FROM song)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Find the Asian country with the largest surface area and provide its population and life expectancy.",
+            "Can you give me details of the Asian country with the greatest surface area including its name, population, and life expectancy?",
+            "Which country in Asia has the largest surface area, and what are its population and life expectancy?",
+            "Find the name, population and expected life length of asian country with the largest area?"
+        ],
+        "query":"SELECT Name ,  Population ,  LifeExpectancy FROM country WHERE Continent  =  \"Asia\" ORDER BY SurfaceArea DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the last name of the owner whose dogs have undergone the most treatments.",
+            "Find the last name of the owner whose pets have undergone the highest number of treatments.",
+            "Which dog owner's pets have received the highest number of treatments?",
+            "Which owner has paid for the most treatments on his or her dogs? List the owner id and last name."
+        ],
+        "query":"SELECT T1.owner_id ,  T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the first names and birth dates of players from the USA.",
+            "Show me the first names and birth dates for the players who are from the USA.",
+            "Could you give me the first names and birth dates of players from the USA?",
+            "List the first name and birth date of all players from the country with code USA."
+        ],
+        "query":"SELECT first_name ,  birth_date FROM players WHERE country_code  =  'USA'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Which distinct cities in Asia are within countries where Chinese is an official language?",
+            "Can you list distinct cities in Asia in countries that have Chinese as their official language?",
+            "Can you list the cities in Asia within countries that have Chinese as their official language?",
+            "Which unique cities are in Asian countries where Chinese is the official language ?"
+        ],
+        "query":"select distinct t3.name from country as t1 join countrylanguage as t2 on t1.code  =  t2.countrycode join city as t3 on t1.code  =  t3.countrycode where t2.isofficial  =  't' and t2.language  =  'chinese' and t1.continent  =  \"asia\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the names of countries that officially use both English and French as languages.",
+            "Which countries have both English and French as official languages?",
+            "Can you list the countries where English and French are both officially recognized?",
+            "What are the names of nations where both English and French are official languages?"
+        ],
+        "query":"SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND T2.IsOfficial  =  \"T\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"French\" AND T2.IsOfficial  =  \"T\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "How many degree programs are offered by the engineering department?",
+            "What is the number of degree programs available in the engineering department?",
+            "Count the number of degree programs offered by the engineering department.",
+            "How many degrees does the engineering department offer?"
+        ],
+        "query":"SELECT count(*) FROM Departments AS T1 JOIN Degree_Programs AS T2 ON T1.department_id  =  T2.department_id WHERE T1.department_name  =  'engineer'",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Identify the language with the least number of TV channels.",
+            "Which language has the fewest TV channels?",
+            "Identify the language with the least number of TV channels available.",
+            "List the language used least number of TV Channel. List language and number of TV Channel."
+        ],
+        "query":"SELECT LANGUAGE ,  count(*) FROM TV_Channel GROUP BY LANGUAGE ORDER BY count(*) ASC LIMIT 1;",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the documents with at least two paragraphs.",
+            "List the documents that contain at least two paragraphs.",
+            "Which documents have two or more paragraphs?",
+            "List all document ids with at least two paragraphs."
+        ],
+        "query":"SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*)  >=  2",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Who are the contestants apart from Jessie Alloway?",
+            "Who are the contestants aside from Jessie Alloway?",
+            "Can you give me the names of all contestants excluding Jessie Alloway?",
+            "What are the names of the contestants whose names are not 'Jessie Alloway'"
+        ],
+        "query":"SELECT contestant_name FROM contestants WHERE contestant_name != 'Jessie Alloway'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you provide the names of the official languages in countries with Beatrix as their head of state?",
+            "What are the official languages spoken in countries where Beatrix is the head of state?",
+            "Can you provide the official languages in countries governed by Beatrix?",
+            "What is the official language spoken in the country whose head of state is Beatrix?"
+        ],
+        "query":"SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.HeadOfState  =  \"Beatrix\" AND T2.IsOfficial  =  \"T\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What course has the greatest number of students enrolled?",
+            "Which course is the most popular based on student enrollments?",
+            "Can you find the course with the highest enrollment among students?",
+            "What's the name of the course with most number of enrollments?"
+        ],
+        "query":"SELECT  T1.course_name FROM Courses AS T1 JOIN Student_Enrolment_Courses AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name ORDER BY count(*) DESC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the names and grades of high school students.",
+            "Show me the names and respective grades of the students in high school.",
+            "Can you show me all students from high school along with their grades?",
+            "Show the names and grades of each high schooler."
+        ],
+        "query":"SELECT name ,  grade FROM Highschooler",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you provide the max and average number of tickets from all visits?",
+            "Can you provide the average and maximum number of tickets from all visits?",
+            "Show me the average number of tickets along with the highest ticket count sold during visits.",
+            "What are the average and maximum number of tickets bought in all visits?"
+        ],
+        "query":"SELECT avg(num_of_ticket) ,  max(num_of_ticket) FROM visit",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the countries in Asia whose population exceeds that of the most populous country in Africa.",
+            "Find the countries in Asia whose population exceeds that of the largest country in Africa by population.",
+            "List the Asian countries with a population larger than the highest population of any African country.",
+            "Which Asian countries have a population that is larger than any country in Africa?"
+        ],
+        "query":"SELECT Name FROM country WHERE Continent  =  \"Asia\"  AND population  >  (SELECT max(population) FROM country WHERE Continent  =  \"Africa\")",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Find the names and countries of TV shows directed by both Michael Chang and Ben Jones.",
+            "Find the series names and their countries for TV shows directed by both Michael Chang and Ben Jones.",
+            "Can you list the series and countries from TV channels with shows directed by Michael Chang and Ben Jones?",
+            "Find the series name and country of the tv channel that is playing some cartoons directed by Ben Jones and Michael Chang?"
+        ],
+        "query":"SELECT T1.series_name ,  T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.directed_by  =  'Michael Chang' INTERSECT SELECT T1.series_name ,  T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.directed_by  =  'Ben Jones'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the money rank of the poker player with the highest earnings.",
+            "What is the money rank of the poker player with the greatest earnings?",
+            "What is the money rank of the top-earning poker player?",
+            "What is the money rank of the poker player with the highest earnings?"
+        ],
+        "query":"SELECT Money_Rank FROM poker_player ORDER BY Earnings DESC LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "List the total sales of songs grouped by each singer's name.",
+            "What are the total sales of songs for each singer?",
+            "List the total song sales for each singer, grouped by their name.",
+            "Show the names of singers and the total sales of their songs."
+        ],
+        "query":"SELECT T1.Name ,  sum(T2.Sales) FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID GROUP BY T1.Name",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show the number of templates corresponding to each template type code.",
+            "Show the number of templates for each distinct template type code.",
+            "How many templates are listed under each template type code?",
+            "Show all template type codes and number of templates for each."
+        ],
+        "query":"SELECT template_type_code ,  count(*) FROM Templates GROUP BY template_type_code",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What are the names of battles involving Bulgarian commander Kaloyan and Latin commander Baldwin I?",
+            "Find the names of battles with Kaloyan as the Bulgarian commander and Baldwin I as the Latin commander.",
+            "Find the names of battles with Kaloyan as the Bulgarian commander opposed by Baldwin I as the Latin commander.",
+            "What are the distinct battle names which are between bulgarian commander 'Kaloyan' and latin commander 'Baldwin I'?"
+        ],
+        "query":"SELECT name FROM battle WHERE bulgarian_commander  =  'Kaloyan' AND latin_commander  =  'Baldwin I'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find the average age of all the dogs.",
+            "What is the average age of the dogs?",
+            "Can you calculate the mean age of the dogs?",
+            "What is the average age of all the dogs?"
+        ],
+        "query":"SELECT avg(age) FROM Dogs",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the country with the smallest population, along with its name, surface area, and independence year.",
+            "Show me the name, surface area, and year of independence for the country with the smallest population.",
+            "Can you find the country with the smallest population and provide its name, surface area, and year it gained independence?",
+            "What are the name, independence year, and surface area of the country with the smallest population?"
+        ],
+        "query":"SELECT Name ,  SurfaceArea ,  IndepYear FROM country ORDER BY Population LIMIT 1",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the codes and descriptions for each template type.",
+            "Can you give me a list of all template types and their descriptions?",
+            "What are the template type codes along with their descriptions?",
+            "Show all template type codes and descriptions."
+        ],
+        "query":"SELECT template_type_code ,  template_type_description FROM Ref_template_types",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the transcript date and ID for the transcript with the lowest count of entries.",
+            "Find the date and ID of the transcript that has the least number of contents.",
+            "Show me the date and transcript ID for the record with the lowest content count.",
+            "Show the date of the transcript which shows the least number of results, also list the id."
+        ],
+        "query":"SELECT T2.transcript_date ,  T1.transcript_id FROM Transcript_Contents AS T1 JOIN Transcripts AS T2 ON T1.transcript_id  =  T2.transcript_id GROUP BY T1.transcript_id ORDER BY count(*) ASC LIMIT 1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the names of high school students who have no friends.",
+            "Can you identify the high schoolers who are not listed as friends of anyone?",
+            "Can you identify the high schoolers currently not listed as friends to anyone?",
+            "Show names of all high school students who do not have any friends."
+        ],
+        "query":"SELECT name FROM Highschooler EXCEPT SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you provide the document's identifiers and description for the titled 'Robbin CV'?",
+            "What are the identifying numbers and description for the document named 'Robbin CV'?",
+            "Can you provide the details like document ID, template ID, and description for the document titled 'Robbin CV'?",
+            "What is the document id, template id and description for document named \"Robbin CV\"?"
+        ],
+        "query":"SELECT document_id ,  template_id ,  Document_Description FROM Documents WHERE document_name  =  \"Robbin CV\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "How many dogs have not undergone any treatments?",
+            "How many dogs have not received any treatments?",
+            "Find the count of dogs that are not listed as having any treatments.",
+            "Tell me the number of dogs that have not received any treatment ."
+        ],
+        "query":"select count(*) from dogs where dog_id not in ( select dog_id from treatments )",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Find the players with their respective country codes who have secured victories in both the WTA Championships and the Australian Open.",
+            "Which players have won both the WTA Championships and the Australian Open, including their country codes?",
+            "Which players have won both the WTA Championships and the Australian Open, along with their country codes?",
+            "What are the country code and first name of the players who won in both tourney WTA Championships and Australian Open?"
+        ],
+        "query":"SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'WTA Championships' INTERSECT SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'Australian Open'",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the count of students for each grade level in high school.",
+            "Show me the count of students for each grade in high school.",
+            "Can you provide the number of students grouped by their grades?",
+            "Show the number of high schoolers for each grade."
+        ],
+        "query":"SELECT grade ,  count(*) FROM Highschooler GROUP BY grade",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the codes of countries that are not republics and do not have English as one of their languages.",
+            "Can you find country codes for non-republic countries that do not include English among their languages?",
+            "What are the country codes for nations that do not have a republic form of government and where English is not a spoken language?",
+            "What are the codes of the countries that do not speak English and whose government forms are not Republic?"
+        ],
+        "query":"SELECT Code FROM country WHERE GovernmentForm != \"Republic\" EXCEPT SELECT CountryCode FROM countrylanguage WHERE LANGUAGE  =  \"English\"",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What are the names and descriptions of the sections?",
+            "Please show me the section names and their descriptions.",
+            "Please show me the section names along with their descriptions.",
+            "What are the names and descriptions of all the sections?"
+        ],
+        "query":"SELECT section_name ,  section_description FROM Sections",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Show me the grade levels of all highschoolers.",
+            "Can you list the grades that highschool students are in?",
+            "What are the grades of the highschoolers?",
+            "Show all the grades of the high schoolers."
+        ],
+        "query":"SELECT grade FROM Highschooler",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you tell me the average age of dogs that have been treated?",
+            "What is the average age of dogs that have received treatments?",
+            "Find the average age of all dogs that have undergone treatment sessions.",
+            "What is the average age of the dogs who have gone through any treatments?"
+        ],
+        "query":"SELECT avg(age) FROM Dogs WHERE dog_id IN ( SELECT dog_id FROM Treatments )",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Find the museums that haven't had any visits recorded.",
+            "List the names of museums that have not been visited.",
+            "Can you find the museums that haven't had a visit recorded?",
+            "What is the name of the museum that had no visitor yet?"
+        ],
+        "query":"SELECT name FROM museum WHERE Museum_ID NOT IN (SELECT museum_id FROM visit)",
+        "query_type":"nested"
+    },
+    {
+        "utterances":[
+            "Show me a count of friends for every student.",
+            "Please provide the count of friends for every student.",
+            "Can you list the number of friends for each student?",
+            "Show the student IDs and numbers of friends corresponding to each."
+        ],
+        "query":"SELECT student_id ,  count(*) FROM Friend GROUP BY student_id",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Find the players who were winners in matches held in both 2013 and 2016.",
+            "Find the winners in both 2013 and 2016 matches.",
+            "Can you list those who won in both 2013 and 2016?",
+            "List the names of all winners who played in both 2013 and 2016."
+        ],
+        "query":"SELECT winner_name FROM matches WHERE YEAR  =  2013 INTERSECT SELECT winner_name FROM matches WHERE YEAR  =  2016",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Find courses whose number of sections is two or less.",
+            "Can you list the courses that have two or fewer sections available?",
+            "Which courses have at most two sections associated with them?",
+            "What are the names and id of courses having at most 2 sections?"
+        ],
+        "query":"SELECT T1.course_name ,  T1.course_id FROM Courses AS T1 JOIN Sections AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_id HAVING count(*)  <=  2",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "What are the cartoon titles and their directors, arranged according to when they initially aired?",
+            "What are the titles and directors of animated series, arranged by their initial air date?",
+            "Show me the cartoons with their titles and directors, organized in order of their original airing dates.",
+            "list all cartoon titles and their directors ordered by their air date"
+        ],
+        "query":"SELECT title ,  Directed_by FROM Cartoon ORDER BY Original_air_date",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Can you provide the total number of people and the mean surface area of countries located in North America that exceed 3000 in surface area?",
+            "What is the total population and the average surface area of countries in North America that have a surface area larger than 3000?",
+            "What is the total population and average surface area of countries in North America with a surface area greater than 3000?",
+            "What is the total population and average area of countries in the continent of North America whose area is bigger than 3000 ?"
+        ],
+        "query":"select sum(population) ,  avg(surfacearea) from country where continent  =  \"north america\" and surfacearea  >  3000",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "List the names of singers with at least two songs.",
+            "Which singers have recorded more than one song?",
+            "Can you find singers who have been credited with multiple songs?",
+            "Show the names of singers that have more than one song."
+        ],
+        "query":"SELECT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID GROUP BY T1.Name HAVING COUNT(*)  >  1",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Show me the names and dates from the battle entries.",
+            "Can you provide the names and dates from the battles?",
+            "Can you provide the names and corresponding dates from the battles?",
+            "List the name, date and result of each battle."
+        ],
+        "query":"SELECT name ,  date FROM battle",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "Identify the students who are both friends with someone and liked by others.",
+            "Identify the students who are listed as both a friend and a liked individual.",
+            "Which students are both friends with someone and liked by others?",
+            "Show the ids of high schoolers who have friends and are also liked by someone else."
+        ],
+        "query":"SELECT student_id FROM Friend INTERSECT SELECT liked_id FROM Likes",
+        "query_type":"simple"
+    },
+    {
+        "utterances":[
+            "What is the average ranking for individuals, grouped by first name?",
+            "List the average rankings of players, organized by their first names.",
+            "List the average player rankings, organized by their first names.",
+            "Find the average ranking for each player and their first name."
+        ],
+        "query":"SELECT avg(ranking) ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+        "query_type":"aggregate"
+    },
+    {
+        "utterances":[
+            "Who is the visitor with the highest total spending and what is their membership level?",
+            "Which visitor has the highest expenditure, and what are their name and membership level?",
+            "Who is the visitor with the highest total spending, and what is their name and membership level?",
+            "What are the id, name and membership level of visitors who have spent the largest amount of money in total in all museum tickets?"
+        ],
+        "query":"SELECT t2.visitor_id ,  t1.name ,  t1.Level_of_membership FROM visitor AS t1 JOIN visit AS t2 ON t1.id  =  t2.visitor_id GROUP BY t2.visitor_id ORDER BY sum(t2.Total_spent) DESC LIMIT 1",
+        "query_type":"aggregate"
+    }
+]
