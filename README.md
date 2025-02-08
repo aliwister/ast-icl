@@ -19,6 +19,7 @@ Results will be logged in `EXPERIMENTS.txt` file
 # ast-icl
 
 ## If you find the code useful, please consider citing our work:
+```
 @inproceedings{al-lawati-etal-2025-semantic,
     title = "Semantic Captioning: Benchmark Dataset and Graph-Aware Few-Shot In-Context Learning for {SQL}2{T}ext",
     author = "Al Lawati, Ali  and
@@ -28,3 +29,4 @@ Results will be logged in `EXPERIMENTS.txt` file
     booktitle = "Proceedings of the 31st International Conference on Computational Linguistics",
     pages = "8026--8042"
 }
+```
