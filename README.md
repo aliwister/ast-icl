@@ -18,7 +18,7 @@ Results will be logged in `EXPERIMENTS.txt` file
 ![Model](assets/teaser.png)
 # ast-icl
 
-## If you find the code useful, please consider citing our work:
+## If you find this code useful, please consider citing our work:
 ```
 @inproceedings{al-lawati-etal-2025-semantic,
     title = "Semantic Captioning: Benchmark Dataset and Graph-Aware Few-Shot In-Context Learning for {SQL}2{T}ext",
