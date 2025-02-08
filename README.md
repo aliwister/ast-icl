@@ -1,5 +1,5 @@
 # Semantic Captioning
-Benchmark Dataset and Graph-Aware Few-Shot In-Context Learning for SQL2Tex
+[Benchmark Dataset and Graph-Aware Few-Shot In-Context Learning for SQL2Tex](https://aclanthology.org/2025.coling-main.536/)
 
 
 ## Train and create prompt file
@@ -17,3 +17,14 @@ Results will be logged in `EXPERIMENTS.txt` file
 
 ![Model](assets/teaser.png)
 # ast-icl
+
+## If you find the code useful, please consider citing our work:
+@inproceedings{al-lawati-etal-2025-semantic,
+    title = "Semantic Captioning: Benchmark Dataset and Graph-Aware Few-Shot In-Context Learning for {SQL}2{T}ext",
+    author = "Al Lawati, Ali  and
+      Lucas, Jason  and
+      Mitra, Prasenjit",
+    year = "2025",
+    booktitle = "Proceedings of the 31st International Conference on Computational Linguistics",
+    pages = "8026--8042"
+}
