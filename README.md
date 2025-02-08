@@ -1,6 +1,9 @@
 # Semantic Captioning
 [Benchmark Dataset and Graph-Aware Few-Shot In-Context Learning for SQL2Tex](https://aclanthology.org/2025.coling-main.536/)
-![Model](assets/teaser.png =250x)
+
+
+[<img src="assets/teaser.png" width="250"/>](assets/teaser.png)
+
 
 ## Train and create prompt file
 ```
