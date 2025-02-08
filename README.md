@@ -1,6 +1,6 @@
 # Semantic Captioning
 [Benchmark Dataset and Graph-Aware Few-Shot In-Context Learning for SQL2Tex](https://aclanthology.org/2025.coling-main.536/)
-
+![Model](assets/teaser.png =250x)
 
 ## Train and create prompt file
 ```
@@ -15,8 +15,8 @@ accelerate launch --main_process_port <PORT>  --num_processes <NUM_GPUs> prompt.
 
 Results will be logged in `EXPERIMENTS.txt` file
 
-![Model](assets/teaser.png)
-# ast-icl
+
+
 
 ## If you find this code useful, please consider citing our work:
 ```
